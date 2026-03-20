@@ -3,107 +3,281 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kumar Anmol Pratap | Portfolio</title>
+<title>Kumar Anmol Pratap</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #0f172a;
-    color: white;
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+
+body{
+font-family:'Segoe UI',sans-serif;
+background:#0f172a;
+color:white;
 }
 
-header {
-    background: #020617;
-    padding: 20px;
-    text-align: center;
+/* NAVBAR */
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:#020617;
+padding:15px;
+display:flex;
+justify-content:center;
+gap:30px;
+z-index:1000;
 }
 
-header h1 {
-    margin: 0;
-    color: #38bdf8;
+nav a{
+color:white;
+text-decoration:none;
+font-size:14px;
 }
 
-section {
-    padding: 40px;
-    text-align: center;
+nav a:hover{color:#38bdf8;}
+
+/* HERO */
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(135deg,#020617,#0f172a);
 }
 
-.card {
-    background: #1e293b;
-    margin: 20px auto;
-    padding: 20px;
-    width: 80%;
-    border-radius: 10px;
+.hero img{
+width:160px;
+height:160px;
+border-radius:50%;
+border:3px solid #38bdf8;
+margin-bottom:20px;
 }
 
-h2 {
-    color: #22c55e;
+.hero h1{
+font-size:50px;
+background:linear-gradient(to right,#38bdf8,#22c55e);
+-webkit-background-clip:text;
+color:transparent;
 }
 
-a {
-    color: #38bdf8;
-    text-decoration: none;
+.btn{
+margin-top:15px;
+padding:10px 20px;
+background:#38bdf8;
+border:none;
+border-radius:5px;
+cursor:pointer;
 }
 
-button {
-    background: #38bdf8;
-    border: none;
-    padding: 10px 20px;
-    color: black;
-    border-radius: 5px;
-    cursor: pointer;
+/* SECTION */
+section{
+padding:80px 10%;
+opacity:0;
+transform:translateY(40px);
+transition:0.6s;
 }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #020617;
+section.show{
+opacity:1;
+transform:translateY(0);
+}
+
+h2{
+text-align:center;
+margin-bottom:30px;
+color:#22c55e;
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:#1e293b;
+padding:20px;
+border-radius:10px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+/* BUTTON */
+.project-btn{
+margin-top:10px;
+display:inline-block;
+padding:8px 12px;
+background:#22c55e;
+color:black;
+text-decoration:none;
+border-radius:5px;
+}
+
+/* CERT MODAL */
+.modal{
+display:none;
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
+}
+
+.modal img{
+max-width:80%;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:#020617;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-    <h1>Kumar Anmol Pratap</h1>
-    <p>Computer Science Student | AWS & Cloud Enthusiast ☁️</p>
-</header>
+<!-- NAVBAR -->
+<nav>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#certifications">Certifications</a>
+<a href="#certificates">Certificates</a>
+<a href="#contact">Contact</a>
+</nav>
 
-<section>
-    <div class="card">
-        <h2>🚀 About Me</h2>
-        <p>I am a passionate Computer Science student focused on Cloud Computing and AWS. I enjoy building real-world projects and continuously learning new technologies.</p>
-    </div>
+<!-- HERO -->
+<div class="hero">
+<img src="profile.jpg">
+<h1>Kumar Anmol Pratap</h1>
+<p>Cloud Computing Enthusiast ☁️</p>
+<button class="btn" onclick="window.open('resume.pdf')">Resume</button>
+</div>
 
-    <div class="card">
-        <h2>🛠 Skills</h2>
-        <p>C++ | AWS | Cloud Computing | GitHub</p>
-    </div>
+<!-- ABOUT -->
+<section id="about">
+<h2>About</h2>
+<p style="text-align:center;">
+Computer Science student at LPU specializing in Cloud Computing with strong DSA & AWS skills.
+</p>
+</section>
 
-    <div class="card">
-        <h2>📂 Projects</h2>
-        <p>✔ Serverless Web Application using AWS</p>
-        <p>✔ AWS Lambda Contact Form</p>
-    </div>
+<!-- SKILLS -->
+<section id="skills">
+<h2>Skills</h2>
+<div class="grid">
+<div class="card">Java, C++, Python</div>
+<div class="card">AWS, Docker, Azure</div>
+<div class="card">HTML, CSS, Bootstrap</div>
+<div class="card">DSA, OOPs, DBMS</div>
+</div>
+</section>
 
-    <div class="card">
-        <h2>📜 Certificates</h2>
-        <p>✔ AI in Education - University of Pennsylvania (Coursera)</p>
-    </div>
+<!-- PROJECTS -->
+<section id="projects">
+<h2>Projects</h2>
+<div class="grid">
 
-    <div class="card">
-        <h2>📞 Contact</h2>
-        <p>Email: your@email.com</p>
-        <p>GitHub: <a href="https://github.com/Anmol280" target="_blank">Anmol280</a></p>
-        <br>
-        <button onclick="window.open('https://linkedin.com', '_blank')">LinkedIn</button>
-    </div>
+<div class="card">
+<h3>Attendance System</h3>
+<p>Java-based system</p>
+<a class="project-btn" href="#">GitHub</a>
+</div>
+
+<div class="card">
+<h3>Library Tracker</h3>
+<p>DSA-based system</p>
+<a class="project-btn" href="#">GitHub</a>
+</div>
+
+<div class="card">
+<h3>Mental Health Simulator</h3>
+<p>Java project</p>
+<a class="project-btn" href="#">GitHub</a>
+</div>
+
+</div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+<h2>Certifications</h2>
+<div class="grid">
+<div class="card">AI in Education – UPenn</div>
+<div class="card">Google Networking</div>
+<div class="card">IBM OS Course</div>
+<div class="card">Infosys Python</div>
+</div>
+</section>
+
+<!-- CERTIFICATES -->
+<section id="certificates">
+<h2>Certificates</h2>
+<div class="grid">
+
+<div class="card">
+<img src="cert1.jpg" onclick="openModal(this.src)">
+</div>
+
+<div class="card">
+<img src="cert2.jpg" onclick="openModal(this.src)">
+</div>
+
+<div class="card">
+<img src="cert3.jpg" onclick="openModal(this.src)">
+</div>
+
+</div>
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="modal" onclick="closeModal()">
+<img id="modalImg">
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Contact</h2>
+<p style="text-align:center;">
+Email: anmolpratap280@gmail.com <br>
+GitHub: Anmol280 <br>
+LinkedIn: anmol280
+</p>
 </section>
 
 <footer>
-    <p>© 2026 Kumar Anmol Pratap</p>
+© 2026 Kumar Anmol Pratap
 </footer>
+
+<script>
+/* SCROLL ANIMATION */
+const sections = document.querySelectorAll("section");
+window.addEventListener("scroll", ()=>{
+sections.forEach(sec=>{
+const top = window.scrollY;
+const offset = sec.offsetTop - 400;
+if(top > offset){
+sec.classList.add("show");
+}
+});
+});
+
+/* MODAL */
+function openModal(src){
+document.getElementById("modal").style.display="flex";
+document.getElementById("modalImg").src=src;
+}
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
+</script>
 
 </body>
 </html>
