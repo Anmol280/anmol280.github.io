@@ -23,7 +23,7 @@ background:#020617;
 padding:15px;
 display:flex;
 justify-content:center;
-gap:30px;
+gap:25px;
 z-index:1000;
 }
 
@@ -43,44 +43,26 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-background:linear-gradient(135deg,#020617,#0f172a);
 }
 
 .hero img{
-width:160px;
-height:160px;
+width:150px;
+height:150px;
 border-radius:50%;
 border:3px solid #38bdf8;
 margin-bottom:20px;
 }
 
 .hero h1{
-font-size:50px;
+font-size:42px;
 background:linear-gradient(to right,#38bdf8,#22c55e);
 -webkit-background-clip:text;
 color:transparent;
 }
 
-.btn{
-margin-top:15px;
-padding:10px 20px;
-background:#38bdf8;
-border:none;
-border-radius:5px;
-cursor:pointer;
-}
-
 /* SECTION */
 section{
-padding:80px 10%;
-opacity:0;
-transform:translateY(40px);
-transition:0.6s;
-}
-
-section.show{
-opacity:1;
-transform:translateY(0);
+padding:80px 12%;
 }
 
 h2{
@@ -96,6 +78,7 @@ grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
 }
 
+/* CARD */
 .card{
 background:#1e293b;
 padding:20px;
@@ -104,7 +87,7 @@ transition:0.3s;
 }
 
 .card:hover{
-transform:translateY(-10px);
+transform:translateY(-8px);
 }
 
 /* BUTTON */
@@ -118,12 +101,21 @@ text-decoration:none;
 border-radius:5px;
 }
 
-/* CERT MODAL */
+/* CERT IMAGE */
+.card img{
+width:100%;
+border-radius:8px;
+cursor:pointer;
+}
+
+/* MODAL */
 .modal{
 display:none;
 position:fixed;
-top:0;left:0;
-width:100%;height:100%;
+top:0;
+left:0;
+width:100%;
+height:100%;
 background:rgba(0,0,0,0.8);
 justify-content:center;
 align-items:center;
@@ -133,6 +125,7 @@ align-items:center;
 max-width:80%;
 }
 
+/* FOOTER */
 footer{
 text-align:center;
 padding:20px;
@@ -157,26 +150,40 @@ background:#020617;
 <div class="hero">
 <img src="profile.jpg">
 <h1>Kumar Anmol Pratap</h1>
-<p>Cloud Computing Enthusiast ☁️</p>
-<button class="btn" onclick="window.open('resume.pdf')">Resume</button>
+<p>B.Tech CSE | Cloud Computing ☁️</p>
+<p>Lovely Professional University (2023–2027)</p>
+<button onclick="window.open('resume.pdf')" style="margin-top:10px;padding:8px 15px;">Resume</button>
 </div>
 
 <!-- ABOUT -->
 <section id="about">
-<h2>About</h2>
-<p style="text-align:center;">
-Computer Science student at LPU specializing in Cloud Computing with strong DSA & AWS skills.
+<h2>About Me</h2>
+<p style="text-align:center; max-width:700px; margin:auto;">
+I am a Computer Science student at Lovely Professional University with a strong interest in Cloud Computing and Software Development. 
+I have hands-on experience in Data Structures, Object-Oriented Programming, and AWS technologies. 
+I enjoy building real-world projects and continuously improving my technical and problem-solving skills.
 </p>
 </section>
 
 <!-- SKILLS -->
 <section id="skills">
-<h2>Skills</h2>
+<h2>Technical Skills</h2>
 <div class="grid">
-<div class="card">Java, C++, Python</div>
+<div class="card">Java, C++, Python, C</div>
 <div class="card">AWS, Docker, Azure</div>
 <div class="card">HTML, CSS, Bootstrap</div>
-<div class="card">DSA, OOPs, DBMS</div>
+<div class="card">DSA, OOPs, DBMS, OS</div>
+</div>
+</section>
+
+<!-- SOFT SKILLS -->
+<section>
+<h2>Soft Skills</h2>
+<div class="grid">
+<div class="card">Problem Solving</div>
+<div class="card">Team Collaboration</div>
+<div class="card">Communication</div>
+<div class="card">Time Management</div>
 </div>
 </section>
 
@@ -187,19 +194,19 @@ Computer Science student at LPU specializing in Cloud Computing with strong DSA 
 
 <div class="card">
 <h3>Attendance System</h3>
-<p>Java-based system</p>
+<p>Java-based system using OOP & file handling</p>
 <a class="project-btn" href="#">GitHub</a>
 </div>
 
 <div class="card">
 <h3>Library Tracker</h3>
-<p>DSA-based system</p>
+<p>Efficient DSA-based book management</p>
 <a class="project-btn" href="#">GitHub</a>
 </div>
 
 <div class="card">
 <h3>Mental Health Simulator</h3>
-<p>Java project</p>
+<p>Java-based project using modular design</p>
 <a class="project-btn" href="#">GitHub</a>
 </div>
 
@@ -210,10 +217,29 @@ Computer Science student at LPU specializing in Cloud Computing with strong DSA 
 <section id="certifications">
 <h2>Certifications</h2>
 <div class="grid">
-<div class="card">AI in Education – UPenn</div>
-<div class="card">Google Networking</div>
-<div class="card">IBM OS Course</div>
-<div class="card">Infosys Python</div>
+
+<div class="card">
+<h3>AI in Education</h3>
+<p>University of Pennsylvania (Coursera)</p>
+<a class="project-btn" href="https://coursera.org/share/4e76db5ca390ec98323744c82d699291" target="_blank">View Certificate</a>
+</div>
+
+<div class="card">
+<h3>Successful Career Development</h3>
+<p>Kennesaw State University (Coursera)</p>
+<a class="project-btn" href="https://coursera.org/share/237cc057540a5490f713a66d98239efa" target="_blank">View Certificate</a>
+</div>
+
+<div class="card">
+<h3>Python & Django</h3>
+<p>Udemy</p>
+</div>
+
+<div class="card">
+<h3>Generative AI</h3>
+<p>Udemy</p>
+</div>
+
 </div>
 </section>
 
@@ -247,8 +273,8 @@ Computer Science student at LPU specializing in Cloud Computing with strong DSA 
 <h2>Contact</h2>
 <p style="text-align:center;">
 Email: anmolpratap280@gmail.com <br>
-GitHub: Anmol280 <br>
-LinkedIn: anmol280
+GitHub: <a href="https://github.com/Anmol280">Anmol280</a><br>
+LinkedIn: <a href="https://www.linkedin.com/in/anmol280">anmol280</a>
 </p>
 </section>
 
@@ -257,19 +283,6 @@ LinkedIn: anmol280
 </footer>
 
 <script>
-/* SCROLL ANIMATION */
-const sections = document.querySelectorAll("section");
-window.addEventListener("scroll", ()=>{
-sections.forEach(sec=>{
-const top = window.scrollY;
-const offset = sec.offsetTop - 400;
-if(top > offset){
-sec.classList.add("show");
-}
-});
-});
-
-/* MODAL */
 function openModal(src){
 document.getElementById("modal").style.display="flex";
 document.getElementById("modalImg").src=src;
