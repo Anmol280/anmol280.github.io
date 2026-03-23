@@ -12,6 +12,7 @@ body{
 font-family:'Segoe UI',sans-serif;
 background:#0f172a;
 color:white;
+line-height:1.6;
 }
 
 /* NAVBAR */
@@ -20,7 +21,7 @@ position:fixed;
 top:0;
 width:100%;
 background:#020617;
-padding:15px;
+padding:18px;
 display:flex;
 justify-content:center;
 gap:25px;
@@ -30,10 +31,13 @@ z-index:1000;
 nav a{
 color:white;
 text-decoration:none;
-font-size:14px;
+font-size:16px;
+font-weight:500;
 }
 
-nav a:hover{color:#38bdf8;}
+nav a:hover{
+color:#38bdf8;
+}
 
 /* HERO */
 .hero{
@@ -46,65 +50,75 @@ text-align:center;
 }
 
 .hero img{
-width:150px;
-height:150px;
+width:170px;
+height:170px;
 border-radius:50%;
 border:3px solid #38bdf8;
 margin-bottom:20px;
+box-shadow:0 0 20px #38bdf8;
 }
 
 .hero h1{
-font-size:42px;
+font-size:48px;
 background:linear-gradient(to right,#38bdf8,#22c55e);
 -webkit-background-clip:text;
 color:transparent;
 }
 
+.hero p{
+font-size:18px;
+margin-top:5px;
+}
+
 /* SECTION */
 section{
-padding:80px 12%;
+padding:90px 12%;
 }
 
 h2{
 text-align:center;
-margin-bottom:30px;
+margin-bottom:35px;
 color:#22c55e;
+font-size:30px;
 }
 
 /* GRID */
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
 }
 
 /* CARD */
 .card{
 background:#1e293b;
-padding:20px;
-border-radius:10px;
+padding:25px;
+border-radius:12px;
 transition:0.3s;
+font-size:16px;
 }
 
 .card:hover{
-transform:translateY(-8px);
+transform:translateY(-10px) scale(1.02);
+box-shadow:0 0 15px #22c55e;
 }
 
 /* BUTTON */
 .project-btn{
-margin-top:10px;
+margin-top:12px;
 display:inline-block;
-padding:8px 12px;
+padding:8px 14px;
 background:#22c55e;
 color:black;
 text-decoration:none;
-border-radius:5px;
+border-radius:6px;
+font-size:14px;
 }
 
 /* CERT IMAGE */
 .card img{
 width:100%;
-border-radius:8px;
+border-radius:10px;
 cursor:pointer;
 }
 
@@ -116,13 +130,14 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.8);
+background:rgba(0,0,0,0.85);
 justify-content:center;
 align-items:center;
 }
 
 .modal img{
-max-width:80%;
+max-width:85%;
+border-radius:10px;
 }
 
 /* FOOTER */
@@ -130,42 +145,63 @@ footer{
 text-align:center;
 padding:20px;
 background:#020617;
+font-size:14px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <nav>
 <a href="#about">About</a>
+<a href="#education">Education</a>
 <a href="#skills">Skills</a>
 <a href="#projects">Projects</a>
-<a href="#certifications">Certifications</a>
-<a href="#certificates">Certificates</a>
+<a href="#training">Training</a>
+<a href="#achievements">Achievements</a>
 <a href="#contact">Contact</a>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
 <img src="profile.jpg">
 <h1>Kumar Anmol Pratap</h1>
 <p>B.Tech CSE | Cloud Computing ☁️</p>
 <p>Lovely Professional University (2023–2027)</p>
-<button onclick="window.open('resume.pdf')" style="margin-top:10px;padding:8px 15px;">Resume</button>
 </div>
 
-<!-- ABOUT -->
 <section id="about">
 <h2>About Me</h2>
-<p style="text-align:center; max-width:700px; margin:auto;">
-I am a Computer Science student at Lovely Professional University with a strong interest in Cloud Computing and Software Development. 
-I have hands-on experience in Data Structures, Object-Oriented Programming, and AWS technologies. 
-I enjoy building real-world projects and continuously improving my technical and problem-solving skills.
+<p style="text-align:center; max-width:800px; margin:auto; font-size:17px;">
+I am a dedicated Computer Science undergraduate at Lovely Professional University with a strong focus on Cloud Computing and Software Development. 
+I have built a solid foundation in Data Structures, Object-Oriented Programming, DBMS, Operating Systems, and Computer Networks. 
+
+I have developed multiple real-world projects using Java and applied efficient problem-solving techniques. 
+With hands-on experience in AWS, Docker, and modern tools, I am continuously improving my technical skills and aiming to become a proficient cloud engineer.
 </p>
 </section>
 
-<!-- SKILLS -->
+<section id="education">
+<h2>Education</h2>
+<div class="grid">
+<div class="card">
+<h3>Bachelor of Technology (CSE)</h3>
+<p>Lovely Professional University</p>
+<p>2023 – 2027</p>
+<p>CGPA: 7.0</p>
+</div>
+
+<div class="card">
+<h3>Intermediate</h3>
+<p>Percentage: 67.5%</p>
+</div>
+
+<div class="card">
+<h3>Matriculation</h3>
+<p>Percentage: 80%</p>
+</div>
+</div>
+</section>
+
 <section id="skills">
 <h2>Technical Skills</h2>
 <div class="grid">
@@ -176,121 +212,71 @@ I enjoy building real-world projects and continuously improving my technical and
 </div>
 </section>
 
-<!-- SOFT SKILLS -->
-<section>
-<h2>Soft Skills</h2>
-<div class="grid">
-<div class="card">Problem Solving</div>
-<div class="card">Team Collaboration</div>
-<div class="card">Communication</div>
-<div class="card">Time Management</div>
-</div>
-</section>
-
-<!-- PROJECTS -->
 <section id="projects">
 <h2>Projects</h2>
 <div class="grid">
 
 <div class="card">
-<h3>Attendance System</h3>
-<p>Java-based system using OOP & file handling</p>
-<a class="project-btn" href="#">GitHub</a>
+<h3>Student Attendance System</h3>
+<p>Developed a Java-based application using OOP & file handling to automate attendance tracking and reporting.</p>
 </div>
 
 <div class="card">
 <h3>Library Tracker</h3>
-<p>Efficient DSA-based book management</p>
-<a class="project-btn" href="#">GitHub</a>
+<p>Built a system using Data Structures to manage book issuing, returning, and searching efficiently.</p>
 </div>
 
 <div class="card">
 <h3>Mental Health Simulator</h3>
-<p>Java-based project using modular design</p>
-<a class="project-btn" href="#">GitHub</a>
+<p>Created an interactive Java project applying DSA concepts and modular design principles.</p>
 </div>
 
 </div>
 </section>
 
-<!-- CERTIFICATIONS -->
-<section id="certifications">
-<h2>Certifications</h2>
+<section id="training">
+<h2>Training</h2>
+<div class="card">
+<h3>DSA with Java – CipherSchools</h3>
+<p><b>Duration:</b> June 2025 – July 2025 (70 Hours)</p>
+<ul>
+<li>Learned core Java and OOP concepts.</li>
+<li>Implemented Data Structures like arrays, stacks, queues, trees.</li>
+<li>Practiced algorithms including recursion, sorting, and searching.</li>
+<li>Applied concepts in real-world project development.</li>
+</ul>
+</div>
+</section>
+
+<section id="achievements">
+<h2>Achievements</h2>
 <div class="grid">
 
 <div class="card">
-<h3>AI in Education</h3>
-<p>University of Pennsylvania (Coursera)</p>
-<a class="project-btn" href="https://coursera.org/share/4e76db5ca390ec98323744c82d699291" target="_blank">View Certificate</a>
+<h3>200+ DSA Problems Solved</h3>
+<p>Strengthened problem-solving ability and improved coding efficiency through continuous practice.</p>
 </div>
 
 <div class="card">
-<h3>Successful Career Development</h3>
-<p>Kennesaw State University (Coursera)</p>
-<a class="project-btn" href="https://coursera.org/share/237cc057540a5490f713a66d98239efa" target="_blank">View Certificate</a>
-</div>
-
-<div class="card">
-<h3>Python & Django</h3>
-<p>Udemy</p>
-</div>
-
-<div class="card">
-<h3>Generative AI</h3>
-<p>Udemy</p>
+<h3>Top 30% in Hackathon</h3>
+<p>Secured a position among top participants in Code-A-Haunt Hackathon, demonstrating teamwork and innovation.</p>
 </div>
 
 </div>
 </section>
 
-<!-- CERTIFICATES -->
-<section id="certificates">
-<h2>Certificates</h2>
-<div class="grid">
-
-<div class="card">
-<img src="cert1.jpg" onclick="openModal(this.src)">
-</div>
-
-<div class="card">
-<img src="cert2.jpg" onclick="openModal(this.src)">
-</div>
-
-<div class="card">
-<img src="cert3.jpg" onclick="openModal(this.src)">
-</div>
-
-</div>
-</section>
-
-<!-- MODAL -->
-<div class="modal" id="modal" onclick="closeModal()">
-<img id="modalImg">
-</div>
-
-<!-- CONTACT -->
 <section id="contact">
 <h2>Contact</h2>
-<p style="text-align:center;">
+<p style="text-align:center; font-size:17px;">
 Email: anmolpratap280@gmail.com <br>
-GitHub: <a href="https://github.com/Anmol280">Anmol280</a><br>
-LinkedIn: <a href="https://www.linkedin.com/in/anmol280">anmol280</a>
+GitHub: Anmol280 <br>
+LinkedIn: anmol280
 </p>
 </section>
 
 <footer>
 © 2026 Kumar Anmol Pratap
 </footer>
-
-<script>
-function openModal(src){
-document.getElementById("modal").style.display="flex";
-document.getElementById("modalImg").src=src;
-}
-function closeModal(){
-document.getElementById("modal").style.display="none";
-}
-</script>
 
 </body>
 </html>
