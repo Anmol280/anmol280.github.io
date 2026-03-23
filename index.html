@@ -12,6 +12,7 @@
         :root {
             --accent: #22c55e;
             --sky: #38bdf8;
+            --purple: #a855f7;
             --bg: #020617;
             --glass: rgba(255, 255, 255, 0.03);
             --border: rgba(255, 255, 255, 0.1);
@@ -26,7 +27,7 @@
             line-height: 1.6;
         }
 
-        /* Moving Background */
+        /* Animated Radial Background */
         body::before {
             content: "";
             position: fixed;
@@ -35,11 +36,10 @@
             z-index: -1;
         }
 
-        /* NAVIGATION - Fixed IDs */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 1000;
             background: rgba(2, 6, 23, 0.9); backdrop-filter: blur(15px);
-            padding: 1rem; display: flex; justify-content: center; gap: 1.5rem;
+            padding: 1.2rem; display: flex; justify-content: center; gap: 1.5rem;
             border-bottom: 1px solid var(--border);
         }
 
@@ -48,7 +48,7 @@
             text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
         }
 
-        nav a:hover { color: var(--sky); }
+        nav a:hover { color: var(--sky); text-shadow: 0 0 8px var(--sky); }
 
         section { padding: 100px 10%; max-width: 1300px; margin: auto; }
 
@@ -59,37 +59,50 @@
 
         .section-title::after { content: ''; height: 1px; flex-grow: 1; background: var(--border); }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
 
         .card {
-            background: var(--glass); padding: 2rem; border-radius: 20px;
-            border: 1px solid var(--border); transition: 0.4s;
+            background: var(--glass); padding: 2.2rem; border-radius: 24px;
+            border: 1px solid var(--border); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex; flex-direction: column; justify-content: space-between;
         }
 
         .card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-12px);
             border-color: var(--sky);
             background: rgba(255,255,255,0.06);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
         .tag {
             background: rgba(56, 189, 248, 0.1); color: var(--sky);
             padding: 4px 12px; border-radius: 100px; font-size: 0.7rem; margin: 4px;
-            display: inline-block; font-weight: 700;
+            display: inline-block; font-weight: 700; border: 1px solid rgba(56, 189, 248, 0.2);
         }
 
-        /* JOURNEY TIMELINE */
+        .cert-link {
+            margin-top: 15px; color: var(--accent); text-decoration: none;
+            font-size: 0.85rem; font-weight: 600; transition: 0.3s;
+        }
+
+        .cert-link:hover { text-decoration: underline; color: var(--sky); }
+
+        /* TIMELINE */
         .timeline { border-left: 2px solid var(--border); padding-left: 2rem; }
         .timeline-item { margin-bottom: 2.5rem; position: relative; }
         .timeline-item::before {
             content: ''; position: absolute; left: -2.65rem; top: 5px;
             width: 16px; height: 16px; background: var(--sky); border-radius: 50%;
+            box-shadow: 0 0 10px var(--sky);
         }
 
-        .date { color: var(--sky); font-weight: 700; font-size: 0.85rem; }
+        /* PROGRESS BAR FOR DSA */
+        .progress-container { margin-top: 20px; background: rgba(255,255,255,0.1); border-radius: 10px; height: 8px; }
+        .progress-bar { background: var(--accent); height: 100%; border-radius: 10px; width: 75%; box-shadow: 0 0 10px var(--accent); }
 
-        footer { padding: 50px; text-align: center; border-top: 1px solid var(--border); opacity: 0.5; }
+        footer { padding: 50px; text-align: center; border-top: 1px solid var(--border); opacity: 0.5; font-size: 0.8rem; }
 
+        @media (max-width: 768px) { section { padding: 80px 6%; } nav { gap: 1rem; } }
     </style>
 </head>
 <body>
@@ -107,14 +120,21 @@
     <h2 class="section-title">01. My Journey</h2>
     <div class="timeline">
         <div class="timeline-item">
-            <div class="date">2023 - Present</div>
-            <h3>Stepping into CSE @ LPU</h3>
-            <p>Relocated from Jharkhand to Punjab to master Computer Science. I am currently in my 5th Semester, focusing on building a rock-solid foundation in system logic and Java development.</p>
+            <div style="color:var(--sky); font-weight:700;">2023 - Present</div>
+            <h3>Transition to LPU</h3>
+            <p>Relocated from Jharkhand to Punjab to master Computer Engineering. Currently tackling the 5th-semester curriculum with a focus on full-stack Java development.</p>
         </div>
         <div class="timeline-item">
-            <div class="date">Early 2025</div>
-            <h3>The Growth Phase</h3>
-            <p>Overcame significant health challenges (Creatinine/Jaundice) which taught me resilience. Used this time to dive deep into Cloud Computing and DSA theory while recovering.</p>
+            <div style="color:var(--sky); font-weight:700;">Early 2025</div>
+            <h3>Growth through Resilience</h3>
+            <p>Turned a period of health recovery into a learning bootcamp, mastering the core principles of Cloud Computing and Operating Systems.</p>
+        </div>
+        <div class="timeline-item">
+            <div style="color:var(--sky); font-weight:700;">Technical Milestone</div>
+            <h3>DSA Problem Solving Progress</h3>
+            <p>Successfully solved over 200+ challenges on LeetCode and GFG using Java.</p>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <p style="font-size: 0.75rem; margin-top: 5px;">Goal: 300+ Problems by 6th Semester</p>
         </div>
     </div>
 </section>
@@ -123,17 +143,22 @@
     <h2 class="section-title">02. Education</h2>
     <div class="grid">
         <div class="card">
-            <div class="tag">B.Tech (CSE)</div>
-            <h3>Lovely Professional University</h3>
-            <p>2023 - 2027 | 5th Semester</p>
-            <p style="color: var(--accent); font-weight: 700;">CGPA: 6.64</p>
-            <p>Specializing in Cloud Computing and exploring AWS infrastructure.</p>
+            <div>
+                <span class="tag">B.Tech (CSE)</span>
+                <h3>Lovely Professional University</h3>
+                <p>2023 - 2027 | Punjab</p>
+                <p style="color: var(--accent); font-weight: 700; font-size: 1.2rem; margin: 10px 0;">CGPA: 6.64</p>
+            </div>
+            <p>Specializing in Cloud Computing & Systems. Active in technical hackathons and DSA workshops.</p>
         </div>
         <div class="card">
-            <div class="tag">Intermediate</div>
-            <h3>Science Stream</h3>
-            <p>Percentage: 67.5%</p>
-            <p>Focused on Mathematics and Physics, laying the groundwork for engineering logic.</p>
+            <div>
+                <span class="tag">High School</span>
+                <h3>Intermediate (XII)</h3>
+                <p>Focus: Physics, Chemistry, Math</p>
+                <p style="color: var(--sky); font-weight: 700; margin: 10px 0;">Result: 67.5%</p>
+            </div>
+            <p>Foundational science education from Jharkhand, sparking my interest in computational logic.</p>
         </div>
     </div>
 </section>
@@ -142,46 +167,64 @@
     <h2 class="section-title">03. Technical Skills</h2>
     <div class="grid">
         <div class="card">
-            <h3>Programming</h3>
-            <div class="tag">Java (Advanced)</div> <div class="tag">C++</div> <div class="tag">Python</div> <div class="tag">HTML/CSS</div>
+            <h3>Languages</h3>
+            <div>
+                <span class="tag">Java (Advanced)</span> <span class="tag">C++</span> <span class="tag">Python</span> <span class="tag">SQL</span>
+            </div>
         </div>
         <div class="card">
-            <h3>Cloud & Tools</h3>
-            <div class="tag">AWS (S3/EC2)</div> <div class="tag">Docker</div> <div class="tag">Git/GitHub</div> <div class="tag">Linux</div>
+            <h3>Infrastructure</h3>
+            <div>
+                <span class="tag">AWS (EC2/S3)</span> <span class="tag">Docker</span> <span class="tag">Linux</span> <span class="tag">Git/GitHub</span>
+            </div>
         </div>
         <div class="card">
-            <h3>Core CS</h3>
-            <div class="tag">DSA</div> <div class="tag">OOPs</div> <div class="tag">DBMS</div> <div class="tag">Operating Systems</div>
+            <h3>Core Engineering</h3>
+            <div>
+                <span class="tag">DSA</span> <span class="tag">OOPs</span> <span class="tag">DBMS</span> <span class="tag">Networking</span>
+            </div>
         </div>
     </div>
 </section>
 
 <section id="projects" data-aos="fade-up">
-    <h2 class="section-title">04. Projects</h2>
+    <h2 class="section-title">04. Key Projects</h2>
     <div class="grid">
         <div class="card">
-            <h3>Student Attendance System</h3>
-            <p>A Java application using File Handling and OOPs to automate records. Improved data retrieval speed significantly.</p>
+            <h3>Student Attendance Portal</h3>
+            <p>Built a Java-based automation tool using OOPs and File I/O to manage student records. Reduced manual entry errors by 90%.</p>
+            <div style="margin-top:10px;"><span class="tag">Java</span> <span class="tag">OOPs</span></div>
         </div>
         <div class="card">
             <h3>Library Resource Tracker</h3>
-            <p>Built using Data Structures to manage book circulation with optimized search complexity.</p>
+            <p>A Data Structure-focused application to optimize book issuance and inventory management with O(log n) search time.</p>
+            <div style="margin-top:10px;"><span class="tag">DSA</span> <span class="tag">Collections API</span></div>
         </div>
     </div>
 </section>
 
 <section id="certificates" data-aos="fade-up">
-    <h2 class="section-title">05. Certifications</h2>
+    <h2 class="section-title">05. Professional Certifications</h2>
     <div class="grid">
-        <div class="card" style="border-left: 4px solid var(--accent);">
-            <h3>DSA with Java Mastery</h3>
-            <p>CipherSchools | June - July 2025</p>
-            <p>70+ hours focused on non-linear data structures and Big O complexity analysis.</p>
+        <div class="card" style="border-top: 3px solid var(--purple);">
+            <h3>Successful Career Development</h3>
+            <p><strong>Coursera</strong> | Verified Professional Credential</p>
+            <a href="https://coursera.org/verify/I0Q7NB2K4FVV" target="_blank" class="cert-link">View Certificate →</a>
         </div>
-        <div class="card" style="border-left: 4px solid var(--sky);">
-            <h3>AWS Cloud Practitioner</h3>
-            <p>Ongoing Learning Path</p>
-            <p>Learning to architect secure, scalable cloud solutions on AWS infrastructure.</p>
+        <div class="card" style="border-top: 3px solid var(--accent);">
+            <h3>AI in Education: ChatGPT</h3>
+            <p>Leveraging LLMs for academic and professional teaching environments.</p>
+            <a href="https://coursera.org/verify/ROAA7RHVX6IZ" target="_blank" class="cert-link">View Certificate →</a>
+        </div>
+        <div class="card" style="border-top: 3px solid var(--sky);">
+            <h3>21st Century Workplace Comm.</h3>
+            <p>Mastering professional communication and collaboration in tech teams.</p>
+            <a href="https://coursera.org/verify/ROAA7RHVX6IZ" target="_blank" class="cert-link">View Certificate →</a>
+        </div>
+        <div class="card" style="border-top: 3px solid var(--accent);">
+            <h3>DSA with Java Intensive</h3>
+            <p><strong>CipherSchools</strong> | 70+ Hours Hands-on Training</p>
+            <p>Focus: Advanced Algorithms & System Complexity.</p>
         </div>
     </div>
 </section>
@@ -189,14 +232,18 @@
 <section id="contact" data-aos="zoom-in">
     <h2 class="section-title">06. Contact</h2>
     <div class="card" style="text-align: center;">
-        <p>Currently open to Internship opportunities in SDE or Cloud roles.</p>
+        <p>I am currently exploring 2026/2027 Summer Internships.</p>
         <h2 style="color: var(--sky); margin: 15px 0;">anmolpratap280@gmail.com</h2>
         <p>Jhumri Telaiya, Jharkhand | LPU, Punjab</p>
+        <div style="margin-top: 20px;">
+            <a href="#" class="tag" style="border-color: var(--accent); color: var(--accent);">GitHub: Anmol280</a>
+            <a href="#" class="tag" style="border-color: var(--purple); color: var(--purple);">LinkedIn: anmol280</a>
+        </div>
     </div>
 </section>
 
 <footer>
-    <p>Kumar Anmol Pratap | &copy; 2026</p>
+    <p>Kumar Anmol Pratap | &copy; 2026 | Built with Love & Java Logic</p>
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
