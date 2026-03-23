@@ -1,281 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kumar Anmol Pratap</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kumar Anmol Pratap | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <style>
+        :root {
+            --primary: #38bdf8;
+            --secondary: #22c55e;
+            --bg-dark: #020617;
+            --card-bg: rgba(30, 41, 59, 0.7);
+        }
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
-body{
-font-family:'Segoe UI',sans-serif;
-background:#0f172a;
-color:white;
-line-height:1.6;
-}
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(circle at top right, #0f172a, #020617);
+            color: #f8fafc;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
 
-/* NAVBAR */
-nav{
-position:fixed;
-top:0;
-width:100%;
-background:#020617;
-padding:18px;
-display:flex;
-justify-content:center;
-gap:25px;
-z-index:1000;
-}
+        /* --- NAVBAR --- */
+        nav {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px; display: flex; justify-content: center;
+            gap: 30px; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
 
-nav a{
-color:white;
-text-decoration:none;
-font-size:16px;
-font-weight:500;
-}
+        nav a {
+            color: #94a3b8; text-decoration: none; font-size: 15px;
+            font-weight: 600; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px;
+        }
 
-nav a:hover{
-color:#38bdf8;
-}
+        nav a:hover { color: var(--primary); transform: translateY(-2px); }
 
-/* HERO */
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-}
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+            background: url('https://www.transparenttextures.com/patterns/cubes.png');
+        }
 
-.hero img{
-width:170px;
-height:170px;
-border-radius:50%;
-border:3px solid #38bdf8;
-margin-bottom:20px;
-box-shadow:0 0 20px #38bdf8;
-}
+        .hero img {
+            width: 180px; height: 180px; border-radius: 50%;
+            border: 4px solid var(--primary); margin-bottom: 25px;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.4);
+            transition: 0.5s;
+        }
 
-.hero h1{
-font-size:48px;
-background:linear-gradient(to right,#38bdf8,#22c55e);
--webkit-background-clip:text;
-color:transparent;
-}
+        .hero img:hover { transform: rotate(5deg) scale(1.05); }
 
-.hero p{
-font-size:18px;
-margin-top:5px;
-}
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800; margin-bottom: 10px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text; color: transparent;
+        }
 
-/* SECTION */
-section{
-padding:90px 12%;
-}
+        .hero p { font-size: 1.2rem; color: #94a3b8; max-width: 600px; }
 
-h2{
-text-align:center;
-margin-bottom:35px;
-color:#22c55e;
-font-size:30px;
-}
+        /* --- SECTIONS --- */
+        section { padding: 120px 10%; }
 
-/* GRID */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-}
+        h2 {
+            font-size: 2.5rem; text-align: center; margin-bottom: 50px;
+            position: relative; color: #fff;
+        }
 
-/* CARD */
-.card{
-background:#1e293b;
-padding:25px;
-border-radius:12px;
-transition:0.3s;
-font-size:16px;
-}
+        h2::after {
+            content: ''; display: block; width: 60px; height: 4px;
+            background: var(--secondary); margin: 10px auto; border-radius: 2px;
+        }
 
-.card:hover{
-transform:translateY(-10px) scale(1.02);
-box-shadow:0 0 15px #22c55e;
-}
+        /* --- GRID & CARDS --- */
+        .grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
 
-/* BUTTON */
-.project-btn{
-margin-top:12px;
-display:inline-block;
-padding:8px 14px;
-background:#22c55e;
-color:black;
-text-decoration:none;
-border-radius:6px;
-font-size:14px;
-}
+        .card {
+            background: var(--card-bg); padding: 35px; border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative; overflow: hidden;
+        }
 
-/* CERT IMAGE */
-.card img{
-width:100%;
-border-radius:10px;
-cursor:pointer;
-}
+        .card:hover {
+            transform: translateY(-12px);
+            background: rgba(30, 41, 59, 0.9);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
 
-/* MODAL */
-.modal{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.85);
-justify-content:center;
-align-items:center;
-}
+        .card h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.4rem; }
 
-.modal img{
-max-width:85%;
-border-radius:10px;
-}
+        .skill-tag {
+            display: inline-block; background: rgba(56, 189, 248, 0.1);
+            color: var(--primary); padding: 5px 12px; border-radius: 20px;
+            font-size: 0.85rem; margin: 5px; font-weight: 600;
+        }
 
-/* FOOTER */
-footer{
-text-align:center;
-padding:20px;
-background:#020617;
-font-size:14px;
-}
-</style>
+        /* --- FOOTER & CONTACT --- */
+        .contact-info { text-align: center; font-size: 1.2rem; }
+        .contact-info a { color: var(--secondary); text-decoration: none; margin: 0 15px; transition: 0.3s; }
+        .contact-info a:hover { color: var(--primary); }
+
+        footer {
+            padding: 40px; text-align: center; background: #010413;
+            border-top: 1px solid rgba(255,255,255,0.05); color: #64748b;
+        }
+
+        /* ANIMATION */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .hero * { animation: fadeIn 1s ease forwards; }
+    </style>
 </head>
-
 <body>
 
 <nav>
-<a href="#about">About</a>
-<a href="#education">Education</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#training">Training</a>
-<a href="#achievements">Achievements</a>
-<a href="#contact">Contact</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#contact">Contact</a>
 </nav>
 
-<div class="hero">
-<img src="profile.jpg">
-<h1>Kumar Anmol Pratap</h1>
-<p>B.Tech CSE | Cloud Computing ☁️</p>
-<p>Lovely Professional University (2023–2027)</p>
-</div>
+<header class="hero">
+    <img src="profile.jpg" alt="Kumar Anmol Pratap">
+    <h1>Anmol Pratap</h1>
+    <p>Cloud Computing Enthusiast • Java Developer • B.Tech CSE @ LPU</p>
+</header>
 
 <section id="about">
-<h2>About Me</h2>
-<p style="text-align:center; max-width:800px; margin:auto; font-size:17px;">
-I am a dedicated Computer Science undergraduate at Lovely Professional University with a strong focus on Cloud Computing and Software Development. 
-I have built a solid foundation in Data Structures, Object-Oriented Programming, DBMS, Operating Systems, and Computer Networks. 
-
-I have developed multiple real-world projects using Java and applied efficient problem-solving techniques. 
-With hands-on experience in AWS, Docker, and modern tools, I am continuously improving my technical skills and aiming to become a proficient cloud engineer.
-</p>
-</section>
-
-<section id="education">
-<h2>Education</h2>
-<div class="grid">
-<div class="card">
-<h3>Bachelor of Technology (CSE)</h3>
-<p>Lovely Professional University</p>
-<p>2023 – 2027</p>
-<p>CGPA: 7.0</p>
-</div>
-
-<div class="card">
-<h3>Intermediate</h3>
-<p>Percentage: 67.5%</p>
-</div>
-
-<div class="card">
-<h3>Matriculation</h3>
-<p>Percentage: 80%</p>
-</div>
-</div>
+    <h2>About Me</h2>
+    <div class="card" style="max-width: 900px; margin: auto; text-align: center;">
+        <p>I am a 5th-semester Computer Science undergraduate with a deep interest in <strong>Cloud Infrastructure</strong> and <strong>DSA</strong>. Based in Jhumri Telaiya, I spend my time solving complex problems in Java and exploring the scalability of AWS. My goal is to build secure, cloud-native applications that solve real-world problems.</p>
+    </div>
 </section>
 
 <section id="skills">
-<h2>Technical Skills</h2>
-<div class="grid">
-<div class="card">Java, C++, Python, C</div>
-<div class="card">AWS, Docker, Azure</div>
-<div class="card">HTML, CSS, Bootstrap</div>
-<div class="card">DSA, OOPs, DBMS, OS</div>
-</div>
+    <h2>Technical Arsenal</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Languages</h3>
+            <span class="skill-tag">Java</span> <span class="skill-tag">C++</span> 
+            <span class="skill-tag">Python</span> <span class="skill-tag">JavaScript</span>
+        </div>
+        <div class="card">
+            <h3>Cloud & DevOps</h3>
+            <span class="skill-tag">AWS (S3, EC2)</span> <span class="skill-tag">Docker</span> 
+            <span class="skill-tag">Linux</span> <span class="skill-tag">Azure</span>
+        </div>
+        <div class="card">
+            <h3>Development</h3>
+            <span class="skill-tag">HTML5/CSS3</span> <span class="skill-tag">DBMS</span> 
+            <span class="skill-tag">MySQL</span> <span class="skill-tag">Git/GitHub</span>
+        </div>
+    </div>
 </section>
 
 <section id="projects">
-<h2>Projects</h2>
-<div class="grid">
-
-<div class="card">
-<h3>Student Attendance System</h3>
-<p>Developed a Java-based application using OOP & file handling to automate attendance tracking and reporting.</p>
-</div>
-
-<div class="card">
-<h3>Library Tracker</h3>
-<p>Built a system using Data Structures to manage book issuing, returning, and searching efficiently.</p>
-</div>
-
-<div class="card">
-<h3>Mental Health Simulator</h3>
-<p>Created an interactive Java project applying DSA concepts and modular design principles.</p>
-</div>
-
-</div>
-</section>
-
-<section id="training">
-<h2>Training</h2>
-<div class="card">
-<h3>DSA with Java – CipherSchools</h3>
-<p><b>Duration:</b> June 2025 – July 2025 (70 Hours)</p>
-<ul>
-<li>Learned core Java and OOP concepts.</li>
-<li>Implemented Data Structures like arrays, stacks, queues, trees.</li>
-<li>Practiced algorithms including recursion, sorting, and searching.</li>
-<li>Applied concepts in real-world project development.</li>
-</ul>
-</div>
-</section>
-
-<section id="achievements">
-<h2>Achievements</h2>
-<div class="grid">
-
-<div class="card">
-<h3>200+ DSA Problems Solved</h3>
-<p>Strengthened problem-solving ability and improved coding efficiency through continuous practice.</p>
-</div>
-
-<div class="card">
-<h3>Top 30% in Hackathon</h3>
-<p>Secured a position among top participants in Code-A-Haunt Hackathon, demonstrating teamwork and innovation.</p>
-</div>
-
-</div>
+    <h2>Featured Projects</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Attendance Automator</h3>
+            <p>A Java-based solution using OOP principles to handle student records efficiently via file handling.</p>
+        </div>
+        <div class="card">
+            <h3>Library Management Pro</h3>
+            <p>Utilized optimized Data Structures to manage book circulation with O(log n) search complexity.</p>
+        </div>
+        <div class="card">
+            <h3>Cloud-Ready Mental Health App</h3>
+            <p>An interactive Java project designed with modular architecture for easy cloud deployment.</p>
+        </div>
+    </div>
 </section>
 
 <section id="contact">
-<h2>Contact</h2>
-<p style="text-align:center; font-size:17px;">
-Email: anmolpratap280@gmail.com <br>
-GitHub: Anmol280 <br>
-LinkedIn: anmol280
-</p>
+    <h2>Get In Touch</h2>
+    <div class="contact-info">
+        <p>Currently open to Internship opportunities.</p><br>
+        <a href="mailto:anmolpratap280@gmail.com">Email Me</a> | 
+        <a href="#">LinkedIn</a> | 
+        <a href="#">GitHub</a>
+    </div>
 </section>
 
 <footer>
-© 2026 Kumar Anmol Pratap
+    <p>© 2026 Kumar Anmol Pratap. Built with ❤️ and Java logic.</p>
 </footer>
 
 </body>
