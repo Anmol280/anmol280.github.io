@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kumar Anmol Pratap | Engineering Portfolio</title>
+    <title>Kumar Anmol Pratap | Engineering Story</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -27,205 +27,170 @@
             overflow-x: hidden;
         }
 
-        /* --- MOVING BACKGROUND ANIMATION --- */
+        /* --- BACKGROUND ANIMATION --- */
         body::before {
             content: "";
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #020617 80%);
+            background: radial-gradient(circle at 20% 30%, #1e293b 0%, #020617 70%);
             z-index: -1;
-            animation: pulse 15s infinite alternate;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.1); }
-        }
-
-        h1, h2, h3 { font-family: 'Space+Grotesk', sans-serif; }
-
-        /* --- NAVIGATION --- */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 1000;
-            background: rgba(2, 6, 23, 0.7); backdrop-filter: blur(15px);
-            padding: 1.2rem; display: flex; justify-content: center; gap: 2rem;
+            background: rgba(2, 6, 23, 0.8); backdrop-filter: blur(15px);
+            padding: 1rem; display: flex; justify-content: center; gap: 1.5rem;
             border-bottom: 1px solid var(--border);
         }
 
         nav a {
-            color: #94a3b8; text-decoration: none; font-weight: 600; font-size: 0.85rem;
-            transition: 0.3s; text-transform: uppercase; letter-spacing: 1.5px;
+            color: #94a3b8; text-decoration: none; font-weight: 600; font-size: 0.8rem;
+            text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
         }
 
-        nav a:hover { color: var(--sky); text-shadow: 0 0 10px var(--sky); }
+        nav a:hover { color: var(--sky); }
 
-        /* --- HERO --- */
-        .hero {
-            height: 100vh; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; text-align: center;
-            padding: 20px;
-        }
-
-        .hero img {
-            width: 170px; height: 170px; border-radius: 50%;
-            border: 3px solid var(--sky); margin-bottom: 2rem;
-            box-shadow: 0 0 50px rgba(56, 189, 248, 0.15);
-            transition: 0.5s ease;
-        }
-
-        .hero img:hover { transform: scale(1.05) rotate(3deg); border-color: var(--accent); }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem); line-height: 1;
-            background: linear-gradient(90deg, #fff, var(--sky), var(--accent));
-            background-size: 200% auto;
-            -webkit-background-clip: text; color: transparent;
-            animation: shine 5s linear infinite;
-        }
-
-        @keyframes shine {
-            to { background-position: 200% center; }
-        }
-
-        /* --- SECTIONS --- */
-        section { padding: 120px 10%; max-width: 1300px; margin: auto; }
+        section { padding: 100px 10%; max-width: 1300px; margin: auto; }
 
         .section-title {
-            font-size: 2.5rem; margin-bottom: 3.5rem; color: #fff;
-            display: flex; align-items: center; gap: 20px;
+            font-size: 2.2rem; margin-bottom: 3rem; color: #fff;
+            display: flex; align-items: center; gap: 20px; font-family: 'Space+Grotesk';
         }
 
         .section-title::after { content: ''; height: 1px; flex-grow: 1; background: var(--border); }
 
-        /* --- CARDS & GRID --- */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
 
         .card {
-            background: var(--glass); padding: 3rem; border-radius: 28px;
-            border: 1px solid var(--border); transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            background: var(--glass); padding: 2.5rem; border-radius: 24px;
+            border: 1px solid var(--border); transition: 0.4s;
         }
 
         .card:hover {
-            background: rgba(255, 255, 255, 0.07);
+            transform: translateY(-10px);
             border-color: var(--sky);
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            background: rgba(255,255,255,0.06);
         }
 
-        .card h3 { color: var(--sky); margin-bottom: 1rem; font-size: 1.6rem; }
-        
+        /* --- JOURNEY TIMELINE --- */
+        .timeline { border-left: 2px solid var(--border); padding-left: 2rem; position: relative; }
+        .timeline-item { margin-bottom: 3rem; position: relative; }
+        .timeline-item::before {
+            content: ''; position: absolute; left: -2.65rem; top: 5px;
+            width: 18px; height: 18px; background: var(--sky);
+            border-radius: 50%; box-shadow: 0 0 10px var(--sky);
+        }
+
+        .timeline-date { color: var(--sky); font-weight: 700; font-size: 0.9rem; margin-bottom: 5px; }
+
+        /* --- CERTIFICATES --- */
+        .cert-btn {
+            display: inline-block; margin-top: 15px; padding: 8px 20px;
+            border: 1px solid var(--accent); color: var(--accent);
+            text-decoration: none; border-radius: 8px; font-size: 0.85rem;
+            transition: 0.3s;
+        }
+        .cert-btn:hover { background: var(--accent); color: #000; }
+
         .tag {
-            display: inline-block; background: rgba(56, 189, 248, 0.1); color: var(--sky);
-            padding: 5px 14px; border-radius: 100px; font-size: 0.8rem; font-weight: 700;
-            margin: 4px; border: 1px solid rgba(56, 189, 248, 0.2);
+            background: rgba(56, 189, 248, 0.1); color: var(--sky);
+            padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; margin-right: 5px;
         }
 
-        /* --- TRAINING HIGHLIGHT --- */
-        .training-content { border-left: 3px solid var(--accent); padding-left: 30px; }
-        .training-content li { list-style: none; margin: 15px 0; color: #94a3b8; position: relative; }
-        .training-content li::before { content: '▹'; position: absolute; left: -20px; color: var(--accent); }
+        footer { padding: 50px; text-align: center; border-top: 1px solid var(--border); opacity: 0.5; }
 
-        /* --- FOOTER --- */
-        footer { padding: 80px 20px; text-align: center; opacity: 0.6; font-size: 0.9rem; }
-
-        /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            section { padding: 80px 6%; }
-            nav { gap: 1rem; }
-        }
     </style>
 </head>
 <body>
 
 <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Stack</a>
-    <a href="#projects">Work</a>
-    <a href="#training">Training</a>
+    <a href="#journey">Journey</a>
+    <a href="#education">Education</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
 </nav>
 
-<section class="hero" data-aos="zoom-out" data-aos-duration="1500">
-    <img src="profile.jpg" alt="Anmol Pratap">
-    <h1>Anmol Pratap</h1>
-    <p style="font-size: 1.3rem; margin-top: 10px; color: #94a3b8;">
-        Building Scalable Systems • Cloud Infrastructure • Java Specialist
-    </p>
-    <div style="margin-top: 30px;">
-        <span class="tag">DSA 200+</span> <span class="tag">AWS</span> <span class="tag">LPU CSE</span>
+<section id="journey" data-aos="fade-up">
+    <h2 class="section-title">01. My Journey</h2>
+    <div class="timeline">
+        <div class="timeline-item" data-aos="fade-left">
+            <div class="timeline-date">2023 - Present</div>
+            <h3>The Transition to Tech</h3>
+            <p>Moved from Jharkhand to Punjab to pursue B.Tech CSE at LPU. Began a deep dive into Java and Data Structures, maintaining a focus on building high-performance logic.</p>
+        </div>
+        <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
+            <div class="timeline-date">Early 2025</div>
+            <h3>Resilience & Recovery</h3>
+            <p>Faced significant health challenges but used the recovery period to strengthen my theoretical foundation in Cloud Computing and System Architecture. This period defined my discipline toward my career.</p>
+        </div>
+        <div class="timeline-item" data-aos="fade-left" data-aos-delay="400">
+            <div class="timeline-date">2026 & Beyond</div>
+            <h3>Scaling New Heights</h3>
+            <p>Shortlisted for Amazon OA. Currently focusing on AWS certification and solving 200+ DSA problems to prepare for Tier-1 engineering roles.</p>
+        </div>
     </div>
 </section>
 
-<section id="about" data-aos="fade-up">
-    <h2 class="section-title">01. Purpose</h2>
-    <div class="card">
-        <p style="font-size: 1.15rem;">
-            I am a 5th-semester Computer Science Engineering student at Lovely Professional University, driven by the challenge of optimizing backend systems. My engineering philosophy is built on two pillars: <strong>Data Structure Efficiency</strong> and <strong>Cloud Scalability</strong>. 
-        </p>
-        <p style="margin-top: 1.5rem; color: #94a3b8;">
-            From Jhumri Telaiya to building cloud-native Java applications, I focus on writing clean, maintainable code that handles real-world traffic seamlessly.
-        </p>
-    </div>
-</section>
-
-<section id="skills" data-aos="fade-up">
-    <h2 class="section-title">02. Technical Arsenal</h2>
+<section id="education" data-aos="fade-up">
+    <h2 class="section-title">02. Academic Foundation</h2>
     <div class="grid">
-        <div class="card" data-aos="flip-left" data-aos-delay="100">
-            <h3>Backend & Logic</h3>
-            <p>Mastering complex problem solving with a focus on performance metrics.</p>
-            <div style="margin-top: 15px;">
-                <span class="tag">Java Core/Adv</span> <span class="tag">C++</span> 
-                <span class="tag">DSA</span> <span class="tag">OOPs</span>
-            </div>
+        <div class="card">
+            <span class="tag">University</span>
+            <h3 style="margin-top:10px">B.Tech in CSE</h3>
+            <p>Lovely Professional University</p>
+            <p style="color:var(--sky); font-weight:700;">CGPA: 6.64 (Ongoing)</p>
+            <p>Relevant Coursework: DBMS, OS, Computer Networks, Java Full Stack.</p>
         </div>
-        <div class="card" data-aos="flip-left" data-aos-delay="300">
-            <h3>Cloud & Tools</h3>
-            <p>Deploying and managing infrastructure using industry-standard DevOps tools.</p>
-            <div style="margin-top: 15px;">
-                <span class="tag">AWS (EC2/S3)</span> <span class="tag">Docker</span> 
-                <span class="tag">Git</span> <span class="tag">Linux</span>
-            </div>
+        <div class="card">
+            <span class="tag">Intermediate</span>
+            <h3 style="margin-top:10px">Class XII (Science)</h3>
+            <p>Focus on Physics, Math, and Chemistry. Developed an early interest in computational logic during this phase.</p>
+            <p style="color:var(--sky); font-weight:700;">Result: 67.5%</p>
         </div>
-    </div>
-</section>
-
-<section id="training" data-aos="fade-right">
-    <h2 class="section-title">03. Professional Training</h2>
-    <div class="card">
-        <h3 style="color: var(--accent);">DSA Intensive — CipherSchools</h3>
-        <p><strong>June 2025 – August 2025 | 70+ Hours Professional Lab</strong></p>
-        <div class="training-content" style="margin-top: 20px;">
-            <ul>
-                <li>Implemented advanced algorithms for graph traversal and dynamic programming.</li>
-                <li>Analyzed Big O complexity for all production-level scripts to ensure maximum CPU efficiency.</li>
-                <li>Applied Java Collections Framework to build high-performance data pipelines.</li>
-            </ul>
+        <div class="card">
+            <span class="tag">Matriculation</span>
+            <h3 style="margin-top:10px">Class X</h3>
+            <p>Foundational schooling with a strong emphasis on analytical thinking and mathematics.</p>
+            <p style="color:var(--sky); font-weight:700;">Result: 80%</p>
         </div>
     </div>
 </section>
 
-<section id="contact" data-aos="fade-up">
-    <h2 class="section-title">04. Connection</h2>
-    <div class="card" style="text-align: center; border: 1px dashed var(--sky);">
-        <p>Interested in hiring or collaborating on a Cloud project?</p>
-        <h2 style="margin: 20px 0; color: var(--sky);">anmolpratap280@gmail.com</h2>
-        <a href="#" class="tag" style="padding: 10px 25px; font-size: 1rem; cursor: pointer;">Download My Full CV</a>
+<section id="certifications" data-aos="fade-up">
+    <h2 class="section-title">03. Certifications</h2>
+    <div class="grid">
+        <div class="card" style="border-top: 4px solid var(--accent);">
+            <h3>DSA with Java Mastery</h3>
+            <p><strong>Issued by:</strong> CipherSchools</p>
+            <p>Completed 70+ hours of rigorous training in Algorithm design, Big O analysis, and complex Data Structures.</p>
+            <a href="#" class="cert-btn">View Credential</a>
+        </div>
+        <div class="card" style="border-top: 4px solid var(--sky);">
+            <h3>AWS Cloud Practitioner (Ongoing)</h3>
+            <p><strong>Training:</strong> Self-Paced / AWS Academy</p>
+            <p>Learning S3, EC2, IAM, and Lambda to architect serverless and scalable cloud environments.</p>
+            <a href="#" class="cert-btn">In Progress</a>
+        </div>
+    </div>
+</section>
+
+<section id="contact" data-aos="zoom-in">
+    <h2 class="section-title">04. Get In Touch</h2>
+    <div class="card" style="text-align: center;">
+        <p>Looking for a Cloud Engineer or Java Developer intern?</p>
+        <h2 style="color: var(--sky); margin: 15px 0;">anmolpratap280@gmail.com</h2>
+        <p>Jhumri Telaiya, Jharkhand | LPU, Punjab</p>
     </div>
 </section>
 
 <footer>
-    <p>Kumar Anmol Pratap &copy; 2026 | Engineered for Performance</p>
+    <p>Kumar Anmol Pratap | &copy; 2026 | Built for Performance</p>
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-    // Initialize Animations
-    AOS.init({
-        duration: 1000,
-        once: true,
-        mirror: false
-    });
+    AOS.init({ duration: 1000, once: true });
 </script>
 
 </body>
