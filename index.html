@@ -447,85 +447,167 @@
             </div>
 
         </div>
-    </section>
-    <style>
-        /* --- CERTIFICATION GRID --- */
-        .cert-grid {
+   <style>
+        /* --- UNIFIED GRADE STYLING --- */
+        .grade-pill {
+            display: inline-block; padding: 8px 20px; 
+            background: rgba(34, 197, 94, 0.1); 
+            color: var(--secondary); border-radius: 14px; font-weight: 800;
+            margin-top: 20px; font-size: 1.1rem; border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+
+        /* --- ATTRACTIVE TECH ARSENAL (GLOW EFFECTS) --- */
+        .bento-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
-            margin-bottom: 5rem;
         }
-
-        .cert-card {
-            background: var(--glass); padding: 2.2rem; border-radius: 28px;
-            border: 1px solid var(--border); display: flex; flex-direction: column;
-            justify-content: space-between; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        .bento-card {
+            background: rgba(255, 255, 255, 0.02); padding: 2.5rem;
+            border-radius: 30px; border: 1px solid var(--border);
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative; overflow: hidden;
         }
-
-        .cert-card:hover { border-color: var(--primary); transform: scale(1.02); background: rgba(56, 189, 248, 0.05); }
-        .cert-card h4 { font-family: 'Syne', sans-serif; font-size: 1.2rem; color: #fff; margin-bottom: 10px; line-height: 1.4; }
-        .cert-issuer { color: #94a3b8; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; }
-
-        /* --- VERIFICATION BUTTONS --- */
-        .btn-verify {
-            margin-top: 20px; padding: 12px; border-radius: 14px;
-            text-align: center; text-decoration: none; font-weight: 800; font-size: 0.75rem;
-            transition: 0.3s; letter-spacing: 1px; text-transform: uppercase;
+        .bento-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.15);
+            background: rgba(56, 189, 248, 0.02);
         }
+        .bento-card h4 { font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 1.8rem; }
+        
+        .tag-list { display: flex; flex-wrap: wrap; gap: 10px; }
+        .skill-tag {
+            background: rgba(56, 189, 248, 0.05); color: #fff;
+            padding: 10px 18px; border-radius: 14px; font-size: 0.85rem;
+            font-weight: 600; border: 1px solid rgba(56, 189, 248, 0.1);
+            display: flex; align-items: center; gap: 8px;
+            transition: 0.3s;
+        }
+        .skill-tag:hover { background: var(--primary); color: var(--dark); transform: scale(1.05); }
+        .v-icon { color: var(--primary); font-size: 0.7rem; }
 
-        .verify-primary { border: 1px solid var(--primary); color: var(--primary); }
-        .verify-primary:hover { background: var(--primary); color: var(--dark); box-shadow: 0 0 20px var(--primary); }
+        /* --- RESPONSIVE PROJECT CARDS --- */
+        .project-wrapper { display: flex; flex-direction: column; gap: 3rem; }
+        .project-card {
+            background: var(--glass); padding: 4rem; border-radius: 45px;
+            border: 1px solid var(--border); position: relative;
+            transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            overflow: hidden;
+        }
+        .project-card:hover { border-color: var(--secondary); background: rgba(34, 197, 94, 0.03); }
 
-        .verify-secondary { border: 1px solid var(--secondary); color: var(--secondary); }
-        .verify-secondary:hover { background: var(--secondary); color: var(--dark); box-shadow: 0 0 20px var(--secondary); }
-
-        .qr-info { font-size: 0.7rem; color: #64748b; margin-top: 15px; display: flex; align-items: center; gap: 8px; }
+        @media (max-width: 768px) {
+            .project-card { padding: 2rem; border-radius: 25px; }
+            .project-header h3 { font-size: 1.5rem; }
+            section { padding: 80px 5%; }
+        }
     </style>
 
-    <section id="certification" data-aos="fade-up">
-        <h2 class="section-title">Professional Certifications</h2>
-        <div class="cert-grid">
-            
-            <div class="cert-card">
-                <div>
-                    <span class="cert-issuer">IBM | Coursera</span>
-                    <h4>Introduction to Hardware and Operating Systems</h4>
+    <section id="education" data-aos="fade-up">
+        <h2 class="section-title">Academic Foundation</h2>
+        <div class="edu-container">
+            <div class="edu-box">
+                <span class="edu-meta">LPU, Punjab | 2023 - 2027</span>
+                <h3>B.Tech Computer Science</h3>
+                <p>Specializing in Cloud Computing and Full-Stack Development with a focus on high-performance Java logic.</p>
+                <div class="grade-pill">CGPA: 7.0</div>
+            </div>
+            <div class="edu-box">
+                <span class="edu-meta">Grizzly Vidyalaya | 2021 - 2023</span>
+                <h3>Intermediate (Science)</h3>
+                <p>Focused on Physics, Chemistry, and Mathematics (PCM) foundations.</p>
+                <div class="grade-pill">Result: 67.5%</div>
+            </div>
+            <div class="edu-box">
+                <span class="edu-meta">Sacred Heart School | 2019 - 2021</span>
+                <h3>Matriculation</h3>
+                <p>Strong academic foundation in general sciences and mathematics.</p>
+                <div class="grade-pill">Result: 80%</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" data-aos="fade-up">
+        <h2 class="section-title">Technical Arsenal</h2>
+        <div class="bento-container">
+            <div class="bento-card">
+                <h4>Core Languages</h4>
+                <div class="tag-list">
+                    <div class="skill-tag">Java <i class="fas fa-certificate v-icon"></i></div>
+                    <div class="skill-tag">C++ <i class="fas fa-certificate v-icon"></i></div>
+                    <div class="skill-tag">Python <i class="fas fa-certificate v-icon"></i></div>
+                    <div class="skill-tag">C <i class="fas fa-certificate v-icon"></i></div>
                 </div>
-                <a href="https://coursera.org/verify/EAKWE9Y3H7QE" target="_blank" class="btn-verify verify-primary">Verify Credential →</a>
             </div>
-
-            <div class="cert-card">
-                <div>
-                    <span class="cert-issuer">Google | Coursera</span>
-                    <h4>The Bits and Bytes of Computer Networking</h4>
+            <div class="bento-card">
+                <h4>Cloud & Systems</h4>
+                <div class="tag-list">
+                    <div class="skill-tag">AWS Architecture</div>
+                    <div class="skill-tag">Networking <i class="fas fa-certificate v-icon"></i></div>
+                    <div class="skill-tag">Hardware/OS <i class="fas fa-certificate v-icon"></i></div>
+                    <div class="skill-tag">Docker</div>
                 </div>
-                <a href="https://coursera.org/verify/K6NUPGL74XCS" target="_blank" class="btn-verify verify-primary">Verify Credential →</a>
             </div>
-
-            <div class="cert-card">
-                <div>
-                    <span class="cert-issuer">FreeCodeCamp</span>
-                    <h4>Responsive Web Design</h4>
+            <div class="bento-card">
+                <h4>AI & Engineering</h4>
+                <div class="tag-list">
+                    <div class="skill-tag">DSA Mastery <i class="fas fa-certificate v-icon"></i></div>
+                    <div class="skill-tag">Generative AI <i class="fas fa-certificate v-icon"></i></div>
+                    <div class="skill-tag">Prompt Eng. <i class="fas fa-certificate v-icon"></i></div>
+                    <div class="skill-tag">Automata Theory <i class="fas fa-certificate v-icon"></i></div>
                 </div>
-                <a href="https://freecodecamp.org/certification/fcc033fbec4-5e8c-4c15-b322-ea6c9c344f75/responsive-web-design" target="_blank" class="btn-verify verify-primary">Verify Credential →</a>
             </div>
+        </div>
+    </section>
 
-            <div class="cert-card">
-                <div><span class="cert-issuer">UPenn | Coursera</span><h4>AI in Education: ChatGPT for Teaching</h4></div>
-                <a href="https://coursera.org/verify/ROAA7RHVX6IZ" target="_blank" class="btn-verify verify-primary">Verify Credential →</a>
+    <section id="projects" data-aos="fade-up">
+        <h2 class="section-title">Engineering Projects</h2>
+        <div class="project-wrapper">
+            <div class="project-card" data-aos="fade-up">
+                <div class="project-header">
+                    <h3>Mental Health Simulator</h3>
+                    <span class="project-date">CipherSchools Training</span>
+                </div>
+                <p class="project-desc">A human-centric logic application developed to simulate interactive mental health assessment scenarios.</p>
+                <ul class="feature-list">
+                    <li>Developed complex **Decision Trees in Java** to provide real-time, interactive feedback based on user input patterns.</li>
+                    <li>Designed a modular codebase following **Clean Code principles**, ensuring the simulator could be easily scaled.</li>
+                    <li>Prioritized **Data Privacy** by architecting the system to handle sensitive interactions locally.</li>
+                </ul>
+                <div class="tech-stack">
+                    <span class="tech-pill">Java</span><span class="tech-pill">Modular Architecture</span><span class="tech-pill">Decision Logic</span>
+                </div>
             </div>
-
-            <div class="cert-card">
-                <div><span class="cert-issuer">USF | Coursera</span><h4>Successful Career Development</h4></div>
-                <a href="https://coursera.org/verify/I0Q7NB2K4FVV" target="_blank" class="btn-verify verify-primary">Verify Credential →</a>
+            <div class="project-card" data-aos="fade-up">
+                <div class="project-header">
+                    <h3>Student Attendance System</h3>
+                    <span class="project-date">JUL 2025 – AUG 2025</span>
+                </div>
+                <p class="project-desc">An automated professional tool designed to eliminate human error in academic record-keeping.</p>
+                <ul class="feature-list">
+                    <li>Utilized **HashMap-based indexing** to provide near-instant retrieval of student data.</li>
+                    <li>Built a custom **File I/O handler** to ensure all logs are stored permanently on the local system.</li>
+                    <li>Applied strict **OOP Principles** to ensure the system architecture is both secure and scalable.</li>
+                </ul>
+                <div class="tech-stack">
+                    <span class="tech-pill">Java Collections</span><span class="tech-pill">File Persistence</span><span class="tech-pill">OOP Architecture</span>
+                </div>
             </div>
-
-            <div class="cert-card">
-                <div><span class="cert-issuer">UCI | Coursera</span><h4>Workplace Communication</h4></div>
-                <a href="https://coursera.org/verify/HXPUE63TUXUV" target="_blank" class="btn-verify verify-primary">Verify Credential →</a>
+            <div class="project-card" data-aos="fade-up">
+                <div class="project-header">
+                    <h3>Digital Library Tracker</h3>
+                    <span class="project-date">JUN 2024 – JUL 2024</span>
+                </div>
+                <p class="project-desc">Optimized library workflows through a high-speed search and circulation engine.</p>
+                <ul class="feature-list">
+                    <li>Engineered **Linear and Binary search adaptations** to filter through hundreds of records in milliseconds.</li>
+                    <li>Developed a state-management system to track book availability instantly.</li>
+                    <li>Optimized the console UX to minimize user input errors during large-scale data entry.</li>
+                </ul>
+                <div class="tech-stack">
+                    <span class="tech-pill">Algorithms</span><span class="tech-pill">Data Structures</span><span class="tech-pill">Search Logic</span>
+                </div>
             </div>
-
         </div>
     </section>
 
