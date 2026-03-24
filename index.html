@@ -3,754 +3,682 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kumar Anmol Pratap | Portfolio</title>
+    <title>Kumar Anmol Pratap | Software Engineer</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+
     <style>
         :root {
-            --neon-blue: #38bdf8;
-            --neon-green: #22c55e;
-            --dark-bg: #020617;
+            --primary: #38bdf8; /* Cyber Blue */
+            --secondary: #22c55e; /* Tech Green */
+            --dark: #020617;
             --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Space+Grotesk', sans-serif; background: var(--dark-bg); color: #f8fafc; overflow-x: hidden; }
 
-        /* HERO FIX: Shrinking name to fit one line & fixing profile head crop */
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-        
-        .profile-frame {
-            width: 200px; height: 200px; border-radius: 50%;
-            border: 3px solid var(--neon-blue); overflow: hidden;
-            box-shadow: 0 0 40px rgba(56, 189, 248, 0.2); margin-bottom: 1.5rem;
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--dark);
+            color: #f1f5f9;
+            overflow-x: hidden;
         }
-        .profile-frame img {
-            width: 100%; height: 100%; object-fit: cover;
-            object-position: center 10%; /* Moves image down so head isn't cut */
+
+        /* Moving Cyber Grid Background */
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px), 
+                              linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px; z-index: -1;
+        }
+
+        /* --- HIGH-END NAVIGATION --- */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(20px);
+            padding: 1.2rem; display: flex; justify-content: center; 
+            gap: 1.5rem; border-bottom: 1px solid var(--border);
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #94a3b8; text-decoration: none; font-weight: 700; font-size: 0.7rem;
+            text-transform: uppercase; letter-spacing: 1.5px; transition: 0.4s;
+        }
+
+        nav a:hover { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+            padding: 0 20px;
+        }
+
+        .profile-container {
+            width: 220px; height: 220px; border-radius: 50%;
+            padding: 4px; background: linear-gradient(45deg, var(--primary), var(--secondary));
+            margin-bottom: 2rem; box-shadow: 0 0 50px rgba(56, 189, 248, 0.2);
+        }
+
+        .profile-container img {
+            width: 100%; height: 100%; border-radius: 50%;
+            object-fit: cover; 
+            object-position: center 15%; /* Fixes head crop */
+            border: 4px solid var(--dark);
         }
 
         .hero h1 {
-            font-family: 'Syne', sans-serif; font-size: clamp(2rem, 6vw, 4.2rem);
-            font-weight: 800; line-height: 1.2; white-space: nowrap; /* Forces one line */
-            background: linear-gradient(90deg, #fff, var(--neon-blue), var(--neon-green));
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 4.8rem);
+            font-weight: 800; line-height: 1.1; margin-bottom: 1rem;
+            background: linear-gradient(90deg, #fff, var(--primary), var(--secondary));
             -webkit-background-clip: text; color: transparent;
         }
 
-        nav {
-            position: fixed; top: 0; width: 100%; z-index: 1000;
-            background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(15px);
-            padding: 1rem; display: flex; justify-content: center; flex-wrap: wrap; gap: 1.2rem;
+        .hero p {
+            font-size: 1.1rem; color: #94a3b8; letter-spacing: 5px;
+            text-transform: uppercase; font-weight: 600;
         }
-        nav a { color: #94a3b8; text-decoration: none; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; transition: 0.3s; }
-        nav a:hover { color: var(--neon-blue); text-shadow: 0 0 10px var(--neon-blue); }
+
+        .scroll-hint {
+            position: absolute; bottom: 30px; animation: bounce 2s infinite;
+            color: var(--primary); font-size: 1.2rem;
+        }
+
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
     </style>
 </head>
 <body>
 
 <nav>
-    <a href="#about">About</a><a href="#journey">Journey</a><a href="#education">Education</a>
-    <a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#certificates">Certificates</a>
-    <a href="#training">Training</a><a href="#contact">Contact</a>
+    <a href="#about">About</a>
+    <a href="#journey">Journey</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#certification">Certification</a>
+    <a href="#certificates">Certificates</a>
+    <a href="#training">Training</a>
+    <a href="#contact">Contact</a>
 </nav>
 
-<header class="hero" data-aos="zoom-in">
-    <div class="profile-frame">
+<header class="hero">
+    <div class="profile-container" data-aos="zoom-in">
         <img src="profile.jpg" alt="Kumar Anmol Pratap">
     </div>
-    <h1>Kumar Anmol Pratap</h1>
-    <p style="font-size: 1.2rem; color: #94a3b8; margin-top: 10px; letter-spacing: 2px;">GEN-Z SOFTWARE ENGINEER & CLOUD ARCHITECT</p>
+    <h1 data-aos="fade-up">Kumar Anmol Pratap</h1>
+    <p data-aos="fade-up" data-aos-delay="200">Software Engineer | Cloud Architect</p>
+    <div class="scroll-hint"><i class="fas fa-mouse"></i></div>
 </header>
 <style>
-        section { padding: 100px 10%; max-width: 1300px; margin: auto; }
-        h2 { font-family: 'Syne', sans-serif; font-size: 2.8rem; margin-bottom: 3rem; }
-        .glass-card { background: var(--glass); padding: 3rem; border-radius: 32px; border: 1px solid rgba(255,255,255,0.1); }
-        .expert-list { list-style: none; }
-        .expert-list li { padding-left: 30px; position: relative; margin-bottom: 20px; color: #cbd5e1; }
-        .expert-list li::before { content: "⚡"; position: absolute; left: 0; color: var(--neon-green); }
-    </style>
-
-    <section id="training" data-aos="fade-up">
-        <h2>Professional Training</h2>
-        <div class="glass-card" style="border-left: 5px solid var(--neon-green);">
-            <h3 style="color: var(--neon-green); margin-bottom: 15px;">DSA Mastery — CipherSchools</h3>
-            <p style="margin-bottom: 20px; font-weight: 600;">(70+ Hours Professional Engineering Lab)</p>
-            <ul class="expert-list">
-                <li>Deep-dived into <strong>Algorithm Design</strong>, focusing on optimizing Big O complexity for high-performance Java applications[cite: 35, 38, 40].</li>
-                <li>Mastered <strong>Non-Linear Data Structures</strong> like Graphs and Trees to solve complex logical dependencies in real-world software[cite: 38].</li>
-                <li>Translated theoretical <strong>Dynamic Programming</strong> into functional modules, ensuring maximum memory efficiency[cite: 53].</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="achievements" data-aos="fade-up">
-        <h2>Achievements</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-            <div class="glass-card">
-                <h3 style="color: var(--neon-blue);">200+ Solved Challenges</h3>
-                <p>Consistently refined my problem-solving speed by tackling over 200 challenges across Neo-Colab and LeetCode, with a heavy focus on Java core logic[cite: 47, 53].</p>
-            </div>
-            <div class="glass-card">
-                <h3 style="color: var(--neon-green);">Top 30% Hackathon Rank</h3>
-                <p>Outperformed hundreds of peers in the <strong>Code-A-Haunt Hackathon</strong>, demonstrating high-pressure collaboration and innovative coding within the top bracket of participants[cite: 54].</p>
-            </div>
-        </div>
-    </section>
-    <style>
-        .connect-box { text-align: center; background: radial-gradient(circle at top, #1e293b, #020617); padding: 5rem 2rem; border-radius: 40px; }
-        .social-grid { display: flex; justify-content: center; gap: 3rem; margin-top: 3rem; flex-wrap: wrap; }
-        .social-link { text-decoration: none; color: #fff; transition: 0.4s; display: flex; flex-direction: column; align-items: center; gap: 10px; }
-        .social-link i { font-size: 3rem; color: var(--neon-blue); }
-        .social-link:hover { transform: translateY(-10px); }
-        .social-link:hover i { color: var(--neon-green); text-shadow: 0 0 20px var(--neon-green); }
-    </style>
-
-    <section id="contact" data-aos="zoom-in">
-        <div class="connect-box">
-            <h2 style="margin-bottom: 10px;">Let's Build the Future</h2>
-            <p style="color: #94a3b8;">Open for 2026/2027 Summer Internships | SDE & Cloud roles</p>
-            
-            <div class="social-grid">
-                <a href="https://github.com/Anmol280" target="_blank" class="social-link">
-                    <i class="fab fa-github"></i>
-                    <span>GitHub</span>
-                </a>
-                <a href="https://www.linkedin.com/in/anmol280" target="_blank" class="social-link">
-                    <i class="fab fa-linkedin"></i>
-                    <span>LinkedIn</span>
-                </a>
-                <a href="mailto:anmolpratap280@gmail.com" class="social-link">
-                    <i class="fas fa-envelope"></i>
-                    <span>Email</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <footer style="padding: 40px; text-align: center; opacity: 0.5;">
-        Kumar Anmol Pratap | 2026 | Built for Performance
-    </footer>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script> AOS.init({ duration: 1000, once: true }); </script>
-</body>
-</html>
-<style>
-        /* EDUCATION SECTION */
-        .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .edu-card {
-            background: var(--glass); padding: 2.5rem; border-radius: 30px;
-            border: 1px solid rgba(255,255,255,0.1); transition: 0.4s;
-        }
-        .edu-card:hover { border-color: var(--neon-blue); transform: translateY(-10px); }
-        .edu-card h3 { color: var(--neon-blue); font-size: 1.4rem; margin-bottom: 10px; }
-        .grade-highlight { color: var(--neon-green); font-weight: 800; font-size: 1.2rem; margin: 10px 0; }
-
-        /* SKILLS BENTO */
-        .skills-bento { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-        .skill-item { background: rgba(255,255,255,0.02); padding: 2rem; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); }
-        .skill-item h4 { margin-bottom: 1.5rem; color: #fff; letter-spacing: 1px; text-transform: uppercase; font-size: 0.9rem; }
-        .tag-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
-        .tag {
-            background: rgba(56, 189, 248, 0.1); color: var(--neon-blue);
-            padding: 5px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 700;
-        }
-
-        /* CERTIFICATES */
-        .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-        .cert-card {
-            background: var(--glass); padding: 1.8rem; border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.1); transition: 0.3s;
-        }
-        .cert-card:hover { border-color: var(--neon-green); }
-    </style>
-
-    <section id="education" data-aos="fade-up">
-        <h2 style="font-family: 'Syne'; color: #fff;">Education</h2>
-        <div class="edu-grid">
-            <div class="edu-card">
-                <h3>Lovely Professional University</h3>
-                <p>Bachelor of Technology in Computer Science</p>
-                <div class="grade-highlight">CGPA: 7.0</div>
-                <p style="font-size: 0.9rem; color: #94a3b8;">Punjab, India | 2023 - Present</p>
-            </div>
-            <div class="edu-card">
-                <h3>Grizzly Vidyalaya</h3>
-                <p>Intermediate (Science Stream)</p>
-                <div class="grade-highlight" style="color:#fff;">Result: 67.5%</div>
-                <p style="font-size: 0.9rem; color: #94a3b8;">Jharkhand, India | 2021 - 2023</p>
-            </div>
-            <div class="edu-card">
-                <h3>Sacred Heart School</h3>
-                <p>Matriculation</p>
-                <div class="grade-highlight" style="color:#fff;">Result: 80%</div>
-                <p style="font-size: 0.9rem; color: #94a3b8;">Jharkhand, India | 2019 - 2021</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" data-aos="fade-up">
-        <h2 style="font-family: 'Syne'; color: #fff;">Technical Arsenal</h2>
-        <div class="skills-bento">
-            <div class="skill-item">
-                <h4>Languages</h4>
-                <div class="tag-wrap">
-                    <span class="tag">Java</span><span class="tag">C++</span><span class="tag">Python</span><span class="tag">C</span>
-                </div>
-            </div>
-            <div class="skill-item">
-                <h4>Cloud & Infra</h4>
-                <div class="tag-wrap">
-                    <span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">Azure</span><span class="tag">Git</span>
-                </div>
-            </div>
-            <div class="skill-item">
-                <h4>Frameworks</h4>
-                <div class="tag-wrap">
-                    <span class="tag">Django</span><span class="tag">Bootstrap</span><span class="tag">Java Collections</span>
-                </div>
-            </div>
-            <div class="skill-item">
-                <h4>Engineering</h4>
-                <div class="tag-wrap">
-                    <span class="tag">DSA</span><span class="tag">OOPS</span><span class="tag">DBMS</span><span class="tag">OS</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="certificates" data-aos="fade-up">
-        <h2 style="font-family: 'Syne'; color: #fff;">Certificates</h2>
-        <div class="cert-grid">
-            <div class="cert-card">
-                <h4 style="color:#fff;">Master Generative AI</h4>
-                <p style="font-size: 0.85rem; color: #94a3b8;">Udemy | Professional Credential</p>
-            </div>
-            <div class="cert-card">
-                <h4 style="color:#fff;">Social Networks</h4>
-                <p style="font-size: 0.85rem; color: #94a3b8;">NPTEL | Academic Certification</p>
-            </div>
-            <div class="cert-card">
-                <h4 style="color:#fff;">Python & Django</h4>
-                <p style="font-size: 0.85rem; color: #94a3b8;">Udemy | Full Stack Development</p>
-            </div>
-        </div>
-    </section>
-    <style>
-        /* PROJECTS WRAPPER */
-        .project-container { display: flex; flex-direction: column; gap: 40px; }
-        .project-card {
-            background: var(--glass); padding: 3.5rem; border-radius: 40px;
-            border: 1px solid rgba(255,255,255,0.1); position: relative;
-            transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        .project-card:hover { border-color: var(--neon-green); transform: translateY(-5px); }
-        .project-meta { display: flex; justify-content: space-between; margin-bottom: 20px; align-items: center; }
-        .project-date { color: var(--neon-green); font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; }
-        
-        /* CERTIFICATION BOXES */
-        .certification-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
-        .certification-card {
-            background: rgba(56, 189, 248, 0.03); padding: 2.5rem; border-radius: 28px;
-            border: 1px solid rgba(56, 189, 248, 0.1); display: flex; flex-direction: column;
-            justify-content: space-between; transition: 0.4s;
-        }
-        .certification-card:hover { background: rgba(56, 189, 248, 0.07); border-color: var(--neon-blue); }
-        .verify-link {
-            margin-top: 20px; padding: 12px; border: 1px solid var(--neon-blue);
-            color: var(--neon-blue); text-decoration: none; border-radius: 14px;
-            text-align: center; font-weight: 700; font-size: 0.8rem; transition: 0.3s;
-        }
-        .verify-link:hover { background: var(--neon-blue); color: #020617; box-shadow: 0 0 20px var(--neon-blue); }
-    </style>
-
-    <section id="projects" data-aos="fade-up">
-        <h2 style="font-family: 'Syne'; color: #fff;">Engineering Projects</h2>
-        <div class="project-container">
-            
-            <div class="project-card">
-                <div class="project-meta">
-                    <h3 style="font-family: 'Syne'; font-size: 1.8rem;">Student Attendance System</h3>
-                    <span class="project-date">JUL '25 - AUG '25</span>
-                </div>
-                <ul class="expert-list">
-                    <li>Developed a **High-Performance Java Backend** utilizing the Collections Framework (HashMap, ArrayList) to manage student data with O(1) average-time complexity for record lookups.</li>
-                    <li>Implemented **Data Persistence** through robust File I/O operations, ensuring all attendance logs are safely stored and recoverable across system sessions.</li>
-                    <li>Built a modular, scalable architecture by strictly applying **OOP Design Patterns**, making the codebase easy to maintain and extend for future features.</li>
-                </ul>
-            </div>
-
-            <div class="project-card">
-                <div class="project-meta">
-                    <h3 style="font-family: 'Syne'; font-size: 1.8rem;">Library Tracker</h3>
-                    <span class="project-date">JUN '24 - JUL '24</span>
-                </div>
-                <ul class="expert-list">
-                    <li>Engineered a comprehensive console application to digitize library workflows, reducing the administrative overhead of manual book tracking by 100%.</li>
-                    <li>Integrated **Optimized Search Algorithms** to filter extensive catalogs by Title, Author, or ID, significantly lowering query retrieval times for large datasets.</li>
-                    <li>Designed an intuitive, menu-driven interface to ensure a seamless UX for both librarians and students.</li>
-                </ul>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="certification" data-aos="fade-up">
-        <h2 style="font-family: 'Syne'; color: #fff;">Professional Certification</h2>
-        <div class="certification-grid">
-            
-            <div class="certification-card">
-                <div>
-                    <h4 style="font-size: 1.2rem; margin-bottom: 5px;">Successful Career Development</h4>
-                    <p style="color: #94a3b8; font-size: 0.85rem;">Coursera | Verified Professional Credential</p>
-                </div>
-                <a href="https://coursera.org/verify/I0Q7NB2K4FVV" target="_blank" class="verify-link">Verify Credential →</a>
-            </div>
-
-            <div class="certification-card">
-                <div>
-                    <h4 style="font-size: 1.2rem; margin-bottom: 5px;">AI in Education: ChatGPT</h4>
-                    <p style="color: #94a3b8; font-size: 0.85rem;">Coursera | Professional Training</p>
-                </div>
-                <a href="https://coursera.org/verify/ROAA7RHVX6IZ" target="_blank" class="verify-link">Verify Credential →</a>
-            </div>
-
-            <div class="certification-card">
-                <div>
-                    <h4 style="font-size: 1.2rem; margin-bottom: 5px;">Workplace Communication</h4>
-                    <p style="color: #94a3b8; font-size: 0.85rem;">Coursera | 21st Century Skills</p>
-                </div>
-                <a href="https://coursera.org/verify/ROAA7RHVX6IZ" target="_blank" class="verify-link">Verify Credential →</a>
-            </div>
-
-        </div>
-    </section>
-    <style>
-        /* TRAINING SECTION */
-        .training-card {
-            background: linear-gradient(145deg, rgba(34, 197, 94, 0.05), transparent);
-            padding: 3.5rem; border-radius: 40px; border: 1px solid rgba(255, 255, 255, 0.1);
-            border-left: 6px solid var(--neon-green); margin-bottom: 3rem;
-        }
-
-        /* ACHIEVEMENT GRID */
-        .achieve-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;
-        }
-        .achieve-card {
-            background: var(--glass); padding: 2.5rem; border-radius: 28px;
-            border: 1px solid rgba(255, 255, 255, 0.1); position: relative;
-            transition: 0.4s;
-        }
-        .achieve-card:hover { border-color: var(--neon-blue); transform: scale(1.02); }
-
-        /* CONTACT SECTION */
-        .contact-box {
-            background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.1), transparent);
-            padding: 5rem 2rem; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center; margin-top: 50px;
+        /* --- GLOBAL SECTION STYLING --- */
+        section { 
+            padding: 120px 10%; 
+            max-width: 1400px; 
+            margin: auto; 
         }
         
-        .social-container {
-            display: flex; justify-content: center; gap: 3.5rem; margin-top: 4rem; flex-wrap: wrap;
+        .section-title { 
+            font-family: 'Syne', sans-serif; 
+            font-size: clamp(2rem, 5vw, 3rem); 
+            color: #fff; 
+            margin-bottom: 4rem; 
+            text-transform: uppercase;
+            position: relative;
         }
-        .social-link {
-            text-decoration: none; color: #fff; transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex; flex-direction: column; align-items: center; gap: 12px;
+
+        .section-title::after {
+            content: ""; position: absolute; bottom: -10px; left: 0;
+            width: 60px; height: 4px; background: var(--primary);
         }
-        .social-link i { font-size: 3.5rem; color: var(--neon-blue); }
-        .social-link span { font-weight: 700; font-size: 0.9rem; letter-spacing: 1px; }
-        
-        .social-link:hover { transform: translateY(-15px); }
-        .social-link:hover i { color: var(--neon-green); filter: drop-shadow(0 0 15px var(--neon-green)); }
 
-        footer { padding: 60px; text-align: center; opacity: 0.4; font-size: 0.8rem; border-top: 1px solid rgba(255, 255, 255, 0.1); }
-    </style>
-
-    <section id="training" data-aos="fade-up">
-        <h2 style="font-family: 'Syne'; color: #fff;">Professional Training</h2>
-        <div class="training-card">
-            <h3 style="color: #fff; font-size: 1.8rem; margin-bottom: 15px;">DSA with Java | CipherSchools</h3>
-            <p style="color: var(--neon-green); font-weight: 800; margin-bottom: 25px;">JUN '25 - JUL '25 | 70+ Hours Technical Lab</p>
-            <ul class="expert-list">
-                <li>Mastered the **Big O Complexity Analysis** to ensure every algorithm written is optimized for both time and space efficiency[cite: 35, 40].</li>
-                <li>Gained deep-level proficiency in **Non-Linear Data Structures**, including Graphs, Heaps, and Binary Search Trees, for advanced problem solving[cite: 38].</li>
-                <li>Applied **Recursive Logic and Backtracking** to solve complex computational puzzles, translating logic into clean, modular Java code[cite: 37, 39].</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="achievements" data-aos="fade-up">
-        <h2 style="font-family: 'Syne'; color: #fff;">Key Achievements</h2>
-        <div class="achieve-grid">
-            <div class="achieve-card">
-                <h3 style="color: var(--neon-blue); margin-bottom: 15px;">200+ Solved Challenges</h3>
-                <p>Consistently solved high-difficulty DSA and Java problems on Neo-Colab, focusing on **Dynamic Programming** and logical optimization[cite: 47, 53].</p>
-            </div>
-            <div class="achieve-card">
-                <h3 style="color: var(--neon-green);">Hackathon Top 30%</h3>
-                <p>Ranked in the **Top 30%** of participants in the Code-A-Haunt Hackathon, demonstrating strong team collaboration and competitive engineering skills[cite: 54].</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" data-aos="zoom-in">
-        <div class="contact-box">
-            <h1 style="font-family: 'Syne'; font-size: 3rem; margin-bottom: 1rem;">Let's Build the Future.</h1>
-            <p style="color: #94a3b8; font-size: 1.1rem;">Seeking 2026/2027 Summer Internships in Software Engineering or Cloud Architecture[cite: 59].</p>
-            
-            <div class="social-container">
-                <a href="https://github.com/Anmol280" target="_blank" class="social-link">
-                    <i class="fab fa-github"></i>
-                    <span>GITHUB</span>
-                </a>
-                <a href="https://www.linkedin.com/in/anmol280" target="_blank" class="social-link">
-                    <i class="fab fa-linkedin"></i>
-                    <span>LINKEDIN</span>
-                </a>
-                <a href="mailto:anmolpratap280@gmail.com" class="social-link">
-                    <i class="fas fa-envelope"></i>
-                    <span>MAIL</span>
-                </a>
-            </div>
-            
-            <p style="margin-top: 4rem; font-weight: 700; color: var(--neon-blue);">+91-8809761120 [cite: 16]</p>
-        </div>
-    </section>
-
-    <footer>
-        Kumar Anmol Pratap | &copy; 2026 | Engineered with Accuracy & Passion
-    </footer>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true, mirror: false });
-    </script>
-</body>
-</html>
-<style>
-        /* SECTION HEADERS */
-        .section-header { margin-bottom: 4rem; text-align: left; }
-        .section-header h2 { font-family: 'Syne', sans-serif; font-size: 3rem; color: #fff; text-transform: uppercase; }
-
-        /* GLASS CARD STYLING */
+        /* --- ABOUT CARD --- */
         .about-card {
-            background: var(--glass); padding: 3.5rem; border-radius: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.1); line-height: 1.8;
-            font-size: 1.2rem; color: #cbd5e1;
+            background: var(--glass); 
+            padding: 3.5rem; 
+            border-radius: 40px;
+            border: 1px solid var(--border); 
+            line-height: 1.8; 
+            font-size: 1.2rem; 
+            color: #cbd5e1;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
-        .highlight-text { color: var(--neon-blue); font-weight: 700; }
 
-        /* TIMELINE DESIGN */
-        .timeline-container { border-left: 2px dashed rgba(56, 189, 248, 0.3); padding-left: 3rem; }
-        .timeline-node { margin-bottom: 4rem; position: relative; }
-        .timeline-node::before {
-            content: ""; position: absolute; left: -3.6rem; top: 8px;
-            width: 18px; height: 18px; background: var(--neon-green);
-            border-radius: 50%; box-shadow: 0 0 20px var(--neon-green);
+        .text-gradient {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text; color: transparent; font-weight: 800;
         }
-        .timeline-node h3 { font-family: 'Syne'; font-size: 1.6rem; color: #fff; margin-bottom: 10px; }
-        .timeline-node p { color: #94a3b8; max-width: 800px; }
+
+        /* --- JOURNEY TIMELINE --- */
+        .timeline { 
+            border-left: 2px dashed var(--border); 
+            padding-left: 3rem; 
+            margin-top: 2rem;
+        }
+
+        .timeline-item { 
+            margin-bottom: 5rem; 
+            position: relative; 
+        }
+
+        .timeline-item::before {
+            content: ""; position: absolute; left: -3.65rem; top: 8px;
+            width: 20px; height: 20px; background: var(--secondary); 
+            border-radius: 50%; box-shadow: 0 0 20px var(--secondary);
+        }
+
+        .timeline-content h3 { 
+            font-family: 'Syne', sans-serif; 
+            font-size: 1.8rem; 
+            color: #fff; 
+            margin-bottom: 15px; 
+        }
+
+        /* NPTEL ELITE BADGE STYLING */
+        .elite-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: linear-gradient(45deg, #ffd700, #ff8c00);
+            color: #000; padding: 5px 15px; border-radius: 8px;
+            font-weight: 900; font-size: 0.8rem; text-transform: uppercase;
+            margin-left: 15px; vertical-align: middle;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .timeline-content p { color: #94a3b8; font-size: 1.1rem; max-width: 900px; }
     </style>
 
     <section id="about" data-aos="fade-up">
-        <div class="section-header"><h2>About Me</h2></div>
+        <h2 class="section-title">About Me</h2>
         <div class="about-card">
-            I am a dedicated <span class="highlight-text">Computer Science Engineering</span> student at Lovely Professional University[cite: 57, 58]. 
-            My technical focus revolves around building high-performance systems and exploring the vast potential of <span class="highlight-text">Cloud Infrastructure</span>[cite: 60]. 
-            I pride myself on a meticulous approach to software development, ensuring that every line of code is optimized for scalability and security.
+            I am a <span class="text-gradient">Computer Science Engineer</span> at Lovely Professional University, specializing in 
+            <span class="text-gradient">Core Java & Cloud Architectures</span>. Originally from Jhumri Telaiya, Jharkhand, I moved to Punjab 
+            to master the art of scalable software engineering. My approach combines rigorous <span class="text-gradient">DSA logic</span> 
+            with modern <span class="text-gradient">Generative AI</span> integration, backed by a portfolio of 17+ professional certifications 
+            from industry giants like Google, IBM, and Infosys.
         </div>
     </section>
 
     <section id="journey" data-aos="fade-up">
-        <div class="section-header"><h2>The Journey</h2></div>
-        <div class="timeline-container">
-            <div class="timeline-node" data-aos="fade-left">
-                <h3>Foundation at LPU</h3>
-                <p>Relocated from Jharkhand to Punjab to begin my B.Tech in CSE[cite: 57, 58, 65]. This transition marked the beginning of my deep dive into Java development and architectural design[cite: 60].</p>
+        <h2 class="section-title">Professional Journey</h2>
+        <div class="timeline">
+            
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="timeline-content">
+                    <h3>Academic Excellence @ LPU</h3>
+                    <p>Relocated to Punjab to pursue B.Tech CSE. Currently maintaining a focused 7.0 CGPA while deep-diving into competitive programming and modular system design.</p>
+                </div>
             </div>
-            <div class="timeline-node" data-aos="fade-left" data-aos-delay="200">
-                <h3>The 2025 Pivot</h3>
-                <p>Navigated through significant health challenges in February 2025, using the recovery period to master Cloud Computing fundamentals and refine my logical problem-solving skills.</p>
+
+            <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
+                <div class="timeline-content">
+                    <h3>Elite Recognition — NPTEL IIT Madras
+                        <span class="elite-badge"><i class="fas fa-medal"></i> Elite Badge</span>
+                    </h3>
+                    <p>Secured the prestigious <span style="color: #ffd700; font-weight: 700;">ELITE BADGE</span> in Social Networks from NPTEL, demonstrating mastery in advanced computational network theory and mathematical modeling.</p>
+                </div>
             </div>
-            <div class="timeline-node" data-aos="fade-left" data-aos-delay="400">
-                <h3>Technical Expansion</h3>
-                <p>Currently in my 5th semester, maintaining a strong academic record while actively preparing for Tier-1 engineering roles through rigorous DSA practice and project development[cite: 60].</p>
+
+            <div class="timeline-item" data-aos="fade-left" data-aos-delay="400">
+                <div class="timeline-content">
+                    <h3>Health Resilience & AI Pivot</h3>
+                    <p>Transformed a health-recovery phase in February 2025 into a period of intense technical growth, completing multiple tracks in Generative AI, Hardware Architectures, and Operating Systems.</p>
+                </div>
             </div>
+
+        </div>
+    </section>
+    <style>
+        /* --- EDUCATION GRID --- */
+        .edu-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .edu-box {
+            background: var(--glass); padding: 3rem; border-radius: 35px;
+            border: 1px solid var(--border); transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative; overflow: hidden;
+        }
+
+        .edu-box:hover { transform: translateY(-15px); border-color: var(--primary); background: rgba(56, 189, 248, 0.05); }
+        .edu-box h3 { color: var(--primary); font-size: 1.6rem; margin-bottom: 0.5rem; font-family: 'Syne'; }
+        .edu-meta { color: #64748b; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+
+        .grade-pill {
+            display: inline-block; padding: 8px 20px; background: rgba(34, 197, 94, 0.1); 
+            color: var(--secondary); border-radius: 14px; font-weight: 800;
+            margin-top: 20px; font-size: 1.1rem; border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+
+        /* --- SKILLS BENTO GRID --- */
+        .bento-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .bento-card {
+            background: rgba(255, 255, 255, 0.02); padding: 2.5rem;
+            border-radius: 30px; border: 1px solid var(--border);
+            transition: 0.3s ease;
+        }
+
+        .bento-card:hover { background: rgba(56, 189, 248, 0.03); border-color: rgba(56, 189, 248, 0.3); }
+        .bento-card h4 { font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 1.8rem; }
+        
+        .tag-list { display: flex; flex-wrap: wrap; gap: 10px; }
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.05); color: #fff;
+            padding: 10px 18px; border-radius: 14px; font-size: 0.85rem;
+            font-weight: 600; border: 1px solid var(--border);
+            display: flex; align-items: center; gap: 8px;
+        }
+
+        .v-icon { color: var(--primary); font-size: 0.7rem; }
+    </style>
+
+    <section id="education" data-aos="fade-up">
+        <h2 class="section-title">Academic Foundation</h2>
+        <div class="edu-container">
+            
+            <div class="edu-box">
+                <span class="edu-meta">LPU, Punjab | 2023 - 2027</span>
+                <h3>B.Tech Computer Science</h3>
+                <p>Specializing in Cloud Computing and Full-Stack Development with a focus on high-performance Java logic.</p>
+                <div class="grade-pill">CGPA: 7.0</div>
+            </div>
+
+            <div class="edu-box">
+                <span class="edu-meta">Grizzly Vidyalaya | 2021 - 2023</span>
+                <h3>Intermediate (Science)</h3>
+                <p>Advanced studies in Physics, Chemistry, and Mathematics (PCM) with a focus on engineering entrance.</p>
+                <div class="grade-pill" style="color:#fff; background:rgba(255,255,255,0.05);">Result: 67.5%</div>
+            </div>
+
+            <div class="edu-box">
+                <span class="edu-meta">Sacred Heart School | 2019 - 2021</span>
+                <h3>Matriculation</h3>
+                <p>Foundation in General Sciences and Mathematics with consistent academic performance.</p>
+                <div class="grade-pill" style="color:#fff; background:rgba(255,255,255,0.05);">Result: 80%</div>
+            </div>
+
         </div>
     </section>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 1000,
-            once: true,
-            mirror: false,
-            offset: 100
-        });
-    </script>
-</body>
-</html>
-<style>
-        /* PROJECT CARDS - High Tech Detail */
-        .project-card {
-            background: var(--glass); padding: 3rem; border-radius: 40px;
-            border: 1px solid var(--glass-border); margin-bottom: 2.5rem;
-            transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-        .project-card:hover { border-color: var(--neon-green); transform: translateY(-10px); }
-        .project-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
-        .project-meta h3 { font-family: 'Syne', sans-serif; font-size: 2rem; color: #fff; }
-        .project-date { color: var(--neon-green); font-weight: 700; font-size: 0.85rem; }
+    <section id="skills" data-aos="fade-up">
+        <h2 class="section-title">Technical Arsenal</h2>
+        <div class="bento-container">
+            
+            <div class="bento-card">
+                <h4>Core Languages</h4>
+                <div class="tag-list">
+                    <div class="skill-tag">Java <i class="fas fa-certificate v-icon"></i></div>
+                    <div class="skill-tag">C++ <i class="fas fa-certificate v-icon"></i></div>
+                    <div class="skill-tag">Python <i class="fas fa-certificate v-icon"></i></div>
+                    <div class="skill-tag">C <i class="fas fa-certificate v-icon"></i></div>
+                </div>
+            </div>
 
-        /* CERT GRID */
-        .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-        .cert-card {
-            background: rgba(255, 255, 255, 0.02); padding: 2rem; border-radius: 24px;
-            border: 1px solid var(--glass-border); display: flex; flex-direction: column;
-            justify-content: space-between; transition: 0.3s;
+            <div class="bento-card">
+                <h4>Cloud & Systems</h4>
+                <div class="tag-list">
+                    <div class="skill-tag">AWS Infrastructure</div>
+                    <div class="skill-tag">Networking <i class="fas fa-certificate v-icon"></i></div>
+                    <div class="skill-tag">Hardware/OS <i class="fas fa-certificate v-icon"></i></div>
+                    <div class="skill-tag">Docker</div>
+                </div>
+            </div>
+
+            <div class="bento-card">
+                <h4>Modern Web</h4>
+                <div class="tag-list">
+                    <div class="skill-tag">Responsive Design <i class="fas fa-certificate v-icon"></i></div>
+                    <div class="skill-tag">Django Framework <i class="fas fa-certificate v-icon"></i></div>
+                    <div class="skill-tag">HTML5/CSS3</div>
+                    <div class="skill-tag">Bootstrap</div>
+                </div>
+            </div>
+
+            <div class="bento-card">
+                <h4>AI & Engineering</h4>
+                <div class="tag-list">
+                    <div class="skill-tag">DSA Mastery <i class="fas fa-certificate v-icon"></i></div>
+                    <div class="skill-tag">Generative AI <i class="fas fa-certificate v-icon"></i></div>
+                    <div class="skill-tag">Prompt Eng. <i class="fas fa-certificate v-icon"></i></div>
+                    <div class="skill-tag">Automata Theory <i class="fas fa-certificate v-icon"></i></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <style>
+        /* --- PROJECT CARDS --- */
+        .project-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
         }
-        .cert-card:hover { border-color: var(--neon-blue); background: rgba(56, 189, 248, 0.05); }
-        
-        /* VERIFY BUTTONS */
-        .verify-btn {
-            margin-top: 20px; padding: 12px; border: 1px solid var(--neon-blue);
-            color: var(--neon-blue); text-decoration: none; border-radius: 12px;
-            text-align: center; font-weight: 700; font-size: 0.8rem; transition: 0.3s;
+
+        .project-card {
+            background: var(--glass); padding: 4rem; border-radius: 45px;
+            border: 1px solid var(--border); position: relative;
+            transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            overflow: hidden;
         }
-        .verify-btn:hover { background: var(--neon-blue); color: #020617; box-shadow: 0 0 20px var(--neon-blue); }
+
+        .project-card:hover { border-color: var(--secondary); background: rgba(34, 197, 94, 0.03); }
+
+        .project-header {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;
+        }
+
+        .project-header h3 { 
+            font-family: 'Syne', sans-serif; font-size: 2.2rem; color: #fff; 
+            line-height: 1;
+        }
+
+        .project-date {
+            color: var(--secondary); font-weight: 800; font-size: 0.8rem;
+            text-transform: uppercase; letter-spacing: 2px;
+            background: rgba(34, 197, 94, 0.1); padding: 5px 15px; border-radius: 10px;
+        }
+
+        .project-desc { color: #94a3b8; font-size: 1.15rem; margin-bottom: 2rem; max-width: 800px; }
+
+        .tech-stack { display: flex; gap: 15px; margin-top: 2rem; flex-wrap: wrap; }
+        .tech-pill {
+            font-size: 0.7rem; font-weight: 800; color: var(--primary);
+            text-transform: uppercase; border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 4px 12px; border-radius: 8px;
+        }
+
+        /* --- EXPERT LIST --- */
+        .feature-list { list-style: none; }
+        .feature-list li {
+            position: relative; padding-left: 30px; margin-bottom: 15px;
+            color: #cbd5e1; line-height: 1.6;
+        }
+        .feature-list li::before {
+            content: "▹"; position: absolute; left: 0; color: var(--secondary);
+            font-weight: 900;
+        }
     </style>
 
     <section id="projects" data-aos="fade-up">
-        <div class="section-header"><h2>Engineering Projects</h2></div>
-        
-        <div class="project-card">
-            <div class="project-meta">
-                <h3>Student Attendance System</h3>
-                <span class="project-date">JUL '25 - AUG '25</span>
-            </div>
-            <p style="color:#94a3b8; margin-bottom:1.5rem;">Architected a Java-based application to automate student record management and streamline tracking efficiency[cite: 18, 20].</p>
-            <ul class="expert-list">
-                <li>Engineered a high-efficiency data system using <strong>Java Collections (ArrayList, HashMap)</strong> and File I/O for persistent storage[cite: 21].</li>
-                <li>Automated report generation, significantly reducing manual monitoring time and improving data accuracy[cite: 22].</li>
-                <li>Strictly applied <strong>OOP Principles</strong> to ensure a modular and scalable system architecture[cite: 23].</li>
-            </ul>
-        </div>
+        <h2 class="section-title">Engineering Projects</h2>
+        <div class="project-wrapper">
 
-        <div class="project-card">
-            <div class="project-meta">
-                <h3>Library Tracker</h3>
-                <span class="project-date">JUN '24 - JUL '24</span>
+            <div class="project-card" data-aos="fade-up">
+                <div class="project-header">
+                    <h3>Student Attendance System</h3>
+                    <span class="project-date">JUL 2025 – AUG 2025</span>
+                </div>
+                <p class="project-desc">Architected a robust Java application to automate academic record management, replacing manual tracking with digital persistence.</p>
+                <ul class="feature-list">
+                    <li>Engineered an optimized data retrieval system using **Java Collections (HashMap & ArrayList)** to ensure O(1) average-time complexity for record lookups.</li>
+                    <li>Developed a secure **Data Persistence layer** via File I/O operations, ensuring all attendance logs remain consistent and recoverable.</li>
+                    <li>Designed the system using strict **OOP Design Patterns**, facilitating modularity and future-proof scalability for larger institutional datasets.</li>
+                </ul>
+                <div class="tech-stack">
+                    <span class="tech-pill">Java</span><span class="tech-pill">File I/O</span><span class="tech-pill">Collections Framework</span><span class="tech-pill">System Design</span>
+                </div>
             </div>
-            <p style="color:#94a3b8; margin-bottom:1.5rem;">Developed a Java console application to digitize core library operations and book circulation[cite: 24, 26].</p>
-            <ul class="expert-list">
-                <li>Integrated <strong>Data Structures and Algorithms (DSA)</strong> to optimize catalog search and reduce query retrieval times[cite: 27].</li>
-                <li>Implemented robust search algorithms to instantly filter library data by Title, Author, or ID[cite: 29].</li>
-            </ul>
+
+            <div class="project-card" data-aos="fade-up">
+                <div class="project-header">
+                    <h3>Digital Library Tracker</h3>
+                    <span class="project-date">JUN 2024 – JUL 2024</span>
+                </div>
+                <p class="project-desc">A professional-grade console application designed to digitize library workflows and book circulation.</p>
+                <ul class="feature-list">
+                    <li>Integrated core **Data Structures & Algorithms** to optimize catalog searches, reducing query response times for book identification.</li>
+                    <li>Implemented a high-speed search engine to filter library databases by **Title, Author, or Unique ID** instantly.</li>
+                    <li>Programmed a dynamic, menu-driven interface to provide a friction-less User Experience (UX) for administrative tasks.</li>
+                </ul>
+                <div class="tech-stack">
+                    <span class="tech-pill">Java Core</span><span class="tech-pill">DSA Integration</span><span class="tech-pill">Search Algorithms</span><span class="tech-pill">UX Logic</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <style>
+        /* --- CERTIFICATION GRID --- */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 5rem;
+        }
+
+        .cert-card {
+            background: var(--glass); padding: 2.2rem; border-radius: 28px;
+            border: 1px solid var(--border); display: flex; flex-direction: column;
+            justify-content: space-between; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .cert-card:hover { border-color: var(--primary); transform: scale(1.02); background: rgba(56, 189, 248, 0.05); }
+        .cert-card h4 { font-family: 'Syne', sans-serif; font-size: 1.2rem; color: #fff; margin-bottom: 10px; line-height: 1.4; }
+        .cert-issuer { color: #94a3b8; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; }
+
+        /* --- VERIFICATION BUTTONS --- */
+        .btn-verify {
+            margin-top: 20px; padding: 12px; border-radius: 14px;
+            text-align: center; text-decoration: none; font-weight: 800; font-size: 0.75rem;
+            transition: 0.3s; letter-spacing: 1px; text-transform: uppercase;
+        }
+
+        .verify-primary { border: 1px solid var(--primary); color: var(--primary); }
+        .verify-primary:hover { background: var(--primary); color: var(--dark); box-shadow: 0 0 20px var(--primary); }
+
+        .verify-secondary { border: 1px solid var(--secondary); color: var(--secondary); }
+        .verify-secondary:hover { background: var(--secondary); color: var(--dark); box-shadow: 0 0 20px var(--secondary); }
+
+        .qr-info { font-size: 0.7rem; color: #64748b; margin-top: 15px; display: flex; align-items: center; gap: 8px; }
+    </style>
+
+    <section id="certification" data-aos="fade-up">
+        <h2 class="section-title">Professional Certifications</h2>
+        <div class="cert-grid">
+            
+            <div class="cert-card">
+                <div>
+                    <span class="cert-issuer">IBM | Coursera</span>
+                    <h4>Introduction to Hardware and Operating Systems</h4>
+                </div>
+                <a href="https://coursera.org/verify/EAKWE9Y3H7QE" target="_blank" class="btn-verify verify-primary">Verify Credential →</a>
+            </div>
+
+            <div class="cert-card">
+                <div>
+                    <span class="cert-issuer">Google | Coursera</span>
+                    <h4>The Bits and Bytes of Computer Networking</h4>
+                </div>
+                <a href="https://coursera.org/verify/K6NUPGL74XCS" target="_blank" class="btn-verify verify-primary">Verify Credential →</a>
+            </div>
+
+            <div class="cert-card">
+                <div>
+                    <span class="cert-issuer">FreeCodeCamp</span>
+                    <h4>Responsive Web Design</h4>
+                </div>
+                <a href="https://freecodecamp.org/certification/fcc033fbec4-5e8c-4c15-b322-ea6c9c344f75/responsive-web-design" target="_blank" class="btn-verify verify-primary">Verify Credential →</a>
+            </div>
+
+            <div class="cert-card">
+                <div><span class="cert-issuer">UPenn | Coursera</span><h4>AI in Education: ChatGPT for Teaching</h4></div>
+                <a href="https://coursera.org/verify/ROAA7RHVX6IZ" target="_blank" class="btn-verify verify-primary">Verify Credential →</a>
+            </div>
+
+            <div class="cert-card">
+                <div><span class="cert-issuer">USF | Coursera</span><h4>Successful Career Development</h4></div>
+                <a href="https://coursera.org/verify/I0Q7NB2K4FVV" target="_blank" class="btn-verify verify-primary">Verify Credential →</a>
+            </div>
+
+            <div class="cert-card">
+                <div><span class="cert-issuer">UCI | Coursera</span><h4>Workplace Communication</h4></div>
+                <a href="https://coursera.org/verify/HXPUE63TUXUV" target="_blank" class="btn-verify verify-primary">Verify Credential →</a>
+            </div>
+
         </div>
     </section>
 
     <section id="certificates" data-aos="fade-up">
-        <div class="section-header"><h2>Certificates</h2></div>
+        <h2 class="section-title">Technical Certificates</h2>
         <div class="cert-grid">
-            <div class="cert-card">
-                <div>
-                    <h4 style="color:#fff;">Master Generative AI</h4>
-                    <p style="font-size:0.85rem; color:#94a3b8;">Udemy | Gen-AI Tools mastery [cite: 43]</p>
-                </div>
-            </div>
-            <div class="cert-card">
-                <div>
-                    <h4 style="color:#fff;">Social Networks</h4>
-                    <p style="font-size:0.85rem; color:#94a3b8;">NPTEL | Academic Certification [cite: 44]</p>
-                </div>
-            </div>
-            <div class="cert-card">
-                <div>
-                    <h4 style="color:#fff;">Python & Django</h4>
-                    <p style="font-size:0.85rem; color:#94a3b8;">Udemy | Full Stack Development [cite: 45]</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="certification" data-aos="fade-up">
-        <div class="section-header"><h2>Professional Certification</h2></div>
-        <div class="cert-grid">
-            <div class="cert-card" style="border-top: 2px solid var(--neon-blue);">
+            <div class="cert-card" style="border-left: 4px solid var(--secondary);">
                 <div>
-                    <h4 style="color:#fff;">Successful Career Development</h4>
-                    <p style="font-size:0.85rem; color:#94a3b8;">Coursera | Professional Credential</p>
+                    <span class="cert-issuer">LPU Colab | Examly</span>
+                    <h4>Data Structures & Algorithms Mastery</h4>
                 </div>
-                <a href="https://coursera.org/verify/I0Q7NB2K4FVV" target="_blank" class="verify-btn">Verify Credential →</a>
+                <a href="https://lpucolab438.examly.io/certificate/U2FsdGVkX1%2FHCukWUNowKjA6IXddYNZiUqRgecGaX48%3D" target="_blank" class="btn-verify verify-secondary">View Logic Certificate →</a>
             </div>
-            <div class="cert-card" style="border-top: 2px solid var(--neon-blue);">
+
+            <div class="cert-card" style="border-top: 3px solid gold;">
                 <div>
-                    <h4 style="color:#fff;">AI in Education: ChatGPT</h4>
-                    <p style="font-size:0.85rem; color:#94a3b8;">Coursera | Emerging Tech Credential</p>
+                    <span class="cert-issuer">NPTEL | IIT Madras</span>
+                    <h4>Social Networks <span class="elite-badge" style="margin-left:5px;">Elite</span></h4>
                 </div>
-                <a href="https://coursera.org/verify/ROAA7RHVX6IZ" target="_blank" class="verify-btn">Verify Credential →</a>
+                <a href="https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL25CS102S95870011110370483" target="_blank" class="btn-verify verify-secondary">View Gold Certificate →</a>
             </div>
-            <div class="cert-card" style="border-top: 2px solid var(--neon-blue);">
+
+            <div class="cert-card">
                 <div>
-                    <h4 style="color:#fff;">Workplace Communication</h4>
-                    <p style="font-size:0.85rem; color:#94a3b8;">Coursera | Professional Skills</p>
+                    <span class="cert-issuer">Udemy</span>
+                    <h4>Master Generative AI & Tools (ChatGPT)</h4>
                 </div>
-                <a href="https://coursera.org/verify/ROAA7RHVX6IZ" target="_blank" class="verify-btn">Verify Credential →</a>
+                <a href="https://ude.my/UC-4415aa0f-98c4-48f3-8281-6981a4f1873a" target="_blank" class="btn-verify verify-secondary">Verify on Udemy →</a>
             </div>
+
+            <div class="cert-card">
+                <div>
+                    <span class="cert-issuer">Code-A-Haunt</span>
+                    <h4>Hackathon Achievement: Top 30%</h4>
+                </div>
+                <a href="https://verification.givemycertificate.com/v/88ea97fe-ad3b-4b16-a515-2d92b00b4e11" target="_blank" class="btn-verify verify-secondary">View Achievement →</a>
+            </div>
+
+            <div class="cert-card">
+                <div>
+                    <span class="cert-issuer">Infosys Springboard</span>
+                    <h4>Computational Theory & Finite Automata</h4>
+                </div>
+                <div class="qr-info"><i class="fas fa-qrcode"></i> Scan QR code in original image to verify</div>
+            </div>
+
         </div>
     </section>
     <style>
-        /* TRAINING BOX - Specialized Border & Gradient */
-        .training-container {
+        /* --- TRAINING & ACHIEVEMENT STYLING --- */
+        .training-card {
             background: linear-gradient(145deg, rgba(34, 197, 94, 0.05), transparent);
-            padding: 3.5rem; border-radius: 40px; border: 1px solid var(--glass-border);
-            border-left: 6px solid var(--neon-green); margin-bottom: 4rem;
+            padding: 3.5rem; border-radius: 40px; border: 1px solid var(--border);
+            border-left: 6px solid var(--secondary); margin-bottom: 3rem;
         }
-        .training-container h3 { font-family: 'Syne', sans-serif; font-size: 2rem; color: #fff; margin-bottom: 10px; }
-        .training-meta { color: var(--neon-green); font-weight: 700; font-size: 0.9rem; letter-spacing: 1px; margin-bottom: 25px; display: block; }
 
-        /* ACHIEVEMENT CARDS - Glowing Hover */
-        .achieve-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-        .achieve-card {
-            background: var(--glass-bg); padding: 2.5rem; border-radius: 30px;
-            border: 1px solid var(--glass-border); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative; overflow: hidden;
+        .achieve-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;
         }
-        .achieve-card:hover { border-color: var(--neon-blue); transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-        .achieve-card h3 { color: var(--neon-blue); margin-bottom: 15px; font-size: 1.4rem; }
-        .achieve-card p { color: #94a3b8; line-height: 1.6; }
+        
+        .achieve-item {
+            background: var(--glass); padding: 2rem; border-radius: 24px;
+            border: 1px solid var(--border); position: relative;
+        }
+
+        /* --- CONTACT & SOCIALS --- */
+        .contact-footer {
+            background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.12), transparent);
+            padding: 5rem 2rem; border-radius: 50px; border: 1px solid var(--border);
+            text-align: center; margin-top: 50px;
+        }
+
+        .social-row {
+            display: flex; justify-content: center; gap: 3rem; margin-top: 3.5rem; flex-wrap: wrap;
+        }
+
+        .social-icon {
+            text-decoration: none; color: #fff; display: flex; flex-direction: column;
+            align-items: center; gap: 12px; transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .social-icon i { font-size: 3.5rem; color: var(--primary); }
+        .social-icon span { font-weight: 800; font-size: 0.8rem; letter-spacing: 1px; }
+
+        .social-icon:hover { transform: translateY(-15px); }
+        .social-icon:hover i { color: var(--secondary); filter: drop-shadow(0 0 15px var(--secondary)); }
+
+        footer { padding: 80px 20px; text-align: center; opacity: 0.3; font-size: 0.75rem; border-top: 1px solid var(--border); }
     </style>
 
     <section id="training" data-aos="fade-up">
-        <div class="section-header"><h2>Professional Training</h2></div>
-        <div class="training-container">
-            <h3>DSA with Java | CipherSchools</h3>
-            <span class="training-meta">JUNE 2025 – JULY 2025 | 70+ HOURS INTENSIVE</span>
-            <ul class="project-list">
-                <li>Mastered **Complexity Analysis (Big O)** to architect algorithms that are optimized for enterprise-scale data processing. [cite: 35, 40]</li>
-                <li>Gained deep proficiency in **Non-Linear Data Structures** including Trees, Graphs, and Hashing to solve multi-dimensional logic problems. [cite: 38]</li>
-                <li>Developed a modular **Mental Health Simulator** project using Java, applying OOP principles for reusable component architecture. [cite: 41]</li>
-                <li>Refined logical thinking through rigorous implementation of **Recursion and Backtracking** algorithms. [cite: 39]</li>
+        <h2 class="section-title">Professional Training</h2>
+        <div class="training-card">
+            <h3 style="font-family: 'Syne'; font-size: 1.8rem; margin-bottom: 15px;">DSA with Java Mastery | CipherSchools</h3>
+            <p style="color: var(--secondary); font-weight: 800; margin-bottom: 25px;">JUN 2025 – JUL 2025 | 70+ HOURS TECHNICAL LAB</p>
+            <ul class="feature-list">
+                <li>Mastered **Big O Analysis** to design algorithms optimized for enterprise-level data processing and memory management.</li>
+                <li>Deep-dived into **Non-Linear Data Structures** including Graphs, Heaps, and Binary Search Trees for advanced problem-solving.</li>
+                <li>Engineered a **Mental Health Simulator** applying modular OOP principles and Java core logic.</li>
             </ul>
         </div>
     </section>
 
     <section id="achievements" data-aos="fade-up">
-        <div class="section-header"><h2>Key Achievements</h2></div>
+        <h2 class="section-title">Key Achievements</h2>
         <div class="achieve-grid">
-            <div class="achieve-card">
-                <h3>200+ Solved Challenges</h3>
-                <p>Successfully tackled 200+ Java and DSA problems, focusing on **Dynamic Programming** and logical efficiency on platforms like Neo-Colab. [cite: 47, 53]</p>
+            <div class="achieve-item">
+                <h3 style="color: var(--primary); margin-bottom: 10px;">200+ Solved Challenges</h3>
+                <p style="color: #94a3b8;">Refined problem-solving speed by tackling 200+ Java and DSA problems on **Neo-Colab**, focusing on Dynamic Programming optimization.</p>
             </div>
-            <div class="achieve-card">
-                <h3>Hackathon Top 30%</h3>
-                <p>Ranked within the **Top 30%** of competing teams in the Code-A-Haunt Hackathon, demonstrating high-pressure collaboration and technical innovation. [cite: 54]</p>
+            <div class="achieve-item">
+                <h3 style="color: var(--secondary); margin-bottom: 10px;">Hackathon Top 30%</h3>
+                <p style="color: #94a3b8;">Ranked in the **Top 30%** of competing teams in the Code-A-Haunt Hackathon, demonstrating high-pressure collaboration skills.</p>
             </div>
         </div>
     </section>
 
-    <footer style="padding: 80px 20px; text-align: center; border-top: 1px solid var(--glass-border); margin-top: 50px;">
-        <p style="opacity: 0.5; font-size: 0.85rem; letter-spacing: 1px;">KUMAR ANMOL PRATAP | &copy; 2026 | BUILT FOR PERFORMANCE</p>
+    <section id="contact" data-aos="zoom-in">
+        <div class="contact-footer">
+            <h1 style="font-family: 'Syne'; font-size: 3.5rem; margin-bottom: 1rem;">Let's Build the Future.</h1>
+            <p style="color: #94a3b8; font-size: 1.2rem;">Currently open to 2026/2027 Summer Internships in SDE or Cloud Architecture.</p>
+            
+            <div class="social-row">
+                <a href="https://github.com/Anmol280" target="_blank" class="social-icon">
+                    <i class="fab fa-github"></i>
+                    <span>GITHUB</span>
+                </a>
+                <a href="https://www.linkedin.com/in/anmol280" target="_blank" class="social-icon">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LINKEDIN</span>
+                </a>
+                <a href="mailto:anmolpratap280@gmail.com" class="social-icon">
+                    <i class="fas fa-envelope"></i>
+                    <span>EMAIL</span>
+                </a>
+            </div>
+            
+            <p style="margin-top: 4.5rem; font-weight: 800; color: var(--primary);">+91-8809761120</p>
+        </div>
+    </section>
+
+    <footer>
+        KUMAR ANMOL PRATAP | &copy; 2026 | BUILT FOR ACCURACY & SCALE
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 1000,
-            once: true,
-            mirror: false,
-            anchorPlacement: 'top-bottom',
-        });
+        // Initialize Scroll Animations
+        AOS.init({ duration: 1200, once: true, mirror: false });
+
+        // Console Log for Technical Identity
+        console.log("%c Kumar Anmol Pratap - Portfolio Loaded ", "background: #020617; color: #38bdf8; font-weight: bold;");
     </script>
 </body>
-</html>
-<style>
-        /* --- GLOBAL ANIMATIONS & EFFECTS --- */
-        
-        /* 1. Custom Scrollbar for that Gen-Z look */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--dark-bg);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(var(--neon-blue), var(--neon-green));
-            border-radius: 10px;
-        }
-
-        /* 2. Floating Animation for Profile & Cards */
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .hero img {
-            animation: floating 4s ease-in-out infinite;
-        }
-
-        /* 3. Text Glow Effect for Titles */
-        .section-header h2 {
-            text-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
-            letter-spacing: -1px;
-        }
-
-        /* 4. Glassmorphism Hover States */
-        .glass-card:hover, .project-card:hover, .edu-card:hover {
-            box-shadow: 0 0 30px rgba(56, 189, 248, 0.1);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        /* 5. Navigation Active State */
-        nav a.active {
-            color: var(--neon-green);
-            border-bottom: 2px solid var(--neon-green);
-            padding-bottom: 4px;
-        }
-    </style>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-    <script>
-        // Initialize Scroll Animations
-        AOS.init({
-            duration: 1200,
-            once: true,
-            mirror: false,
-            anchorPlacement: 'top-bottom'
-        });
-
-        // Navigation Highlight Logic
-        window.addEventListener('scroll', () => {
-            let current = "";
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('nav a');
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 150) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(a => {
-                a.classList.remove('active');
-                if (a.getAttribute('href').includes(current)) {
-                    a.classList.add('active');
-                }
-            });
-        });
-
-        // Console log for that "Technical" feel
-        console.log("%c Kumar Anmol Pratap Portfolio v2.0 Loaded ", "background: #020617; color: #38bdf8; font-weight: bold;");
-    </script>
-
-    </body>
 </html>
