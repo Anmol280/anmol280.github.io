@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kumar Anmol Pratap | Portfolio</title>
+    <title>Kumar Anmol Pratap | Software Engineer</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -11,114 +11,64 @@
 
     <style>
         :root {
-            --primary: #38bdf8;
-            --secondary: #22c55e;
-            --accent: #818cf8;
-            --dark: #020617;
-            --card-bg: rgba(15, 23, 42, 0.6);
-            --border: rgba(56, 189, 248, 0.2);
-            --glass: cubic-bezier(0.4, 0, 0.2, 1);
+            --primary: #38bdf8; --secondary: #22c55e; --dark: #020617;
+            --glass: rgba(255, 255, 255, 0.03); --border: rgba(255, 255, 255, 0.1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--dark); color: #f1f5f9; overflow-x: hidden; }
 
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--dark);
-            color: #f1f5f9;
-            overflow-x: hidden;
-        }
-
-        /* --- THE CYBER GRID (Moving Background) --- */
+        /* Clean Cyber Grid */
         body::before {
             content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: 
-                radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.05) 0%, transparent 50%),
-                linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px), 
-                linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
-            background-size: 100% 100%, 45px 45px, 45px 45px;
-            z-index: -1;
+            background-image: linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px), 
+                              linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+            background-size: 45px 45px; z-index: -1;
         }
 
-        /* --- PREMIUM NAVIGATION --- */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 1000;
-            background: rgba(2, 6, 23, 0.8); backdrop-filter: blur(25px);
-            padding: 1.2rem; display: flex; justify-content: center; 
-            gap: 2rem; border-bottom: 1px solid var(--border);
+            background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(20px);
+            padding: 1.2rem; display: flex; justify-content: center; gap: 2rem; 
+            border-bottom: 1px solid var(--border);
+        }
+        nav a { color: #94a3b8; text-decoration: none; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; transition: 0.4s; }
+        nav a:hover { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
+
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        
+        /* FIXED: No more "chhapri" rainbow colors. Just professional blue glow. */
+        .profile-container {
+            width: 230px; height: 230px; border-radius: 50%; padding: 5px; 
+            background: var(--primary); /* Simple, elegant blue */
+            margin-bottom: 2rem; box-shadow: 0 0 40px rgba(56, 189, 248, 0.2);
+        }
+        .profile-container img { 
+            width: 100%; height: 100%; border-radius: 50%; 
+            object-fit: cover; object-position: center 15%; 
+            border: 4px solid var(--dark); 
         }
 
-        nav a {
-            color: #94a3b8; text-decoration: none; font-weight: 800; font-size: 0.75rem;
-            text-transform: uppercase; letter-spacing: 2px; transition: 0.4s var(--glass);
-            position: relative;
-        }
+        .hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(3rem, 10vw, 5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1rem; color: #fff; }
+        .hero p { font-size: 1.1rem; color: var(--primary); letter-spacing: 6px; text-transform: uppercase; font-weight: 700; }
 
-        nav a::after {
-            content: ""; position: absolute; bottom: -5px; left: 0; width: 0;
-            height: 2px; background: var(--primary); transition: 0.4s;
-        }
-
-        nav a:hover { color: #fff; }
-        nav a:hover::after { width: 100%; box-shadow: 0 0 10px var(--primary); }
-
-        /* --- HERO SECTION (High Impact) --- */
-        .hero {
-            height: 100vh; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; text-align: center;
-        }
-
-        .profile-wrapper {
-            position: relative; padding: 8px; border-radius: 50%;
-            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
-            animation: rotateGradient 4s linear infinite;
-            box-shadow: 0 0 60px rgba(56, 189, 248, 0.3);
-            margin-bottom: 2.5rem;
-        }
-
-        @keyframes rotateGradient {
-            0% { filter: hue-rotate(0deg); }
-            100% { filter: hue-rotate(360deg); }
-        }
-
-        .profile-wrapper img {
-            width: 210px; height: 210px; border-radius: 50%;
-            object-fit: cover; object-position: center 15%; /* Perfect framing */
-            border: 5px solid var(--dark);
-        }
-
-        .hero h1 {
-            font-family: 'Syne', sans-serif;
-            font-size: clamp(3rem, 10vw, 5.5rem);
-            font-weight: 800; letter-spacing: -2px;
-            background: linear-gradient(to right, #fff, var(--primary), #fff);
-            -webkit-background-clip: text; color: transparent;
-            margin-bottom: 1rem;
-        }
-
-        .hero-sub {
-            font-size: 1.2rem; color: var(--primary); font-weight: 700;
-            text-transform: uppercase; letter-spacing: 8px;
-            text-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
-        }
+        section { padding: 120px 10%; max-width: 1400px; margin: auto; }
+        .section-title { font-family: 'Syne', sans-serif; font-size: 3rem; color: #fff; margin-bottom: 4rem; text-transform: uppercase; position: relative; }
+        .section-title::after { content: ""; position: absolute; bottom: -10px; left: 0; width: 60px; height: 4px; background: var(--primary); }
     </style>
 </head>
 <body>
 
 <nav>
-    <a href="#about">About</a>
-    <a href="#journey">Journey</a>
-    <a href="#projects">Projects</a>
-    <a href="#certification">Certification</a>
+    <a href="#about">About</a><a href="#journey">Journey</a><a href="#education">Education</a>
+    <a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#certification">Certification</a>
     <a href="#contact">Contact</a>
 </nav>
 
 <header class="hero">
-    <div class="profile-wrapper" data-aos="zoom-in">
-        <img src="profile.jpg" alt="Kumar Anmol Pratap">
-    </div>
+    <div class="profile-container" data-aos="zoom-in"><img src="profile.jpg" alt="Kumar Anmol Pratap"></div>
     <h1 data-aos="fade-up">KUMAR ANMOL PRATAP</h1>
-    <p class="hero-sub" data-aos="fade-up" data-aos-delay="200">System Architect</p>
+    <p data-aos="fade-up" data-aos-delay="200">Software Engineer</p>
 </header>
 <style>
         /* --- GLASS ABOUT CARD --- */
