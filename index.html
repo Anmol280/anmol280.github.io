@@ -42,89 +42,117 @@
             position: relative;
         }
 
-        .hero-text-left {
-            flex: 1; max-width: 60%; text-align: left;
-        }
-
-        .hero-text-left p { 
-            font-size: 1.2rem; color: var(--primary); 
-            letter-spacing: 6px; text-transform: uppercase; 
-            font-weight: 700; margin-bottom: 1rem;
-        }
-
-        .hero-text-left h1 { 
-            font-family: 'Syne', sans-serif; font-size: clamp(3rem, 7vw, 5rem); 
-            font-weight: 800; line-height: 1.1; margin-bottom: 2rem; 
-            color: #fff; text-transform: uppercase;
-        }
+        .hero-text-left { flex: 1; max-width: 60%; text-align: left; }
+        .hero-text-left p { font-size: 1.2rem; color: var(--primary); letter-spacing: 6px; text-transform: uppercase; font-weight: 700; margin-bottom: 1rem; }
+        .hero-text-left h1 { font-family: 'Syne', sans-serif; font-size: clamp(3rem, 7vw, 5rem); font-weight: 800; line-height: 1.1; margin-bottom: 2rem; color: #fff; text-transform: uppercase; }
 
         .cta-group { display: flex; gap: 1.5rem; }
-        
-        .btn {
-            padding: 12px 30px; border-radius: 12px; text-decoration: none;
-            font-weight: 800; text-transform: uppercase; font-size: 0.8rem;
-            letter-spacing: 1px; transition: 0.3s;
-        }
+        .btn { padding: 12px 30px; border-radius: 12px; text-decoration: none; font-weight: 800; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; transition: 0.3s; display: inline-block; }
         .btn-primary { background: var(--primary); color: var(--dark); border: 2px solid var(--primary); }
-        .btn-primary:hover { background: transparent; color: var(--primary); box-shadow: 0 0 20px var(--primary); }
-
         .btn-secondary { background: transparent; color: #fff; border: 2px solid #fff; }
-        .btn-secondary:hover { border-color: var(--secondary); color: var(--secondary); box-shadow: 0 0 20px var(--secondary); }
 
-        /* HERO IMAGE RIGHT */
-        .hero-image-right {
-            flex: 1; display: flex; justify-content: flex-end; align-items: center;
-        }
+        .hero-image-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; }
+        .profile-container { width: 320px; height: 320px; border-radius: 50%; padding: 6px; background: var(--primary); box-shadow: 0 0 50px rgba(56, 189, 248, 0.2); }
+        .profile-container img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: center 15%; border: 5px solid var(--dark); }
 
-        /* FIXED: Keeping the clean professional blue glow on the right */
-        .profile-container {
-            width: 320px; height: 320px; border-radius: 50%; padding: 6px; 
-            background: var(--primary); margin-bottom: 0; 
-            box-shadow: 0 0 50px rgba(56, 189, 248, 0.2);
-            position: relative;
-        }
-        
-        .profile-container img { 
-            width: 100%; height: 100%; border-radius: 50%; 
-            object-fit: cover; object-position: center 15%; /* Perfect framing */
-            border: 5px solid var(--dark); 
-        }
-
-        /* Responsiveness for small screens */
-        @media (max-width: 992px) {
-            .hero { flex-direction: column-reverse; justify-content: center; text-align: center; padding-top: 100px; }
-            .hero-text-left { max-width: 100%; text-align: center; margin-top: 2rem; }
-            .hero-image-right { justify-content: center; margin-bottom: 2rem; }
-            .profile-container { width: 250px; height: 250px; }
-            .cta-group { justify-content: center; }
-        }
-
-        section { padding: 120px 10%; max-width: 1400px; margin: auto; }
-        .section-title { font-family: 'Syne', sans-serif; font-size: 3rem; color: #fff; margin-bottom: 4rem; text-transform: uppercase; position: relative; }
+        /* --- SECTIONS --- */
+        section { padding: 100px 10%; max-width: 1400px; margin: auto; }
+        .section-title { font-family: 'Syne', sans-serif; font-size: 2.5rem; color: #fff; margin-bottom: 3rem; text-transform: uppercase; position: relative; }
         .section-title::after { content: ""; position: absolute; bottom: -10px; left: 0; width: 60px; height: 4px; background: var(--primary); }
+
+        /* --- EDUCATION & SKILLS --- */
+        .edu-grid, .bento-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .card { background: var(--glass); padding: 2.5rem; border-radius: 35px; border: 1px solid var(--border); transition: 0.4s; }
+        .card:hover { border-color: var(--primary); transform: translateY(-10px); }
+        .grade-pill { display: inline-block; padding: 6px 15px; background: rgba(34, 197, 94, 0.1); color: var(--secondary); border-radius: 10px; font-weight: 800; margin-top: 15px; border: 1px solid rgba(34, 197, 94, 0.2); }
+        
+        .skill-tag { background: rgba(56, 189, 248, 0.05); color: #fff; padding: 10px 18px; border-radius: 14px; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--border); display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+        .skill-tag i { color: var(--primary); }
+
+        /* --- PROJECTS --- */
+        .project-card { background: var(--glass); padding: 3rem; border-radius: 40px; border: 1px solid var(--border); margin-bottom: 2rem; }
+        .project-card h3 { font-family: 'Syne', sans-serif; font-size: 1.8rem; color: #fff; margin-bottom: 1rem; }
+        .logic-list { list-style: none; color: #cbd5e1; line-height: 1.6; }
+        .logic-list li { margin-bottom: 10px; position: relative; padding-left: 20px; }
+        .logic-list li::before { content: "→"; position: absolute; left: 0; color: var(--primary); }
+
+        @media (max-width: 992px) {
+            .hero { flex-direction: column-reverse; text-align: center; height: auto; padding-top: 120px; }
+            .hero-text-left { max-width: 100%; margin-top: 2rem; }
+            .hero-image-right { justify-content: center; }
+            .profile-container { width: 250px; height: 250px; }
+        }
     </style>
 </head>
 <body>
 
-<nav>
-    <a href="#about">About</a><a href="#journey">Journey</a><a href="#education">Education</a>
-    <a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#certification">Certification</a>
-    <a href="#contact">Contact</a>
-</nav>
+    <nav>
+        <a href="#education">Education</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+    </nav>
 
-<header class="hero">
-    <div class="hero-text-left" data-aos="fade-right">
-        <p>Software Engineer</p>
-        <h1>KUMAR ANMOL PRATAP</h1>
-        <div class="cta-group">
-            <a href="#projects" class="btn btn-primary">View Portfolio</a>
-            <a href="#contact" class="btn btn-secondary">Let's Connect</a>
+    <header class="hero">
+        <div class="hero-text-left" data-aos="fade-right">
+            <p>Software Engineer</p>
+            <h1>KUMAR ANMOL PRATAP</h1>
+            <div class="cta-group">
+                <a href="#projects" class="btn btn-primary">View Portfolio</a>
+                <a href="#contact" class="btn btn-secondary">Let's Connect</a>
+            </div>
         </div>
-    </div>
-    
-    <div class="hero-image-right" data-aos="fade-left">
-        <div class="profile-container">
-            <img src="profile.jpg" alt="Kumar Anmol Pratap">
+        <div class="hero-image-right" data-aos="fade-left">
+            <div class="profile-container">
+                <img src="profile.jpg" alt="Kumar Anmol Pratap">
+            </div>
         </div>
-    </div>
-</header>
+    </header>
+
+    <section id="education">
+        <h2 class="section-title">Academic Foundation</h2>
+        <div class="edu-grid">
+            <div class="card">
+                <h3>B.Tech CSE</h3>
+                <p>LPU, Punjab | 2023 - 2027</p>
+                <div class="grade-pill">CGPA: 7.0</div>
+            </div>
+            <div class="card">
+                <h3>Intermediate</h3>
+                <p>Grizzly Vidyalaya | 2021 - 2023</p>
+                <div class="grade-pill">Result: 67.5%</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Technical Arsenal</h2>
+        <div class="bento-grid">
+            <div class="card">
+                <h4>Languages</h4>
+                <div class="skill-tag"><i class="fab fa-java"></i> Java</div>
+                <div class="skill-tag"><i class="fab fa-python"></i> Python</div>
+                <div class="skill-tag"><i class="fas fa-code"></i> C++</div>
+            </div>
+            <div class="card">
+                <h4>Core CS</h4>
+                <div class="skill-tag"><i class="fas fa-database"></i> DBMS</div>
+                <div class="skill-tag"><i class="fas fa-network-wired"></i> Networking</div>
+                <div class="skill-tag"><i class="fas fa-microchip"></i> OS</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Engineering Projects</h2>
+        <div class="project-card">
+            <h3>Mental Health Simulator</h3>
+            <p style="color: #94a3b8; margin-bottom: 1rem;">CipherSchools Technical Lab</p>
+            <ul class="logic-list">
+                <li>Developed high-performance Conditional Logic Trees in Java.</li>
+                <li>Architected the system using Modular Design Principles.</li>
+            </ul>
+        </div>
+        </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 1000, once: true });</script>
+</body>
+</html>
