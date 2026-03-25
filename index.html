@@ -16,6 +16,7 @@
             --dark: #020617;
             --glass: rgba(255, 255, 255, 0.03); 
             --border: rgba(255, 255, 255, 0.1);
+            --transition: cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
@@ -26,15 +27,22 @@
             overflow-x: hidden; 
         }
 
-        /* Clean Cyber Grid Background */
+        /* --- THE CYBER GRID (Slow Pulsing) --- */
         body::before {
             content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-image: linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px), 
                               linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
             background-size: 45px 45px; z-index: -1;
+            animation: pulseGrid 8s var(--transition) infinite;
         }
 
-        /* Modern Glass Navigation */
+        @keyframes pulseGrid {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        /* Premium Glass Navigation */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 1000;
             background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(20px);
@@ -48,28 +56,40 @@
         }
         nav a:hover { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
 
-        /* --- ASYMMETRICAL HERO LAYOUT --- */
+        /* --- MODERN ASYMMETRICAL HERO --- */
         .hero { 
             height: 100vh; display: flex; align-items: center; 
             justify-content: space-between; padding: 0 10%; 
             position: relative;
         }
 
-        .hero-text-left { flex: 1; max-width: 60%; text-align: left; }
+        .hero-content-left { flex: 1; max-width: 60%; text-align: left; }
         
-        .hero-text-left p { 
+        .hero-content-left p { 
             font-size: 1.2rem; color: var(--primary); 
             letter-spacing: 6px; text-transform: uppercase; 
             font-weight: 700; margin-bottom: 1rem;
+            animation: glowText 4s linear infinite;
         }
 
-        .hero-text-left h1 { 
-            font-family: 'Syne', sans-serif; font-size: clamp(3rem, 7vw, 5rem); 
-            font-weight: 800; line-height: 1.1; margin-bottom: 2rem; 
-            color: #fff; text-transform: uppercase;
+        @keyframes glowText {
+            0% { text-shadow: 0 0 10px rgba(56, 189, 248, 0); }
+            50% { text-shadow: 0 0 15px rgba(56, 189, 248, 0.4); }
+            100% { text-shadow: 0 0 10px rgba(56, 189, 248, 0); }
         }
 
-        /* High-End CTA Buttons */
+        /* --- THE PROFESSIONAL SINGLE-LINE NAME --- */
+        .hero-content-left h1 { 
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4.2rem); /* Significantly reduced & responsive */
+            font-weight: 800; line-height: 1.2; 
+            margin-bottom: 2rem; color: #fff; 
+            text-transform: uppercase;
+            letter-spacing: -1.5px;
+            white-space: nowrap; /* Forces single line */
+        }
+
+        /* Professional CTA Buttons */
         .cta-group { display: flex; gap: 1.5rem; }
         .btn { 
             padding: 14px 35px; border-radius: 12px; text-decoration: none; 
@@ -97,13 +117,14 @@
         /* Profile Photo Container (Right Side) */
         .hero-image-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; }
         
-        .profile-container { 
-            width: 350px; height: 350px; border-radius: 50%; padding: 6px; 
+        /* CLEAN: No rainbow, just precise halo */
+        .profile-wrapper { 
+            width: 380px; height: 380px; border-radius: 50%; padding: 6px; 
             background: var(--primary); 
-            box-shadow: 0 0 50px rgba(56, 189, 248, 0.2); 
+            box-shadow: 0 0 60px rgba(56, 189, 248, 0.3); 
             position: relative;
         }
-        .profile-container img { 
+        .profile-wrapper img { 
             width: 100%; height: 100%; border-radius: 50%; 
             object-fit: cover; object-position: center 15%; 
             border: 6px solid var(--dark); 
@@ -112,9 +133,10 @@
         /* Mobile Optimization */
         @media (max-width: 992px) {
             .hero { flex-direction: column-reverse; text-align: center; height: auto; padding: 120px 5% 60px; }
-            .hero-text-left { max-width: 100%; margin-top: 3rem; }
+            .hero-content-left { max-width: 100%; margin-top: 3rem; }
+            .hero-content-left h1 { font-size: 2.8rem; white-space: normal; } /* Stacks naturally on mobile */
             .hero-image-right { justify-content: center; }
-            .profile-container { width: 280px; height: 280px; }
+            .profile-wrapper { width: 300px; height: 300px; }
             .cta-group { justify-content: center; }
         }
     </style>
@@ -123,6 +145,7 @@
 
     <nav>
         <a href="#about">About</a>
+        <a href="#journey">Journey</a>
         <a href="#education">Education</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
@@ -130,9 +153,8 @@
     </nav>
 
     <header class="hero">
-        <div class="hero-text-left" data-aos="fade-right">
-            <p>Software Engineer</p>
-            <h1>KUMAR ANMOL PRATAP</h1>
+        <div class="hero-content-left" data-aos="fade-right">
+            <p>Software Engineer | Cloud Architect</p> <h1>KUMAR ANMOL PRATAP</h1>
             <div class="cta-group">
                 <a href="#projects" class="btn btn-primary">View Portfolio</a>
                 <a href="#contact" class="btn btn-secondary">Contact Me</a>
@@ -140,7 +162,7 @@
         </div>
 
         <div class="hero-image-right" data-aos="fade-left">
-            <div class="profile-container">
+            <div class="profile-wrapper">
                 <img src="profile.jpg" alt="Kumar Anmol Pratap">
             </div>
         </div>
