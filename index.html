@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kumar Anmol Pratap | Cloud Engineer</title>
+    <title>Kumar Anmol Pratap | Cloud Engineer Portfolio</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -25,7 +25,7 @@
             font-family: 'Plus Jakarta Sans', sans-serif; 
             background-color: var(--dark); 
             color: #f1f5f9; 
-            overflow: hidden; /* Locked for Loader */
+            overflow-x: hidden;
         }
 
         /* --- 0-100% PRELOADER --- */
@@ -35,71 +35,78 @@
             flex-direction: column; justify-content: center; align-items: center;
         }
         #loader-percentage {
-            font-family: 'Syne', sans-serif; font-size: 6rem; color: var(--primary);
-            font-weight: 800; text-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+            font-family: 'Syne', sans-serif; font-size: clamp(4rem, 10vw, 6rem); 
+            color: var(--primary); font-weight: 800;
+            text-shadow: 0 0 40px rgba(56, 189, 248, 0.4);
         }
-        .loader-bar { width: 250px; height: 2px; background: var(--border); margin-top: 20px; overflow: hidden; }
+        .loader-bar { width: 250px; height: 3px; background: var(--border); margin-top: 25px; border-radius: 10px; overflow: hidden; }
         .loader-progress { height: 100%; background: var(--primary); width: 0%; transition: 0.1s linear; }
-
-        /* --- GLOBAL SECTION SPACING --- */
-        section { 
-            padding: 160px 10%; /* Fixed the "hugging" spacing issue */
-            max-width: 1400px; 
-            margin: auto; 
-        }
-
-        .section-title { 
-            font-family: 'Syne', sans-serif; font-size: 2.8rem; color: #fff; 
-            margin-bottom: 4rem; text-transform: uppercase; position: relative; 
-        }
-        .section-title::after { 
-            content: ""; position: absolute; bottom: -10px; left: 0; 
-            width: 60px; height: 4px; background: var(--primary); 
-        }
 
         /* --- NAVIGATION --- */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 1000;
-            background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(20px);
-            padding: 1.2rem; display: flex; justify-content: center; gap: 2rem; 
-            border-bottom: 1px solid var(--border);
+            background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(25px);
+            padding: 1.3rem; display: flex; justify-content: center; 
+            gap: 2.5rem; border-bottom: 1px solid var(--border);
         }
         nav a { 
-            color: #94a3b8; text-decoration: none; font-weight: 700; font-size: 0.7rem; 
-            text-transform: uppercase; letter-spacing: 1.5px; transition: 0.4s; 
+            color: #94a3b8; text-decoration: none; font-weight: 700; font-size: 0.75rem; 
+            text-transform: uppercase; letter-spacing: 2px; transition: 0.4s var(--transition); 
         }
-        nav a:hover { color: var(--primary); }
+        nav a:hover { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
 
-        /* --- HERO (FIXED HEAD CROP) --- */
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-        
+        /* --- GLOBAL SECTION SPACING --- */
+        section { 
+            padding: 160px 10%; 
+            max-width: 1400px; 
+            margin: auto; 
+        }
+        .section-title { 
+            font-family: 'Syne', sans-serif; font-size: clamp(2rem, 5vw, 3rem); 
+            color: #fff; margin-bottom: 4.5rem; text-transform: uppercase; position: relative; 
+        }
+        .section-title::after { 
+            content: ""; position: absolute; bottom: -12px; left: 0; 
+            width: 70px; height: 5px; background: var(--primary); border-radius: 10px;
+        }
+
+        /* --- HERO (LAPTOP OPTIMIZED) --- */
+        .hero { 
+            height: 100vh; display: flex; flex-direction: column; 
+            justify-content: center; align-items: center; text-align: center; 
+        }
         .profile-master {
-            width: 280px; height: 280px; border-radius: 50%; padding: 6px;
+            width: 280px; height: 280px; border-radius: 50%; padding: 8px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            margin-bottom: 2.5rem; box-shadow: 0 0 50px rgba(56, 189, 248, 0.2);
+            margin-bottom: 2.5rem; box-shadow: 0 0 60px rgba(56, 189, 248, 0.25);
             overflow: hidden; 
         }
         .profile-master img { 
             width: 100%; height: 100%; border-radius: 50%; 
             object-fit: cover; 
-            object-position: center 10%; /* FIXED: Prevents head-clipping */
-            border: 5px solid var(--dark); 
+            object-position: center 10%; /* FIXED HEAD CROP */
+            border: 6px solid var(--dark); 
         }
-
         .hero h1 {
             font-family: 'Syne', sans-serif;
-            font-size: clamp(2rem, 5.5vw, 4.2rem); 
-            white-space: nowrap; /* FIXED: Forced Single Line */
-            font-weight: 800; color: #fff; margin-bottom: 1rem;
-            letter-spacing: -1px;
+            font-size: clamp(2.5rem, 6vw, 4.5rem); 
+            font-weight: 800; color: #fff; margin-bottom: 1.2rem;
+            letter-spacing: -1.5px;
         }
-        .hero p { font-size: 1.1rem; color: var(--primary); letter-spacing: 8px; text-transform: uppercase; font-weight: 800; margin-bottom: 3rem; }
-
-        .hero-btns { display: flex; gap: 1.5rem; }
-        .btn { padding: 14px 35px; border-radius: 12px; text-decoration: none; font-weight: 800; text-transform: uppercase; font-size: 0.8rem; transition: 0.3s; }
-        .btn-cv { background: var(--primary); color: var(--dark); }
-        .btn-cv:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(56, 189, 248, 0.3); }
-        .btn-contact { border: 2px solid #fff; color: #fff; }
+        .hero p { 
+            font-size: 1.2rem; color: var(--primary); letter-spacing: 10px; 
+            text-transform: uppercase; font-weight: 800; margin-bottom: 3.5rem; 
+        }
+        .hero-btns { display: flex; gap: 1.8rem; }
+        .btn { 
+            padding: 16px 38px; border-radius: 14px; text-decoration: none; 
+            font-weight: 800; text-transform: uppercase; font-size: 0.85rem; 
+            transition: 0.4s var(--transition); 
+        }
+        .btn-cv { background: var(--primary); color: var(--dark); box-shadow: 0 10px 30px rgba(56, 189, 248, 0.3); }
+        .btn-cv:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(56, 189, 248, 0.5); }
+        .btn-contact { border: 2.5px solid #fff; color: #fff; }
+        .btn-contact:hover { background: #fff; color: var(--dark); transform: translateY(-5px); }
     </style>
 </head>
 <body>
@@ -126,70 +133,85 @@
         <h1 data-aos="fade-up">KUMAR ANMOL PRATAP</h1>
         <p data-aos="fade-up" data-aos-delay="200">Cloud Engineer</p>
         <div class="hero-btns" data-aos="fade-up" data-aos-delay="400">
-            <a href="ANMOLPRATAPCV.pdf" target="_blank" class="btn btn-cv">View Digital CV</a>
+            <a href="ANMOLPRATAPCV.pdf" download="Kumar_Anmol_Pratap_CV" class="btn btn-cv">
+                <i class="fas fa-download" style="margin-right:10px;"></i> Download CV
+            </a>
             <a href="#contact" class="btn btn-contact">Hire Me</a>
         </div>
     </header>
     <style>
-        /* --- FIXED BORDER RATIO CONTAINER --- */
+        /* --- ABOUT & PITCH --- */
         .pitch-container {
             background: var(--glass);
-            padding: 3.5rem;
-            border-radius: 40px;
+            padding: 4rem;
+            border-radius: 45px;
             border: 1px solid var(--border);
             line-height: 1.8;
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             color: #cbd5e1;
-            position: relative;
-            max-width: 1100px; /* Fixed Ratio to prevent edge-touching */
-            margin: 0 auto;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        .highlight-glow {
-            color: var(--primary);
-            font-weight: 800;
-        }
-
-        /* --- MILESTONES WITH BREATHING ROOM --- */
-        .milestone-wrapper {
-            position: relative;
-            padding-left: 3.5rem;
-            border-left: 2px solid var(--border);
             max-width: 1100px;
-            margin: 60px auto 0;
+            margin: 0 auto;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            backdrop-filter: blur(15px);
         }
 
-        .milestone-item {
-            margin-bottom: 5rem;
-            position: relative;
-        }
+        .highlight-glow { color: var(--primary); font-weight: 800; text-shadow: 0 0 15px rgba(56, 189, 248, 0.4); }
 
-        .milestone-item::before {
-            content: ""; position: absolute; left: -4.2rem; top: 10px;
-            width: 22px; height: 22px; background: var(--primary);
-            border-radius: 50%; box-shadow: 0 0 20px var(--primary);
+        /* --- EDUCATION CARDS --- */
+        .edu-flex {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
         }
-
-        .milestone-content {
+        .edu-box {
             background: var(--glass);
-            padding: 3rem;
-            border-radius: 40px;
+            padding: 4rem;
+            border-radius: 45px;
             border: 1px solid var(--border);
-            transition: 0.5s var(--transition);
+            transition: 0.6s var(--transition);
+            position: relative;
+            overflow: hidden;
         }
-
-        .milestone-content:hover {
-            transform: translateX(15px);
+        .edu-box:hover {
+            transform: translateY(-15px);
             border-color: var(--primary);
-            background: rgba(56, 189, 248, 0.02);
+            background: rgba(56, 189, 248, 0.03);
+            box-shadow: 0 20px 40px rgba(56, 189, 248, 0.1);
+        }
+        .edu-box h3 { font-family: 'Syne', sans-serif; font-size: 1.9rem; color: #fff; margin-bottom: 15px; }
+        .edu-meta { color: var(--primary); font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 3px; display: block; margin-bottom: 25px; }
+        .result-pill {
+            display: inline-block; padding: 12px 26px; 
+            background: rgba(34, 197, 94, 0.1); 
+            color: var(--secondary); border-radius: 14px; font-weight: 900;
+            margin-top: 30px; font-size: 1.15rem; border: 1px solid rgba(34, 197, 94, 0.2);
         }
 
-        .milestone-content h3 {
-            font-family: 'Syne', sans-serif; font-size: 1.8rem; color: #fff; margin-bottom: 1rem;
+        /* --- TECH ARSENAL --- */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
         }
+        .skill-pill {
+            background: rgba(255, 255, 255, 0.05); color: #fff;
+            padding: 14px 24px; border-radius: 18px; font-size: 1rem;
+            font-weight: 700; border: 1px solid var(--border);
+            display: flex; align-items: center; gap: 15px;
+            transition: 0.3s;
+        }
+        .skill-pill:hover { background: var(--primary); color: var(--dark); transform: scale(1.05); }
+        .skill-pill i { font-size: 1.4rem; }
 
-        .milestone-content p { color: #94a3b8; font-size: 1.1rem; line-height: 1.6; }
+        /* --- TRAINING --- */
+        .training-card {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), transparent);
+            padding: 5rem;
+            border-radius: 55px;
+            border: 1px solid var(--border);
+            border-left: 12px solid var(--primary);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
     </style>
 
     <section id="about" data-aos="fade-up">
@@ -204,127 +226,25 @@
         </div>
     </section>
 
-    <section id="journey" data-aos="fade-up">
-        <h2 class="section-title">Professional Milestones</h2>
-        <div class="milestone-wrapper">
-
-            <div class="milestone-item" data-aos="fade-left">
-                <div class="milestone-content">
-                    <h3>Academic Excellence @ LPU</h3>
-                    <p>Pursuing a Bachelor of Technology in Computer Science and Engineering. Currently maintaining a 
-                    focused <span style="color:var(--primary); font-weight:700;">7.0 CGPA</span> while specializing in full-stack 
-                    architecture and systems engineering.</p>
-                </div>
-            </div>
-
-            <div class="milestone-item" data-aos="fade-left" data-aos-delay="200">
-                <div class="milestone-content">
-                    <h3>Competitive Ranking</h3>
-                    <p>Secured a position in the <span style="color:var(--secondary); font-weight:700;">Top 30%</span> during the 
-                    Code-A-Haunt Hackathon. Demonstrated high-pressure problem-solving 
-                    skills and effective team collaboration to build innovative technical solutions.</p>
-                </div>
-            </div>
-
-            <div class="milestone-item" data-aos="fade-left" data-aos-delay="400">
-                <div class="milestone-content">
-                    <h3>Elite Academic Recognition</h3>
-                    <p>Earned the <span style="color:#ffd700; font-weight:700;">Elite Badge</span> from NPTEL (IIT Madras) 
-                    for mastery in Social Networks, validating advanced understanding of complex network architectures.</p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-    <style>
-        /* --- ACADEMIC FOUNDATION CARDS --- */
-        .edu-flex {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .edu-box {
-            background: var(--glass);
-            padding: 3.5rem;
-            border-radius: 40px;
-            border: 1px solid var(--border);
-            transition: 0.5s var(--transition);
-        }
-
-        .edu-box:hover {
-            transform: translateY(-12px);
-            border-color: var(--primary);
-            background: rgba(56, 189, 248, 0.02);
-        }
-
-        .edu-box h3 { font-family: 'Syne', sans-serif; font-size: 1.8rem; color: #fff; margin-bottom: 12px; }
-        .edu-meta { color: var(--primary); font-weight: 800; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 20px; }
-
-        .result-pill {
-            display: inline-block; padding: 10px 22px; 
-            background: rgba(34, 197, 94, 0.1); 
-            color: var(--secondary); border-radius: 12px; font-weight: 900;
-            margin-top: 25px; font-size: 1.1rem; border: 1px solid rgba(34, 197, 94, 0.2);
-            box-shadow: 0 0 15px rgba(34, 197, 94, 0.1);
-        }
-
-        /* --- TECH ARSENAL BENTO GRID --- */
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .bento-card {
-            background: rgba(255, 255, 255, 0.02);
-            padding: 3rem;
-            border-radius: 40px;
-            border: 1px solid var(--border);
-            transition: 0.4s;
-        }
-
-        .bento-card:hover {
-            border-color: var(--primary);
-            box-shadow: 0 0 30px rgba(56, 189, 248, 0.1);
-        }
-
-        .bento-card h4 { font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 2.5rem; }
-        
-        .skill-flex { display: flex; flex-wrap: wrap; gap: 15px; }
-        
-        .skill-pill {
-            background: rgba(56, 189, 248, 0.05); color: #fff;
-            padding: 12px 22px; border-radius: 16px; font-size: 0.95rem;
-            font-weight: 700; border: 1px solid var(--border);
-            display: flex; align-items: center; gap: 12px;
-            transition: 0.3s;
-        }
-
-        .skill-pill i { font-size: 1.3rem; }
-        .skill-pill:hover { background: var(--primary); color: var(--dark); transform: translateY(-5px); }
-    </style>
-
     <section id="education" data-aos="fade-up">
         <h2 class="section-title">Academic Foundation</h2>
         <div class="edu-flex">
-            <div class="edu-box">
+            <div class="edu-box" data-aos="fade-up">
                 <span class="edu-meta">LPU, Punjab | 2023 - 2027</span>
                 <h3>B.Tech Computer Science</h3>
-                <p>Architecting scalable systems with a focus on Cloud Infrastructure and Backend Logic.</p>
+                <p>Focusing on scalable system design, cloud native architectures, and advanced data structures.</p>
                 <div class="result-pill">CGPA: 7.0</div>
             </div>
-            <div class="edu-box">
+            <div class="edu-box" data-aos="fade-up" data-aos-delay="200">
                 <span class="edu-meta">Grizzly Vidyalaya | 2021 - 2023</span>
                 <h3>Intermediate (Science)</h3>
-                <p>Advanced PCM foundations specializing in Physics and Mathematics for Engineering.</p>
-                <div class="result-pill">Result: 67.5%</div>
+                <p>Rigorous training in Physics, Chemistry, and Mathematics for deep technical foundations.</p>
+                <div class="result-pill">Result: 67.5%%</div>
             </div>
-            <div class="edu-box">
+            <div class="edu-box" data-aos="fade-up" data-aos-delay="400">
                 <span class="edu-meta">Sacred Heart School | 2019 - 2021</span>
                 <h3>Matriculation</h3>
-                <p>Core academic excellence in Mathematics and General Sciences.</p>
+                <p>Core education with a strong emphasis on Mathematical logic and Scientific inquiry.</p>
                 <div class="result-pill">Result: 80%</div>
             </div>
         </div>
@@ -333,443 +253,162 @@
     <section id="skills" data-aos="fade-up">
         <h2 class="section-title">Technical Arsenal</h2>
         <div class="bento-grid">
-            
-            <div class="bento-card">
-                <h4>Languages</h4>
-                <div class="skill-flex">
+            <div class="edu-box">
+                <span class="edu-meta">Languages</span>
+                <div style="display:flex; flex-wrap:wrap; gap:15px;">
                     <div class="skill-pill"><i class="fab fa-java" style="color:#f89820;"></i> Java</div>
                     <div class="skill-pill"><i class="fab fa-python" style="color:#3776ab;"></i> Python</div>
                     <div class="skill-pill"><i class="fas fa-code" style="color:#00599c;"></i> C++ / C</div>
                 </div>
             </div>
-
-            <div class="bento-card">
-                <h4>Core Engineering</h4>
-                <div class="skill-flex">
-                    <div class="skill-pill"><i class="fas fa-network-wired"></i> Computer Networks</div>
-                    <div class="skill-pill"><i class="fas fa-microchip"></i> Operating Systems</div>
-                    <div class="skill-pill"><i class="fas fa-database"></i> DBMS</div>
-                    <div class="skill-pill"><i class="fas fa-brain"></i> DSA</div>
-                </div>
-            </div>
-
-            <div class="bento-card">
-                <h4>Cloud & Platforms</h4>
-                <div class="skill-flex">
+            <div class="edu-box">
+                <span class="edu-meta">Cloud & DevOps</span>
+                <div style="display:flex; flex-wrap:wrap; gap:15px;">
                     <div class="skill-pill"><i class="fab fa-aws" style="color:#ff9900;"></i> AWS Cloud</div>
                     <div class="skill-pill"><i class="fab fa-docker" style="color:#2496ed;"></i> Docker</div>
-                    <div class="skill-pill"><i class="fas fa-robot"></i> Generative AI</div>
+                    <div class="skill-pill"><i class="fas fa-network-wired"></i> Networking</div>
                 </div>
             </div>
-
         </div>
     </section>
-    <style>
-        /* --- TECHNICAL TRAINING --- */
-        .training-card {
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.08), transparent);
-            padding: 4rem;
-            border-radius: 50px;
-            border: 1px solid var(--border);
-            border-left: 10px solid var(--primary);
-            margin-bottom: 6rem;
-        }
-
-        .training-tag { color: var(--primary); font-weight: 800; letter-spacing: 3px; text-transform: uppercase; font-size: 0.8rem; display: block; margin-bottom: 10px; }
-
-        /* --- PROJECT GRID --- */
-        .project-list { display: flex; flex-direction: column; gap: 5rem; }
-        
-        .project-card {
-            background: var(--glass);
-            padding: 4rem;
-            border-radius: 50px;
-            border: 1px solid var(--border);
-            transition: 0.6s var(--transition);
-        }
-
-        .project-card:hover {
-            border-color: var(--secondary);
-            background: rgba(34, 197, 94, 0.02);
-            transform: translateY(-10px);
-        }
-
-        .project-card h3 { font-family: 'Syne', sans-serif; font-size: 2.2rem; color: #fff; margin-bottom: 1.5rem; }
-        
-        .logic-list { list-style: none; margin-top: 2rem; }
-        .logic-list li {
-            position: relative; padding-left: 35px; margin-bottom: 18px;
-            color: #cbd5e1; font-size: 1.1rem; line-height: 1.7;
-        }
-        .logic-list li::before {
-            content: "→"; position: absolute; left: 0;
-            color: var(--primary); font-weight: 900;
-        }
-
-        .stack-group { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 3rem; }
-        .stack-pill {
-            background: rgba(56, 189, 248, 0.1); color: var(--primary);
-            padding: 8px 20px; border-radius: 12px; font-weight: 800;
-            font-size: 0.75rem; text-transform: uppercase; border: 1px solid rgba(56, 189, 248, 0.2);
-        }
-    </style>
 
     <section id="training" data-aos="fade-up">
         <h2 class="section-title">Technical Training</h2>
         <div class="training-card">
-            <span class="training-tag">Jun '25 - Jul '25 | 70+ Hours</span>
-            <h3 style="font-size: 2.5rem; margin-bottom: 20px;">DSA with Java | CipherSchools</h3>
-            <ul class="logic-list">
-                <li>Mastered non-linear Data Structures including Trees, Graphs, and Hashing.</li>
-                <li>Applied advanced algorithmic techniques like Recursion, Backtracking, and Sorting.</li>
-                <li>Worked on high-complexity problem sets to strengthen logical thinking and complexity analysis.</li>
-            </ul>
+            <span class="edu-meta">Jun '25 - Jul '25 | CipherSchools</span>
+            <h3 style="font-size: 2.8rem; margin-bottom: 25px; font-family:'Syne';">DSA with Java Intensive</h3>
+            <p style="font-size: 1.15rem; color: #cbd5e1; line-height: 1.8;">
+                Mastered complex data structures and algorithmic patterns over 70+ hours of lab training. 
+                Specialized in non-linear structures, complexity analysis, and recursion-based problem solving.
+            </p>
         </div>
     </section>
+    <style>
+        /* --- PROJECT ARCHITECTURE --- */
+        .project-list { display: flex; flex-direction: column; gap: 6rem; }
+        .project-card {
+            background: var(--glass); padding: 5rem; border-radius: 55px;
+            border: 1px solid var(--border); transition: 0.6s var(--transition);
+        }
+        .project-card:hover {
+            border-color: var(--secondary); background: rgba(34, 197, 94, 0.02);
+            transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+        .project-card h3 { font-family: 'Syne', sans-serif; font-size: 2.5rem; color: #fff; margin-bottom: 2rem; }
+        .logic-list { list-style: none; margin-top: 2.5rem; }
+        .logic-list li {
+            position: relative; padding-left: 40px; margin-bottom: 22px;
+            color: #cbd5e1; font-size: 1.15rem; line-height: 1.8;
+        }
+        .logic-list li::before {
+            content: "→"; position: absolute; left: 0; color: var(--primary); font-weight: 900;
+        }
+
+        /* --- 12-CARD CREDENTIAL GRID --- */
+        .cert-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem; margin-bottom: 6rem;
+        }
+        .cert-card {
+            background: var(--glass); padding: 3.5rem; border-radius: 45px;
+            border: 1px solid var(--border); display: flex; flex-direction: column;
+            justify-content: space-between; transition: 0.5s var(--transition);
+        }
+        .cert-card:hover { transform: translateY(-12px); border-color: var(--primary); }
+        .cert-card h4 { color: var(--primary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 15px; }
+        .cert-card h3 { font-family: 'Syne', sans-serif; font-size: 1.6rem; color: #fff; margin-bottom: 15px; }
+        
+        .btn-view {
+            align-self: flex-start; padding: 14px 28px; background: rgba(56, 189, 248, 0.1);
+            color: var(--primary); border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 14px; text-decoration: none; font-size: 0.85rem;
+            font-weight: 800; text-transform: uppercase; transition: 0.3s;
+            display: inline-flex; align-items: center; gap: 10px;
+        }
+        .btn-view:hover { background: var(--primary); color: var(--dark); }
+
+        /* --- CONTACT FOOTER --- */
+        .contact-footer {
+            background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.08), transparent);
+            padding: 120px 20px; text-align: center; border-radius: 60px;
+            border: 1px solid var(--border); margin-top: 100px;
+        }
+        .contact-footer h1 { font-family: 'Syne', sans-serif; font-size: clamp(3rem, 8vw, 5rem); margin-bottom: 3rem; color: #fff; }
+    </style>
 
     <section id="projects" data-aos="fade-up">
         <h2 class="section-title">Engineering Projects</h2>
         <div class="project-list">
-
             <div class="project-card">
-                <h3>Student Attendance Management</h3>
-                <p style="color:var(--primary); font-weight:700;">System Architect & Lead Developer</p>
+                <h3>Student Attendance System</h3>
+                <p style="color:var(--primary); font-weight:800; letter-spacing:2px; text-transform:uppercase;">Java | Data Persistence</p>
                 <ul class="logic-list">
-                    <li>Engineered a data management core using Java Collections (HashMap, ArrayList) for efficient retrieval.</li>
-                    <li>Integrated File I/O operations to ensure seamless data persistence and reliable record recovery.</li>
-                    <li>Automated the generation of comprehensive summaries, significantly reducing manual monitoring time.</li>
+                    <li>Engineered a high-performance data management core using Java Collections API.</li>
+                    <li>Implemented robust File I/O for persistent storage and secure record retrieval.</li>
+                    <li>Designed an automated analytics engine to generate weekly attendance summaries.</li>
                 </ul>
-                <div class="stack-group">
-                    <span class="stack-pill">Java</span><span class="stack-pill">Collections</span><span class="stack-pill">File I/O</span><span class="stack-pill">OOP</span>
-                </div>
             </div>
-
             <div class="project-card">
                 <h3>Digital Library Tracker</h3>
-                <p style="color:var(--primary); font-weight:700;">Java Systems Development</p>
+                <p style="color:var(--primary); font-weight:800; letter-spacing:2px; text-transform:uppercase;">OOP | System Logic</p>
                 <ul class="logic-list">
-                    <li>Digitized core library operations via a high-performance Java Console Interface for book circulation.</li>
-                    <li>Optimized search logic using Data Structures and Algorithms to reduce query retrieval latency.</li>
-                    <li>Developed a Menu-Driven Interface to provide a smooth, intuitive administrative experience.</li>
+                    <li>Optimized book circulation workflows using advanced searching and sorting algorithms.</li>
+                    <li>Developed a clean, menu-driven interface using Java Console for administration tasks.</li>
+                    <li>Built modular components to handle book inventory tracking and user history logs.</li>
                 </ul>
-                <div class="stack-group">
-                    <span class="stack-pill">Java Core</span><span class="stack-pill">Search Algorithms</span><span class="stack-pill">DSA</span>
-                </div>
             </div>
-
-            <div class="project-card">
-                <h3>Mental Health Simulator</h3>
-                <p style="color:var(--primary); font-weight:700;">Algorithmic Logic Simulation</p>
-                <ul class="logic-list">
-                    <li>Developed a Java-based simulator to model complex scenarios and provide interactive user feedback.</li>
-                    <li>Applied specialized Data Structures to manage state transitions and user input logs.</li>
-                    <li>Architected modular components using OOP principles for scalable diagnostic expansions.</li>
-                </ul>
-                <div class="stack-group">
-                    <span class="stack-pill">Java</span><span class="stack-pill">State Logic</span><span class="stack-pill">Modular Design</span>
-                </div>
-            </div>
-
         </div>
     </section>
-    <style>
-        /* --- CREDENTIAL GRIDS --- */
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 5rem;
-        }
-
-        .cert-card {
-            background: var(--glass);
-            padding: 3.5rem;
-            border-radius: 40px;
-            border: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: 0.5s var(--transition);
-        }
-
-        .cert-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            background: rgba(56, 189, 248, 0.02);
-        }
-
-        .cert-card h4 { color: var(--primary); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
-        .cert-card h3 { font-family: 'Syne', sans-serif; font-size: 1.6rem; color: #fff; line-height: 1.3; margin-bottom: 15px; }
-        .cert-card p { color: #94a3b8; font-size: 0.95rem; margin-bottom: 25px; line-height: 1.6; }
-
-        .btn-view {
-            align-self: flex-start;
-            padding: 12px 25px;
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--primary);
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            border-radius: 12px;
-            text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            transition: 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .btn-view:hover { background: var(--primary); color: var(--dark); }
-
-        /* --- ACHIEVEMENT TILES --- */
-        .achieve-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-top: 2rem;
-        }
-
-        .achieve-box {
-            background: var(--glass);
-            padding: 4.5rem;
-            border-radius: 50px;
-            border: 1px solid var(--border);
-            text-align: center;
-            transition: 0.6s ease;
-        }
-
-        .achieve-box:hover {
-            border-color: var(--secondary);
-            transform: scale(1.02);
-            background: rgba(34, 197, 94, 0.02);
-        }
-
-        .achieve-icon { font-size: 3.5rem; color: var(--secondary); margin-bottom: 2rem; }
-        .achieve-box h3 { font-family: 'Syne', sans-serif; font-size: 2.2rem; color: #fff; margin-bottom: 1rem; }
-        .achieve-box p { color: #94a3b8; font-size: 1.15rem; line-height: 1.7; }
-    </style>
 
     <section id="certificates" data-aos="fade-up">
         <h2 class="section-title">Certificates</h2>
         <div class="cert-grid">
-            
-            <div class="cert-card">
-                <div>
-                    <h4>IIT Madras | NPTEL</h4>
-                    <h3>Social Networks Mastery (Elite)</h3>
-                    <p>Advanced competency in network theory, mathematical modeling, and structural analysis of digital systems.</p>
-                </div>
-                <a href="#" target="_blank" class="btn-view"><i class="fas fa-certificate"></i> View Certificate</a>
-            </div>
-
-            <div class="cert-card">
-                <div>
-                    <h4>CipherSchools</h4>
-                    <h3>DSA with Java Training</h3>
-                    <p>Completed 70+ hours of intensive laboratory work focusing on complex algorithmic problem solving.</p>
-                </div>
-                <a href="#" target="_blank" class="btn-view"><i class="fas fa-certificate"></i> View Certificate</a>
-            </div>
-
-            <div class="cert-card">
-                <div>
-                    <h4>Amazon Web Services</h4>
-                    <h3>Cloud Practitioner Essentials</h3>
-                    <p>Foundational knowledge of AWS Cloud platform, security, and core infrastructure services.</p>
-                </div>
-                <a href="#" target="_blank" class="btn-view"><i class="fas fa-certificate"></i> View Certificate</a>
-            </div>
-
-            <div class="cert-card">
-                <div>
-                    <h4>Lovely Professional University</h4>
-                    <h3>Academic Excellence Award</h3>
-                    <p>Recognition for maintaining a focused 7.0 CGPA and contributing to the technical engineering community.</p>
-                </div>
-                <a href="#" target="_blank" class="btn-view"><i class="fas fa-certificate"></i> View Certificate</a>
-            </div>
-
+            <div class="cert-card"><div><h4>IIT Madras | NPTEL</h4><h3>Social Networks (Elite)</h3><p>Mastery in complex network theory and digital analysis.</p></div><a href="https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL25CS102S95870011110370483" target="_blank" class="btn-view">View Certificate</a></div>
+            <div class="cert-card"><div><h4>LPU Colab</h4><h3>Java Programming</h3><p>Verified proficiency in advanced Java core and OOP.</p></div><a href="https://lpucolab438.examly.io/certificate/U2FsdGVkX1%2FE2Kx9QTO0d0h8%2Feeog6mn5Y3G0jXJCpQ%3D" target="_blank" class="btn-view">View Certificate</a></div>
+            <div class="cert-card"><div><h4>LPU Colab</h4><h3>C++ Programming</h3><p>Mastery in low-level memory management and logic.</p></div><a href="https://lpucolab438.examly.io/certificate/U2FsdGVkX19P%2FSBPrAIdGjIOjXkyAfcyE1Sa1C3LR%2F4%3D" target="_blank" class="btn-view">View Certificate</a></div>
+            <div class="cert-card"><div><h4>LPU Colab</h4><h3>C Programming</h3><p>Engineering foundations and algorithmic implementation.</p></div><a href="https://lpucolab438.examly.io/certificate/U2FsdGVkX1%2FE%2BZYlPm1KcLlWYMAcoADG0uU2Mg5Gacc%3D" target="_blank" class="btn-view">View Certificate</a></div>
+            <div class="cert-card"><div><h4>Infosys</h4><h3>Computational Theory</h3><p>Finite Automata and formal language principles.</p></div><span class="btn-view" style="opacity:0.6; cursor:default;">Verified by SS</span></div>
+            <div class="cert-card"><div><h4>Hackathon</h4><h3>Code-A-Haunt</h3><p>Elite ranking in rapid-prototyping competition.</p></div><a href="https://verification.givemycertificate.com/v/88ea97fe-ad3b-4b16-a515-2d92b00b4e11" target="_blank" class="btn-view">View Certificate</a></div>
         </div>
     </section>
 
     <section id="certification" data-aos="fade-up">
         <h2 class="section-title">Certifications</h2>
         <div class="cert-grid">
-
-            <div class="cert-card">
-                <div>
-                    <h4>Udemy Professional</h4>
-                    <h3>Master Generative AI & AI Tools</h3>
-                    <p>Mastery in Prompt Engineering, AI logic, and integrating high-performance Generative models.</p>
-                </div>
-                <a href="#" target="_blank" class="btn-view"><i class="fas fa-award"></i> View Certification</a>
-            </div>
-
-            <div class="cert-card">
-                <div>
-                    <h4>Udemy Professional</h4>
-                    <h3>Python and Django Mastery</h3>
-                    <p>Comprehensive expertise in robust backend system architecture and full-stack development patterns.</p>
-                </div>
-                <a href="#" target="_blank" class="btn-view"><i class="fas fa-award"></i> View Certification</a>
-            </div>
-
-            <div class="cert-card">
-                <div>
-                    <h4>Oracle Java</h4>
-                    <h3>Java SE Programming I</h3>
-                    <p>Professional certification covering fundamental Java concepts, OOPs, and core API libraries.</p>
-                </div>
-                <a href="#" target="_blank" class="btn-view"><i class="fas fa-award"></i> View Certification</a>
-            </div>
-
-            <div class="cert-card" style="border-color: var(--secondary);">
-                <div>
-                    <h4>AWS Certified</h4>
-                    <h3>Solutions Architect Associate</h3>
-                    <p>Specialized certification in designing distributed systems and scalable cloud infrastructure (In Progress).</p>
-                </div>
-                <a href="#" target="_blank" class="btn-view" style="color: var(--secondary);"><i class="fas fa-hourglass-half"></i> Upcoming</a>
-            </div>
-
+            <div class="cert-card"><div><h4>Udemy</h4><h3>Master Generative AI</h3><p>Prompt Engineering and AI model integration.</p></div><a href="https://ude.my/UC-4415aa0f-98c4-48f3-8281-6981a4f1873a" target="_blank" class="btn-view">View Certification</a></div>
+            <div class="cert-card"><div><h4>Udemy</h4><h3>Python & Django</h3><p>Full-stack backend architecture mastery.</p></div><a href="https://ude.my/UC-d23d988b-f7fc-4df8-a36c-b15a5283e6b0" target="_blank" class="btn-view">View Certification</a></div>
+            <div class="cert-card"><div><h4>Google</h4><h3>Computer Networking</h3><p>Advanced networking infrastructure and OS logic.</p></div><a href="https://coursera.org/verify/K6NUPGL74XCS" target="_blank" class="btn-view">View Certification</a></div>
+            <div class="cert-card"><div><h4>IBM</h4><h3>Hardware & OS</h3><p>System architecture and Operating System internals.</p></div><a href="https://coursera.org/verify/EAKWE9Y3H7QE" target="_blank" class="btn-view">View Certification</a></div>
+            <div class="cert-card"><div><h4>FreeCodeCamp</h4><h3>Responsive Web Design</h3><p>Modern frontend UI/UX and responsive engineering.</p></div><a href="https://freecodecamp.org/certification/fcc033fbec4-5e8c-4c15-b322-ea6c9c344f75/responsive-web-design" target="_blank" class="btn-view">View Certification</a></div>
+            <div class="cert-card"><div><h4>Udemy</h4><h3>AI No-Code Solutions</h3><p>Scaling AI applications with no-code frameworks.</p></div><a href="https://ude.my/UC-fb820e4b-d71e-4469-89c0-ddbcb09dOfc4" target="_blank" class="btn-view">View Certification</a></div>
         </div>
     </section>
 
-    <section id="achievements" data-aos="fade-up">
-        <h2 class="section-title">Global Achievements</h2>
-        <div class="achieve-row">
-            <div class="achieve-box">
-                <i class="fas fa-code achieve-icon"></i>
-                <h3>200+ Problems Solved</h3>
-                <p>Refined algorithmic logic and dynamic programming patterns through consistent practice on Neo-Colab.</p>
-            </div>
-            <div class="achieve-box">
-                <i class="fas fa-trophy achieve-icon"></i>
-                <h3>Top 30% Rank</h3>
-                <p>Secured high ranking in Code-A-Haunt Hackathon, demonstrating elite rapid-prototyping skills.</p>
-            </div>
-        </div>
-    </section>
-    <style>
-        /* --- CONTACT FOOTER --- */
-        .contact-footer {
-            background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.08), transparent);
-            padding: 120px 20px;
-            text-align: center;
-            border-radius: 60px;
-            border: 1px solid var(--border);
-            margin-top: 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-footer h1 {
-            font-family: 'Syne', sans-serif;
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            line-height: 1.1;
-            margin-bottom: 2rem;
-            color: #fff;
-        }
-
-        .contact-info { margin-bottom: 4rem; }
-        .contact-info p { font-size: 1.2rem; color: #94a3b8; margin-bottom: 12px; }
-
-        .social-flex {
-            display: flex;
-            justify-content: center;
-            gap: 4rem;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .social-icon {
-            text-decoration: none;
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            transition: 0.5s ease;
-        }
-
-        .social-icon i {
-            font-size: 3rem;
-            color: var(--primary);
-            filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.3));
-        }
-
-        .social-icon span {
-            font-weight: 800;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            color: #64748b;
-        }
-
-        .social-icon:hover { transform: translateY(-15px); }
-        .social-icon:hover i { color: var(--secondary); filter: drop-shadow(0 0 20px rgba(34, 197, 94, 0.4)); }
-
-        .copyright {
-            margin-top: 100px;
-            opacity: 0.3;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-    </style>
-
-    <section id="contact" data-aos="zoom-in">
+    <section id="contact">
         <div class="contact-footer">
-            <h1>Let's Architect <br><span style="color:var(--primary);">The Future.</span></h1>
-            
-            <div class="contact-info">
-                <p><i class="fas fa-envelope" style="margin-right:10px; color:var(--primary);"></i> anmolpratap280@gmail.com</p>
-                <p><i class="fas fa-phone" style="margin-right:10px; color:var(--primary);"></i> +91-8809761120</p>
+            <h1>Let's Build the Future.</h1>
+            <p style="font-size: 1.3rem; color: #94a3b8; margin-bottom: 50px;">anmolpratap280@gmail.com | +91-8809761120</p>
+            <div style="display:flex; justify-content:center; gap:40px;">
+                <a href="https://github.com/Anmol280" target="_blank" style="color:var(--primary); font-size:3rem;"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/anmol-pratap280" target="_blank" style="color:var(--primary); font-size:3rem;"><i class="fab fa-linkedin"></i></a>
             </div>
-
-            <div class="social-flex">
-                <a href="https://github.com/Anmol280" target="_blank" class="social-icon">
-                    <i class="fab fa-github"></i>
-                    <span>GITHUB</span>
-                </a>
-                <a href="https://linkedin.com/in/anmol-pratap280" target="_blank" class="social-icon">
-                    <i class="fab fa-linkedin"></i>
-                    <span>LINKEDIN</span>
-                </a>
-                <a href="mailto:anmolpratap280@gmail.com" class="social-icon">
-                    <i class="fas fa-paper-plane"></i>
-                    <span>EMAIL ME</span>
-                </a>
-            </div>
-
-            <p class="copyright">KUMAR ANMOL PRATAP | &copy; 2026 | CLOUD ENGINEER PORTFOLIO</p>
+            <p style="margin-top:100px; opacity:0.3; font-size:0.75rem; letter-spacing:4px; text-transform:uppercase;">KUMAR ANMOL PRATAP | &copy; 2026</p>
         </div>
     </section>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // --- MASTER LOADER LOGIC ---
-        let loadCount = 0;
-        const loaderElem = document.getElementById('loader');
-        const percentElem = document.getElementById('loader-percentage');
-        const progressElem = document.getElementById('progress');
-
-        const loadInterval = setInterval(() => {
-            loadCount++;
-            percentElem.innerText = loadCount;
-            progressElem.style.width = loadCount + '%';
-            
-            if (loadCount === 100) {
-                clearInterval(loadInterval);
-                loaderElem.style.transition = 'opacity 0.8s ease';
-                loaderElem.style.opacity = '0';
-                
+        let count = 0;
+        const intrvl = setInterval(() => {
+            count++; document.getElementById('loader-percentage').innerText = count;
+            document.getElementById('progress').style.width = count + '%';
+            if(count === 100){ 
+                clearInterval(intrvl); 
+                document.getElementById('loader').style.opacity = '0';
                 setTimeout(() => { 
-                    loaderElem.style.display = 'none';
-                    document.body.style.overflow = 'auto'; // Enable scroll
-                    AOS.init({ 
-                        duration: 1200, 
-                        once: true,
-                        offset: 100
-                    });
+                    document.getElementById('loader').style.display = 'none'; 
+                    document.body.style.overflow = 'auto'; 
+                    AOS.init({ duration: 1200, once: true });
                 }, 800);
             }
         }, 15);
