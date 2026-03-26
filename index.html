@@ -271,41 +271,110 @@
             </div>
         </div>
     </section>
-    <section id="training" data-aos="fade-up">
-        <h2 class="section-title">Technical Training</h2>
-        <div class="training-card">
-            <span class="edu-meta">Jun '25 - Jul '25 | CipherSchools</span>
-            <h3 style="font-size: 2.8rem; margin-bottom: 15px; font-family:'Syne', sans-serif; color: #fff;">DSA with Java Intensive</h3>
-            <p style="font-size: 1.2rem; color: var(--primary); font-weight: 800; margin-bottom: 2rem; letter-spacing: 1px;">70+ Hours of Laboratory & Algorithmic Practice</p>
-            
-            <ul class="training-logic">
-                <li><strong>Advanced Data Structures:</strong> Mastered the implementation of non-linear structures including Trees, Graphs, and HashMaps from scratch.</li>
-                <li><strong>Algorithmic Complexity:</strong> Deep dive into Time and Space Complexity analysis (Big O notation) to write highly optimized code.</li>
-                <li><strong>Dynamic Problem Solving:</strong> Applied advanced techniques like Recursion, Backtracking, and Dynamic Programming to solve complex algorithmic puzzles.</li>
-                <li><strong>Core Java Proficiency:</strong> Leveraged Java Collections Framework extensively to manage and manipulate large datasets efficiently during training simulations.</li>
-            </ul>
-        </div>
-    </section>
     <style>
+        /* --- TRAINING ARCHITECTURE (HIGH DETAIL) --- */
+        .glass-card {
+            background: var(--glass);
+            padding: 5rem;
+            border-radius: 55px;
+            border: 1px solid var(--border);
+            border-left: 12px solid var(--primary); /* Blue accent for training */
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            backdrop-filter: blur(15px);
+            transition: 0.6s var(--transition);
+            margin-bottom: 6rem;
+            max-width: 1200px;
+            margin: 0 auto 6rem auto;
+            position: relative;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--primary);
+            box-shadow: 0 35px 70px rgba(56, 189, 248, 0.25);
+        }
+
+        .glass-card::before {
+            content: ""; position: absolute; top: 0; left: 0;
+            width: 15px; height: 100%; background: var(--primary);
+            transition: 0.6s ease; border-radius: 55px 0 0 55px;
+        }
+        
+        .glass-card:hover::before { width: 20px; }
+
+        .training-tile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .training-tile {
+            background: rgba(255, 255, 255, 0.01);
+            padding: 2.5rem;
+            border-radius: 30px;
+            border: 1px solid var(--border);
+            transition: 0.4s;
+        }
+
+        .training-tile:hover {
+            border-color: rgba(56, 189, 248, 0.5);
+            background: rgba(56, 189, 248, 0.02);
+        }
+
+        .training-tile i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem; }
+        .training-tile h4 { font-size: 1.3rem; margin-bottom: 10px; color: #fff; }
+        .training-tile p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
+
+        .btn-view {
+            align-self: flex-start;
+            padding: 12px 28px;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-view:hover { background: var(--primary); color: var(--dark); }
+
         /* --- PROJECT ARCHITECTURE (HIGH DETAIL) --- */
         .project-list { display: flex; flex-direction: column; gap: 6rem; }
+        
         .project-card {
-            background: var(--glass); padding: 5.5rem; border-radius: 55px;
-            border: 1px solid var(--border); transition: 0.6s var(--transition);
-            position: relative; overflow: hidden;
+            background: var(--glass);
+            padding: 5.5rem;
+            border-radius: 55px;
+            border: 1px solid var(--border);
+            border-left: 12px solid var(--secondary); /* Green accent for projects */
+            transition: 0.6s var(--transition);
+            position: relative;
+            overflow: hidden;
             box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            max-width: 1200px;
+            margin: 0 auto;
         }
+
+        .project-card:hover {
+            border-color: var(--secondary);
+            background: rgba(34, 197, 94, 0.03);
+            transform: translateY(-12px);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+        }
+
         .project-card::before {
             content: ""; position: absolute; top: 0; left: 0;
-            width: 10px; height: 100%; background: var(--secondary);
-            transition: 0.6s ease;
+            width: 15px; height: 100%; background: var(--secondary);
+            transition: 0.6s ease; border-radius: 55px 0 0 55px;
         }
-        .project-card:hover {
-            border-color: var(--secondary); background: rgba(34, 197, 94, 0.03);
-            transform: translateY(-12px); box-shadow: 0 40px 80px rgba(0,0,0,0.4);
-        }
-        .project-card:hover::before { width: 15px; }
-        
+        .project-card:hover::before { width: 20px; }
+
         .project-card h3 { font-family: 'Syne', sans-serif; font-size: 2.8rem; color: #fff; margin-bottom: 1rem; }
         .project-subtitle { color: var(--primary); font-weight: 800; letter-spacing: 3px; text-transform: uppercase; font-size: 0.95rem; display: block; margin-bottom: 3rem; }
         
@@ -321,11 +390,56 @@
 
         .stack-flex { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4rem; }
         .stack-badge {
-            background: rgba(56, 189, 248, 0.1); color: var(--primary);
-            padding: 10px 22px; border-radius: 12px; font-weight: 800;
-            font-size: 0.8rem; text-transform: uppercase; border: 1px solid rgba(56, 189, 248, 0.25);
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--primary);
+            padding: 10px 22px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            border: 1px solid rgba(56, 189, 248, 0.25);
         }
     </style>
+
+    <section id="training" data-aos="fade-up">
+        <h2 class="section-title">Technical Training</h2>
+        <div class="glass-card">
+            <span class="edu-meta">Jun '25 - Jul '25 | CipherSchools</span>
+            <h3 style="font-size: 3rem; margin-bottom: 25px; font-family:'Syne', sans-serif; color: #fff;">DSA with Java Intensive</h3>
+            <p style="font-size: 1.3rem; color: var(--primary); font-weight: 800; margin-bottom: 2rem; letter-spacing: 2px; text-transform: uppercase;">70+ Hours of High-Intensity Lab Problem Solving</p>
+            
+            <p style="font-size: 1.15rem; color: #cbd5e1; line-height: 1.8; margin-bottom: 3rem;">
+                Completed an advanced data structures and algorithmic theory program. Developed from raw logical concepts to high-performance Java implementation, focusing on complexity analysis and system optimization.
+            </p>
+
+            <div class="training-tile-grid">
+                <div class="training-tile">
+                    <i class="fas fa-brain"></i>
+                    <h4>Advanced Data Structures</h4>
+                    <p>Built complex, non-linear data structures including Binary Search Trees, Graphs, HashTables, and Heaps from scratch, understanding their raw memory management.</p>
+                </div>
+                <div class="training-tile">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Algorithmic Efficiency</h4>
+                    <p>Deep-dive into Time and Space Complexity (Big O Notation). Conducted complexity audits to ensure optimal data processing under load.</p>
+                </div>
+                <div class="training-tile">
+                    <i class="fas fa-code-branch"></i>
+                    <h4>Intricate Problem Solving</h4>
+                    <p>Applied intricate techniques including advanced Recursion, Dynamic Programming, Backtracking, and Greedy Algorithms to solve complex logical puzzles and competitive programming problems.</p>
+                </div>
+                <div class="training-tile">
+                    <i class="fab fa-java"></i>
+                    <h4>Real-World Java Core</h4>
+                    <p>Extensively leveraged the Java Collections Framework (ArrayList, HashMap, Queue) to manage and manipulate massive datasets, focusing on internal mechanics.</p>
+                </div>
+            </div>
+
+            <div class="stack-flex" style="margin-top: 4rem;">
+                <span class="stack-badge">DSA Core</span><span class="stack-badge">Java Core</span><span class="stack-badge">Algorithmic Optimization</span><span class="stack-badge">Real-World Collections</span>
+            </div>
+        </div>
+    </section>
 
     <section id="projects" data-aos="fade-up">
         <h2 class="section-title">Engineering Projects</h2>
