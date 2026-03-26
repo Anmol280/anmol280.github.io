@@ -278,29 +278,21 @@
             padding: 5rem;
             border-radius: 55px;
             border: 1px solid var(--border);
-            border-left: 12px solid var(--primary); /* Blue accent for training */
+            border-left: 12px solid var(--primary); 
             box-shadow: 0 25px 50px rgba(0,0,0,0.2);
             backdrop-filter: blur(15px);
             transition: 0.6s var(--transition);
             margin-bottom: 6rem;
             max-width: 1200px;
             margin: 0 auto 6rem auto;
-            position: relative;
         }
 
         .glass-card:hover {
             transform: translateY(-12px);
             border-color: var(--primary);
+            border-left-width: 22px; 
             box-shadow: 0 35px 70px rgba(56, 189, 248, 0.25);
         }
-
-        .glass-card::before {
-            content: ""; position: absolute; top: 0; left: 0;
-            width: 15px; height: 100%; background: var(--primary);
-            transition: 0.6s ease; border-radius: 55px 0 0 55px;
-        }
-        
-        .glass-card:hover::before { width: 20px; }
 
         .training-tile-grid {
             display: grid;
@@ -320,29 +312,22 @@
         .training-tile:hover {
             border-color: rgba(56, 189, 248, 0.5);
             background: rgba(56, 189, 248, 0.02);
+            transform: translateY(-5px);
         }
 
         .training-tile i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem; }
         .training-tile h4 { font-size: 1.3rem; margin-bottom: 10px; color: #fff; }
         .training-tile p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
 
-        .btn-view {
-            align-self: flex-start;
-            padding: 12px 28px;
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--primary);
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            border-radius: 12px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            transition: 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
+        .btn-training-cert {
+            display: inline-flex; align-items: center; gap: 10px;
+            margin-top: 3.5rem; padding: 14px 32px;
+            background: rgba(56, 189, 248, 0.1); color: var(--primary);
+            border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 14px;
+            font-size: 0.9rem; font-weight: 800; text-transform: uppercase;
+            text-decoration: none; transition: 0.3s;
         }
-        .btn-view:hover { background: var(--primary); color: var(--dark); }
+        .btn-training-cert:hover { background: var(--primary); color: var(--dark); transform: translateY(-3px); }
 
         /* --- PROJECT ARCHITECTURE (HIGH DETAIL) --- */
         .project-list { display: flex; flex-direction: column; gap: 6rem; }
@@ -352,10 +337,8 @@
             padding: 5.5rem;
             border-radius: 55px;
             border: 1px solid var(--border);
-            border-left: 12px solid var(--secondary); /* Green accent for projects */
+            border-left: 12px solid var(--secondary); 
             transition: 0.6s var(--transition);
-            position: relative;
-            overflow: hidden;
             box-shadow: 0 25px 50px rgba(0,0,0,0.2);
             max-width: 1200px;
             margin: 0 auto;
@@ -363,17 +346,11 @@
 
         .project-card:hover {
             border-color: var(--secondary);
+            border-left-width: 22px; 
             background: rgba(34, 197, 94, 0.03);
             transform: translateY(-12px);
             box-shadow: 0 40px 80px rgba(0,0,0,0.4);
         }
-
-        .project-card::before {
-            content: ""; position: absolute; top: 0; left: 0;
-            width: 15px; height: 100%; background: var(--secondary);
-            transition: 0.6s ease; border-radius: 55px 0 0 55px;
-        }
-        .project-card:hover::before { width: 20px; }
 
         .project-card h3 { font-family: 'Syne', sans-serif; font-size: 2.8rem; color: #fff; margin-bottom: 1rem; }
         .project-subtitle { color: var(--primary); font-weight: 800; letter-spacing: 3px; text-transform: uppercase; font-size: 0.95rem; display: block; margin-bottom: 3rem; }
@@ -390,14 +367,9 @@
 
         .stack-flex { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4rem; }
         .stack-badge {
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--primary);
-            padding: 10px 22px;
-            border-radius: 12px;
-            font-weight: 800;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            border: 1px solid rgba(56, 189, 248, 0.25);
+            background: rgba(56, 189, 248, 0.1); color: var(--primary);
+            padding: 10px 22px; border-radius: 12px; font-weight: 800;
+            font-size: 0.8rem; text-transform: uppercase; border: 1px solid rgba(56, 189, 248, 0.25);
         }
     </style>
 
@@ -435,9 +407,13 @@
                 </div>
             </div>
 
-            <div class="stack-flex" style="margin-top: 4rem;">
+            <div class="stack-flex" style="margin-top: 3.5rem;">
                 <span class="stack-badge">DSA Core</span><span class="stack-badge">Java Core</span><span class="stack-badge">Algorithmic Optimization</span><span class="stack-badge">Real-World Collections</span>
             </div>
+
+            <a href="#" target="_blank" class="btn-training-cert">
+                <i class="fas fa-award"></i> View Training Certificate
+            </a>
         </div>
     </section>
 
@@ -637,6 +613,14 @@
     </section>
     <section id="contact" data-aos="fade-up">
         <div class="contact-footer">
+            <style>
+                .contact-footer {
+                    background: radial-gradient(circle at top center, rgba(56, 189, 248, 0.1), transparent);
+                    padding: 140px 20px; text-align: center; border-radius: 60px;
+                    border: 1px solid var(--border); margin-top: 100px;
+                }
+                .contact-footer h1 { font-family: 'Syne', sans-serif; font-size: clamp(3rem, 8vw, 5.5rem); margin-bottom: 3rem; color: #fff; letter-spacing: -2px; }
+            </style>
             <h1>Let's Build the Future.</h1>
             <p style="font-size: 1.4rem; color: #94a3b8; margin-bottom: 60px; font-weight:600;">anmolpratap280@gmail.com <span style="margin: 0 15px;">|</span> +91-8809761120</p>
             <div style="display:flex; justify-content:center; gap:50px;">
