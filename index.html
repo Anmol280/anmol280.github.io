@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kumar Anmol Pratap | Cloud Engineer Portfolio</title>
+    <title>Kumar Anmol Pratap | Cloud Engineer</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -42,6 +42,22 @@
         .loader-bar { width: 250px; height: 3px; background: var(--border); margin-top: 25px; border-radius: 10px; overflow: hidden; }
         .loader-progress { height: 100%; background: var(--primary); width: 0%; transition: 0.1s linear; }
 
+        /* --- GLOBAL SECTION SPACING --- */
+        section { 
+            padding: 160px 10%; 
+            max-width: 1400px; 
+            margin: auto; 
+        }
+
+        .section-title { 
+            font-family: 'Syne', sans-serif; font-size: clamp(2rem, 5vw, 3rem); 
+            color: #fff; margin-bottom: 4.5rem; text-transform: uppercase; position: relative; 
+        }
+        .section-title::after { 
+            content: ""; position: absolute; bottom: -12px; left: 0; 
+            width: 70px; height: 5px; background: var(--primary); border-radius: 10px;
+        }
+
         /* --- NAVIGATION --- */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 1000;
@@ -55,26 +71,12 @@
         }
         nav a:hover { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
 
-        /* --- GLOBAL SECTION SPACING --- */
-        section { 
-            padding: 160px 10%; 
-            max-width: 1400px; 
-            margin: auto; 
-        }
-        .section-title { 
-            font-family: 'Syne', sans-serif; font-size: clamp(2rem, 5vw, 3rem); 
-            color: #fff; margin-bottom: 4.5rem; text-transform: uppercase; position: relative; 
-        }
-        .section-title::after { 
-            content: ""; position: absolute; bottom: -12px; left: 0; 
-            width: 70px; height: 5px; background: var(--primary); border-radius: 10px;
-        }
-
-        /* --- HERO (LAPTOP OPTIMIZED) --- */
+        /* --- HERO (LAPTOP OPTIMIZED WITH FIXED HEAD CROP) --- */
         .hero { 
             height: 100vh; display: flex; flex-direction: column; 
             justify-content: center; align-items: center; text-align: center; 
         }
+        
         .profile-master {
             width: 280px; height: 280px; border-radius: 50%; padding: 8px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -84,9 +86,10 @@
         .profile-master img { 
             width: 100%; height: 100%; border-radius: 50%; 
             object-fit: cover; 
-            object-position: center 10%; /* FIXED HEAD CROP */
+            object-position: center 10%; 
             border: 6px solid var(--dark); 
         }
+
         .hero h1 {
             font-family: 'Syne', sans-serif;
             font-size: clamp(2.5rem, 6vw, 4.5rem); 
@@ -97,11 +100,12 @@
             font-size: 1.2rem; color: var(--primary); letter-spacing: 10px; 
             text-transform: uppercase; font-weight: 800; margin-bottom: 3.5rem; 
         }
+
         .hero-btns { display: flex; gap: 1.8rem; }
         .btn { 
             padding: 16px 38px; border-radius: 14px; text-decoration: none; 
             font-weight: 800; text-transform: uppercase; font-size: 0.85rem; 
-            transition: 0.4s var(--transition); 
+            transition: 0.4s var(--transition); cursor: pointer;
         }
         .btn-cv { background: var(--primary); color: var(--dark); box-shadow: 0 10px 30px rgba(56, 189, 248, 0.3); }
         .btn-cv:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(56, 189, 248, 0.5); }
@@ -140,89 +144,69 @@
         </div>
     </header>
     <style>
-        /* --- ABOUT & PITCH --- */
+        /* --- ABOUT ME PITCH --- */
         .pitch-container {
             background: var(--glass);
-            padding: 4rem;
+            padding: 4.5rem;
             border-radius: 45px;
             border: 1px solid var(--border);
-            line-height: 1.8;
-            font-size: 1.3rem;
+            line-height: 1.9;
+            font-size: 1.35rem;
             color: #cbd5e1;
             max-width: 1100px;
             margin: 0 auto;
             box-shadow: 0 25px 50px rgba(0,0,0,0.3);
             backdrop-filter: blur(15px);
         }
-
         .highlight-glow { color: var(--primary); font-weight: 800; text-shadow: 0 0 15px rgba(56, 189, 248, 0.4); }
 
         /* --- EDUCATION CARDS --- */
-        .edu-flex {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-        }
+        .edu-flex { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem; }
         .edu-box {
-            background: var(--glass);
-            padding: 4rem;
-            border-radius: 45px;
-            border: 1px solid var(--border);
-            transition: 0.6s var(--transition);
-            position: relative;
-            overflow: hidden;
+            background: var(--glass); padding: 4rem; border-radius: 45px;
+            border: 1px solid var(--border); transition: 0.6s var(--transition);
+            position: relative; overflow: hidden;
         }
         .edu-box:hover {
-            transform: translateY(-15px);
-            border-color: var(--primary);
-            background: rgba(56, 189, 248, 0.03);
-            box-shadow: 0 20px 40px rgba(56, 189, 248, 0.1);
+            transform: translateY(-15px); border-color: var(--primary);
+            background: rgba(56, 189, 248, 0.03); box-shadow: 0 20px 40px rgba(56, 189, 248, 0.1);
         }
         .edu-box h3 { font-family: 'Syne', sans-serif; font-size: 1.9rem; color: #fff; margin-bottom: 15px; }
         .edu-meta { color: var(--primary); font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 3px; display: block; margin-bottom: 25px; }
         .result-pill {
-            display: inline-block; padding: 12px 26px; 
-            background: rgba(34, 197, 94, 0.1); 
+            display: inline-block; padding: 12px 26px; background: rgba(34, 197, 94, 0.1); 
             color: var(--secondary); border-radius: 14px; font-weight: 900;
             margin-top: 30px; font-size: 1.15rem; border: 1px solid rgba(34, 197, 94, 0.2);
         }
 
-        /* --- TECH ARSENAL --- */
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
+        /* --- DETAILED TECH ARSENAL --- */
+        .bento-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; }
+        .skill-group {
+            background: var(--glass); padding: 3.5rem; border-radius: 40px;
+            border: 1px solid var(--border); transition: 0.5s;
         }
+        .skill-group:hover { border-color: var(--secondary); transform: translateY(-5px); }
+        .skill-group h4 { color: #94a3b8; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 2rem; }
+        
+        .skill-flex { display: flex; flex-wrap: wrap; gap: 15px; }
         .skill-pill {
             background: rgba(255, 255, 255, 0.05); color: #fff;
             padding: 14px 24px; border-radius: 18px; font-size: 1rem;
             font-weight: 700; border: 1px solid var(--border);
-            display: flex; align-items: center; gap: 15px;
-            transition: 0.3s;
+            display: flex; align-items: center; gap: 12px; transition: 0.3s;
         }
         .skill-pill:hover { background: var(--primary); color: var(--dark); transform: scale(1.05); }
-        .skill-pill i { font-size: 1.4rem; }
-
-        /* --- TRAINING --- */
-        .training-card {
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), transparent);
-            padding: 5rem;
-            border-radius: 55px;
-            border: 1px solid var(--border);
-            border-left: 12px solid var(--primary);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-        }
     </style>
 
     <section id="about" data-aos="fade-up">
         <h2 class="section-title">About Me</h2>
         <div class="pitch-container">
-            I am Kumar Anmol Pratap, a <span class="highlight-glow">Cloud Engineer</span> and B.Tech CSE candidate at <span class="highlight-glow">Lovely Professional University</span>. 
+            I am <span class="highlight-glow">Kumar Anmol Pratap</span>, a Cloud Engineer and B.Tech CSE candidate at <span class="highlight-glow">Lovely Professional University</span>. 
             I specialize in architecting high-performance <span class="highlight-glow">Java backend systems</span> and managing scalable cloud environments. 
-            Defined by an <span class="highlight-glow">attention to detail</span> and a drive for technical excellence, I have successfully solved 
+            Defined by an <span class="highlight-glow">attention to detail</span> and a relentless drive for technical excellence, I have successfully solved 
             <span class="highlight-glow">200+ Java and DSA challenges</span> and secured a position in the 
-            <span class="highlight-glow">Top 30%</span> of competitive engineering hackathons. I bridge the gap between complex 
-            algorithmic logic and modern cloud infrastructure.
+            <span class="highlight-glow">Top 30%</span> of competitive engineering hackathons. I thrive on bridging the gap between complex 
+            algorithmic logic and modern, efficient cloud infrastructure.
         </div>
     </section>
 
@@ -232,19 +216,19 @@
             <div class="edu-box" data-aos="fade-up">
                 <span class="edu-meta">LPU, Punjab | 2023 - 2027</span>
                 <h3>B.Tech Computer Science</h3>
-                <p>Focusing on scalable system design, cloud native architectures, and advanced data structures.</p>
+                <p>Focusing on scalable system design, cloud native architectures, database management, and advanced data structures.</p>
                 <div class="result-pill">CGPA: 7.0</div>
             </div>
             <div class="edu-box" data-aos="fade-up" data-aos-delay="200">
                 <span class="edu-meta">Grizzly Vidyalaya | 2021 - 2023</span>
                 <h3>Intermediate (Science)</h3>
-                <p>Rigorous training in Physics, Chemistry, and Mathematics for deep technical foundations.</p>
-                <div class="result-pill">Result: 67.5%%</div>
+                <p>Rigorous training in Physics, Chemistry, and Mathematics, building deep analytical and technical foundations.</p>
+                <div class="result-pill">Result: 67.5%</div>
             </div>
             <div class="edu-box" data-aos="fade-up" data-aos-delay="400">
                 <span class="edu-meta">Sacred Heart School | 2019 - 2021</span>
                 <h3>Matriculation</h3>
-                <p>Core education with a strong emphasis on Mathematical logic and Scientific inquiry.</p>
+                <p>Core education with a strong emphasis on Mathematical logic, computation, and Scientific inquiry.</p>
                 <div class="result-pill">Result: 80%</div>
             </div>
         </div>
@@ -253,165 +237,311 @@
     <section id="skills" data-aos="fade-up">
         <h2 class="section-title">Technical Arsenal</h2>
         <div class="bento-grid">
-            <div class="edu-box">
-                <span class="edu-meta">Languages</span>
-                <div style="display:flex; flex-wrap:wrap; gap:15px;">
+            <div class="skill-group">
+                <h4>Programming Languages</h4>
+                <div class="skill-flex">
                     <div class="skill-pill"><i class="fab fa-java" style="color:#f89820;"></i> Java</div>
                     <div class="skill-pill"><i class="fab fa-python" style="color:#3776ab;"></i> Python</div>
-                    <div class="skill-pill"><i class="fas fa-code" style="color:#00599c;"></i> C++ / C</div>
+                    <div class="skill-pill"><i class="fas fa-code" style="color:#00599c;"></i> C++</div>
+                    <div class="skill-pill"><i class="fas fa-terminal"></i> C</div>
+                    <div class="skill-pill"><i class="fas fa-database"></i> SQL</div>
                 </div>
             </div>
-            <div class="edu-box">
-                <span class="edu-meta">Cloud & DevOps</span>
-                <div style="display:flex; flex-wrap:wrap; gap:15px;">
+
+            <div class="skill-group">
+                <h4>Core Engineering</h4>
+                <div class="skill-flex">
+                    <div class="skill-pill"><i class="fas fa-brain"></i> DSA</div>
+                    <div class="skill-pill"><i class="fas fa-cubes"></i> OOPs</div>
+                    <div class="skill-pill"><i class="fas fa-server"></i> DBMS</div>
+                    <div class="skill-pill"><i class="fas fa-microchip"></i> Operating Systems</div>
+                    <div class="skill-pill"><i class="fas fa-network-wired"></i> Computer Networks</div>
+                </div>
+            </div>
+
+            <div class="skill-group">
+                <h4>Cloud, Tools & Frameworks</h4>
+                <div class="skill-flex">
                     <div class="skill-pill"><i class="fab fa-aws" style="color:#ff9900;"></i> AWS Cloud</div>
                     <div class="skill-pill"><i class="fab fa-docker" style="color:#2496ed;"></i> Docker</div>
-                    <div class="skill-pill"><i class="fas fa-network-wired"></i> Networking</div>
+                    <div class="skill-pill"><i class="fab fa-git-alt" style="color:#f34f29;"></i> Git / GitHub</div>
+                    <div class="skill-pill"><i class="fas fa-robot"></i> Generative AI</div>
+                    <div class="skill-pill"><i class="fab fa-python"></i> Django</div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="training" data-aos="fade-up">
-        <h2 class="section-title">Technical Training</h2>
-        <div class="training-card">
-            <span class="edu-meta">Jun '25 - Jul '25 | CipherSchools</span>
-            <h3 style="font-size: 2.8rem; margin-bottom: 25px; font-family:'Syne';">DSA with Java Intensive</h3>
-            <p style="font-size: 1.15rem; color: #cbd5e1; line-height: 1.8;">
-                Mastered complex data structures and algorithmic patterns over 70+ hours of lab training. 
-                Specialized in non-linear structures, complexity analysis, and recursion-based problem solving.
-            </p>
         </div>
     </section>
     <style>
-        /* --- PROJECT ARCHITECTURE --- */
+        /* --- PROJECT ARCHITECTURE (HIGH DETAIL) --- */
         .project-list { display: flex; flex-direction: column; gap: 6rem; }
         .project-card {
-            background: var(--glass); padding: 5rem; border-radius: 55px;
+            background: var(--glass); padding: 5.5rem; border-radius: 55px;
             border: 1px solid var(--border); transition: 0.6s var(--transition);
+            position: relative; overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+        .project-card::before {
+            content: ""; position: absolute; top: 0; left: 0;
+            width: 10px; height: 100%; background: var(--secondary);
+            transition: 0.6s ease;
         }
         .project-card:hover {
-            border-color: var(--secondary); background: rgba(34, 197, 94, 0.02);
-            transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            border-color: var(--secondary); background: rgba(34, 197, 94, 0.03);
+            transform: translateY(-12px); box-shadow: 0 40px 80px rgba(0,0,0,0.4);
         }
-        .project-card h3 { font-family: 'Syne', sans-serif; font-size: 2.5rem; color: #fff; margin-bottom: 2rem; }
-        .logic-list { list-style: none; margin-top: 2.5rem; }
+        .project-card:hover::before { width: 15px; }
+        
+        .project-card h3 { font-family: 'Syne', sans-serif; font-size: 2.8rem; color: #fff; margin-bottom: 1rem; }
+        .project-subtitle { color: var(--primary); font-weight: 800; letter-spacing: 3px; text-transform: uppercase; font-size: 0.95rem; display: block; margin-bottom: 3rem; }
+        
+        .logic-list { list-style: none; margin-top: 1rem; }
         .logic-list li {
-            position: relative; padding-left: 40px; margin-bottom: 22px;
-            color: #cbd5e1; font-size: 1.15rem; line-height: 1.8;
+            position: relative; padding-left: 45px; margin-bottom: 25px;
+            color: #cbd5e1; font-size: 1.2rem; line-height: 1.8;
         }
         .logic-list li::before {
-            content: "→"; position: absolute; left: 0; color: var(--primary); font-weight: 900;
+            content: "→"; position: absolute; left: 0; top: 2px;
+            color: var(--primary); font-weight: 900; font-size: 1.4rem;
         }
 
-        /* --- 12-CARD CREDENTIAL GRID --- */
-        .cert-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem; margin-bottom: 6rem;
+        .stack-flex { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4rem; }
+        .stack-badge {
+            background: rgba(56, 189, 248, 0.1); color: var(--primary);
+            padding: 10px 22px; border-radius: 12px; font-weight: 800;
+            font-size: 0.8rem; text-transform: uppercase; border: 1px solid rgba(56, 189, 248, 0.25);
         }
-        .cert-card {
-            background: var(--glass); padding: 3.5rem; border-radius: 45px;
-            border: 1px solid var(--border); display: flex; flex-direction: column;
-            justify-content: space-between; transition: 0.5s var(--transition);
-        }
-        .cert-card:hover { transform: translateY(-12px); border-color: var(--primary); }
-        .cert-card h4 { color: var(--primary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 15px; }
-        .cert-card h3 { font-family: 'Syne', sans-serif; font-size: 1.6rem; color: #fff; margin-bottom: 15px; }
-        
-        .btn-view {
-            align-self: flex-start; padding: 14px 28px; background: rgba(56, 189, 248, 0.1);
-            color: var(--primary); border: 1px solid rgba(56, 189, 248, 0.3);
-            border-radius: 14px; text-decoration: none; font-size: 0.85rem;
-            font-weight: 800; text-transform: uppercase; transition: 0.3s;
-            display: inline-flex; align-items: center; gap: 10px;
-        }
-        .btn-view:hover { background: var(--primary); color: var(--dark); }
-
-        /* --- CONTACT FOOTER --- */
-        .contact-footer {
-            background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.08), transparent);
-            padding: 120px 20px; text-align: center; border-radius: 60px;
-            border: 1px solid var(--border); margin-top: 100px;
-        }
-        .contact-footer h1 { font-family: 'Syne', sans-serif; font-size: clamp(3rem, 8vw, 5rem); margin-bottom: 3rem; color: #fff; }
     </style>
 
     <section id="projects" data-aos="fade-up">
         <h2 class="section-title">Engineering Projects</h2>
         <div class="project-list">
-            <div class="project-card">
-                <h3>Student Attendance System</h3>
-                <p style="color:var(--primary); font-weight:800; letter-spacing:2px; text-transform:uppercase;">Java | Data Persistence</p>
+            
+            <div class="project-card" data-aos="fade-up">
+                <h3>Student Attendance Management</h3>
+                <span class="project-subtitle">Java Architect | Data Persistence Logic</span>
                 <ul class="logic-list">
-                    <li>Engineered a high-performance data management core using Java Collections API.</li>
-                    <li>Implemented robust File I/O for persistent storage and secure record retrieval.</li>
-                    <li>Designed an automated analytics engine to generate weekly attendance summaries.</li>
+                    <li>Engineered a high-performance data management core utilizing the robust <strong>Java Collections API</strong> (HashMap, ArrayList) for rapid data retrieval.</li>
+                    <li>Implemented secure and efficient <strong>File I/O operations</strong> to ensure seamless data persistence, reliable record recovery, and zero data loss during system resets.</li>
+                    <li>Designed an automated analytics engine to generate comprehensive weekly summaries, drastically reducing manual administrative overhead.</li>
                 </ul>
+                <div class="stack-flex">
+                    <span class="stack-badge">Java Core</span><span class="stack-badge">Collections API</span><span class="stack-badge">File I/O</span><span class="stack-badge">OOPs</span>
+                </div>
             </div>
-            <div class="project-card">
+
+            <div class="project-card" style="border-left-color: var(--primary);" data-aos="fade-up" data-aos-delay="100">
                 <h3>Digital Library Tracker</h3>
-                <p style="color:var(--primary); font-weight:800; letter-spacing:2px; text-transform:uppercase;">OOP | System Logic</p>
+                <span class="project-subtitle" style="color:var(--primary);">System Logic | Backend Structures</span>
                 <ul class="logic-list">
-                    <li>Optimized book circulation workflows using advanced searching and sorting algorithms.</li>
-                    <li>Developed a clean, menu-driven interface using Java Console for administration tasks.</li>
-                    <li>Built modular components to handle book inventory tracking and user history logs.</li>
+                    <li>Optimized large-scale book circulation workflows by integrating advanced searching and sorting algorithms, reducing query execution latency.</li>
+                    <li>Developed an intuitive, menu-driven interface using Java Console, facilitating frictionless interactions for library administrators.</li>
+                    <li>Architected modular components applying deep Object-Oriented Programming principles to handle dynamic book inventory tracking and user history logs seamlessly.</li>
                 </ul>
+                <div class="stack-flex">
+                    <span class="stack-badge">Java</span><span class="stack-badge">Algorithms</span><span class="stack-badge">Data Structures</span><span class="stack-badge">Modular Design</span>
+                </div>
             </div>
+
+            <div class="project-card" style="border-left-color: #f89820;" data-aos="fade-up" data-aos-delay="200">
+                <h3>Mental Health Simulator</h3>
+                <span class="project-subtitle" style="color:#f89820;">Algorithmic Logic | State Simulations</span>
+                <ul class="logic-list">
+                    <li>Developed a complex, Java-based simulator to model multi-stage mental health scenarios and deliver responsive, interactive feedback to users based on their inputs.</li>
+                    <li>Applied specialized Data Structures to meticulously manage state transitions and maintain an accurate log of user interaction pathways.</li>
+                    <li>Engineered a scalable diagnostic engine using highly decoupled OOP architecture, allowing for future expansions without altering the core simulation logic.</li>
+                </ul>
+                <div class="stack-flex">
+                    <span class="stack-badge">Java Logic</span><span class="stack-badge">State Management</span><span class="stack-badge">Scalable OOP</span>
+                </div>
+            </div>
+
         </div>
     </section>
+    <style>
+        /* --- 12-CARD CREDENTIAL GRID CSS --- */
+        .cert-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 3rem; margin-bottom: 7rem;
+        }
+        .cert-card {
+            background: var(--glass); padding: 4rem; border-radius: 45px;
+            border: 1px solid var(--border); display: flex; flex-direction: column;
+            justify-content: space-between; transition: 0.5s var(--transition);
+        }
+        .cert-card:hover { 
+            transform: translateY(-12px); border-color: var(--primary); 
+            box-shadow: 0 20px 40px rgba(56, 189, 248, 0.15); 
+        }
+        .cert-card h4 { color: var(--primary); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 18px; }
+        .cert-card h3 { font-family: 'Syne', sans-serif; font-size: 1.7rem; color: #fff; margin-bottom: 18px; line-height: 1.3; }
+        .cert-card p { color: #94a3b8; font-size: 1.05rem; line-height: 1.6; margin-bottom: 30px; }
+        
+        .btn-view {
+            align-self: flex-start; padding: 14px 30px; background: rgba(56, 189, 248, 0.1);
+            color: var(--primary); border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 14px; text-decoration: none; font-size: 0.85rem;
+            font-weight: 800; text-transform: uppercase; transition: 0.3s;
+            display: inline-flex; align-items: center; gap: 10px;
+        }
+        .btn-view:hover { background: var(--primary); color: var(--dark); transform: translateY(-3px); }
+    </style>
 
     <section id="certificates" data-aos="fade-up">
         <h2 class="section-title">Certificates</h2>
         <div class="cert-grid">
-            <div class="cert-card"><div><h4>IIT Madras | NPTEL</h4><h3>Social Networks (Elite)</h3><p>Mastery in complex network theory and digital analysis.</p></div><a href="https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL25CS102S95870011110370483" target="_blank" class="btn-view">View Certificate</a></div>
-            <div class="cert-card"><div><h4>LPU Colab</h4><h3>Java Programming</h3><p>Verified proficiency in advanced Java core and OOP.</p></div><a href="https://lpucolab438.examly.io/certificate/U2FsdGVkX1%2FE2Kx9QTO0d0h8%2Feeog6mn5Y3G0jXJCpQ%3D" target="_blank" class="btn-view">View Certificate</a></div>
-            <div class="cert-card"><div><h4>LPU Colab</h4><h3>C++ Programming</h3><p>Mastery in low-level memory management and logic.</p></div><a href="https://lpucolab438.examly.io/certificate/U2FsdGVkX19P%2FSBPrAIdGjIOjXkyAfcyE1Sa1C3LR%2F4%3D" target="_blank" class="btn-view">View Certificate</a></div>
-            <div class="cert-card"><div><h4>LPU Colab</h4><h3>C Programming</h3><p>Engineering foundations and algorithmic implementation.</p></div><a href="https://lpucolab438.examly.io/certificate/U2FsdGVkX1%2FE%2BZYlPm1KcLlWYMAcoADG0uU2Mg5Gacc%3D" target="_blank" class="btn-view">View Certificate</a></div>
-            <div class="cert-card"><div><h4>Infosys</h4><h3>Computational Theory</h3><p>Finite Automata and formal language principles.</p></div><span class="btn-view" style="opacity:0.6; cursor:default;">Verified by SS</span></div>
-            <div class="cert-card"><div><h4>Hackathon</h4><h3>Code-A-Haunt</h3><p>Elite ranking in rapid-prototyping competition.</p></div><a href="https://verification.givemycertificate.com/v/88ea97fe-ad3b-4b16-a515-2d92b00b4e11" target="_blank" class="btn-view">View Certificate</a></div>
+            
+            <div class="cert-card" data-aos="fade-up">
+                <div>
+                    <h4>IIT Madras | NPTEL</h4>
+                    <h3>Social Networks (Elite)</h3>
+                    <p>Advanced mastery in complex network theory, mathematical modeling, and structural analysis of digital systems.</p>
+                </div>
+                <a href="https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL25CS102S95870011110370483" target="_blank" class="btn-view"><i class="fas fa-certificate"></i> View Certificate</a>
+            </div>
+            
+            <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+                <div>
+                    <h4>LPU Colab</h4>
+                    <h3>Java Programming</h3>
+                    <p>Verified proficiency in advanced Java core concepts, collections framework, and OOP logic execution.</p>
+                </div>
+                <a href="https://lpucolab438.examly.io/certificate/U2FsdGVkX1%2FE2Kx9QTO0d0h8%2Feeog6mn5Y3G0jXJCpQ%3D" target="_blank" class="btn-view"><i class="fas fa-certificate"></i> View Certificate</a>
+            </div>
+            
+            <div class="cert-card" data-aos="fade-up" data-aos-delay="200">
+                <div>
+                    <h4>LPU Colab</h4>
+                    <h3>C++ Programming</h3>
+                    <p>Intensive deep dive into low-level memory management, pointers, and robust logic design using C++.</p>
+                </div>
+                <a href="https://lpucolab438.examly.io/certificate/U2FsdGVkX19P%2FSBPrAIdGjIOjXkyAfcyE1Sa1C3LR%2F4%3D" target="_blank" class="btn-view"><i class="fas fa-certificate"></i> View Certificate</a>
+            </div>
+            
+            <div class="cert-card" data-aos="fade-up">
+                <div>
+                    <h4>LPU Colab</h4>
+                    <h3>C Programming</h3>
+                    <p>Core engineering foundations focusing on procedural algorithmic implementation and system-level code.</p>
+                </div>
+                <a href="https://lpucolab438.examly.io/certificate/U2FsdGVkX1%2FE%2BZYlPm1KcLlWYMAcoADG0uU2Mg5Gacc%3D" target="_blank" class="btn-view"><i class="fas fa-certificate"></i> View Certificate</a>
+            </div>
+            
+            <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+                <div>
+                    <h4>Infosys Springboard</h4>
+                    <h3>Computational Theory</h3>
+                    <p>Rigorous study of Finite Automata structures and fundamental formal language principles.</p>
+                </div>
+                <span class="btn-view" style="opacity:0.5; border-color:var(--border); cursor:default;"><i class="fas fa-check-circle"></i> Verified Offline</span>
+            </div>
+            
+            <div class="cert-card" data-aos="fade-up" data-aos-delay="200">
+                <div>
+                    <h4>Hackathon Achievement</h4>
+                    <h3>Code-A-Haunt Rank</h3>
+                    <p>Secured an elite ranking demonstrating rapid-prototyping, logical deduction, and team collaboration skills under pressure.</p>
+                </div>
+                <a href="https://verification.givemycertificate.com/v/88ea97fe-ad3b-4b16-a515-2d92b00b4e11" target="_blank" class="btn-view"><i class="fas fa-trophy"></i> View Ranking</a>
+            </div>
+
         </div>
     </section>
-
     <section id="certification" data-aos="fade-up">
         <h2 class="section-title">Certifications</h2>
         <div class="cert-grid">
-            <div class="cert-card"><div><h4>Udemy</h4><h3>Master Generative AI</h3><p>Prompt Engineering and AI model integration.</p></div><a href="https://ude.my/UC-4415aa0f-98c4-48f3-8281-6981a4f1873a" target="_blank" class="btn-view">View Certification</a></div>
-            <div class="cert-card"><div><h4>Udemy</h4><h3>Python & Django</h3><p>Full-stack backend architecture mastery.</p></div><a href="https://ude.my/UC-d23d988b-f7fc-4df8-a36c-b15a5283e6b0" target="_blank" class="btn-view">View Certification</a></div>
-            <div class="cert-card"><div><h4>Google</h4><h3>Computer Networking</h3><p>Advanced networking infrastructure and OS logic.</p></div><a href="https://coursera.org/verify/K6NUPGL74XCS" target="_blank" class="btn-view">View Certification</a></div>
-            <div class="cert-card"><div><h4>IBM</h4><h3>Hardware & OS</h3><p>System architecture and Operating System internals.</p></div><a href="https://coursera.org/verify/EAKWE9Y3H7QE" target="_blank" class="btn-view">View Certification</a></div>
-            <div class="cert-card"><div><h4>FreeCodeCamp</h4><h3>Responsive Web Design</h3><p>Modern frontend UI/UX and responsive engineering.</p></div><a href="https://freecodecamp.org/certification/fcc033fbec4-5e8c-4c15-b322-ea6c9c344f75/responsive-web-design" target="_blank" class="btn-view">View Certification</a></div>
-            <div class="cert-card"><div><h4>Udemy</h4><h3>AI No-Code Solutions</h3><p>Scaling AI applications with no-code frameworks.</p></div><a href="https://ude.my/UC-fb820e4b-d71e-4469-89c0-ddbcb09dOfc4" target="_blank" class="btn-view">View Certification</a></div>
+            
+            <div class="cert-card" data-aos="fade-up">
+                <div>
+                    <h4>Udemy Professional</h4>
+                    <h3>Master Generative AI</h3>
+                    <p>Complete mastery in Prompt Engineering, AI logic structures, and integrating Generative models into modern workflows.</p>
+                </div>
+                <a href="https://ude.my/UC-4415aa0f-98c4-48f3-8281-6981a4f1873a" target="_blank" class="btn-view"><i class="fas fa-award"></i> View Credential</a>
+            </div>
+            
+            <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+                <div>
+                    <h4>Udemy Professional</h4>
+                    <h3>Python & Django Framework</h3>
+                    <p>Comprehensive backend engineering expertise focusing on scalable architecture, API security, and Python logic.</p>
+                </div>
+                <a href="https://ude.my/UC-d23d988b-f7fc-4df8-a36c-b15a5283e6b0" target="_blank" class="btn-view"><i class="fas fa-award"></i> View Credential</a>
+            </div>
+            
+            <div class="cert-card" data-aos="fade-up" data-aos-delay="200">
+                <div>
+                    <h4>Google | Coursera</h4>
+                    <h3>Computer Networking</h3>
+                    <p>In-depth understanding of the Bits and Bytes of networking infrastructure, protocols, and modern web connectivity.</p>
+                </div>
+                <a href="https://coursera.org/verify/K6NUPGL74XCS" target="_blank" class="btn-view"><i class="fas fa-award"></i> View Credential</a>
+            </div>
+            
+            <div class="cert-card" data-aos="fade-up">
+                <div>
+                    <h4>IBM | Coursera</h4>
+                    <h3>Hardware & OS Kernels</h3>
+                    <p>Foundational expertise in internal system architecture, processing hardware, and core Operating System mechanics.</p>
+                </div>
+                <a href="https://coursera.org/verify/EAKWE9Y3H7QE" target="_blank" class="btn-view"><i class="fas fa-award"></i> View Credential</a>
+            </div>
+            
+            <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+                <div>
+                    <h4>FreeCodeCamp</h4>
+                    <h3>Responsive Web Design</h3>
+                    <p>Modern frontend UI/UX architecture utilizing flexible grids, accessibility standards, and responsive styling engineering.</p>
+                </div>
+                <a href="https://freecodecamp.org/certification/fcc033fbec4-5e8c-4c15-b322-ea6c9c344f75/responsive-web-design" target="_blank" class="btn-view"><i class="fas fa-award"></i> View Credential</a>
+            </div>
+            
+            <div class="cert-card" data-aos="fade-up" data-aos-delay="200">
+                <div>
+                    <h4>Udemy Professional</h4>
+                    <h3>AI No-Code Solutions</h3>
+                    <p>Architecting and scaling Generative AI applications using cutting-edge no-code platforms and rapid development tools.</p>
+                </div>
+                <a href="https://ude.my/UC-fb820e4b-d71e-4469-89c0-ddbcb09dOfc4" target="_blank" class="btn-view"><i class="fas fa-award"></i> View Credential</a>
+            </div>
+
         </div>
     </section>
-
-    <section id="contact">
+    <section id="contact" data-aos="fade-up">
         <div class="contact-footer">
             <h1>Let's Build the Future.</h1>
-            <p style="font-size: 1.3rem; color: #94a3b8; margin-bottom: 50px;">anmolpratap280@gmail.com | +91-8809761120</p>
-            <div style="display:flex; justify-content:center; gap:40px;">
-                <a href="https://github.com/Anmol280" target="_blank" style="color:var(--primary); font-size:3rem;"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/anmol-pratap280" target="_blank" style="color:var(--primary); font-size:3rem;"><i class="fab fa-linkedin"></i></a>
+            <p style="font-size: 1.4rem; color: #94a3b8; margin-bottom: 60px; font-weight:600;">anmolpratap280@gmail.com <span style="margin: 0 15px;">|</span> +91-8809761120</p>
+            <div style="display:flex; justify-content:center; gap:50px;">
+                <a href="https://github.com/Anmol280" target="_blank" style="color:var(--primary); font-size:3.5rem; transition:0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--primary)'"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/anmol-pratap280" target="_blank" style="color:var(--primary); font-size:3.5rem; transition:0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--primary)'"><i class="fab fa-linkedin"></i></a>
             </div>
-            <p style="margin-top:100px; opacity:0.3; font-size:0.75rem; letter-spacing:4px; text-transform:uppercase;">KUMAR ANMOL PRATAP | &copy; 2026</p>
+            <p style="margin-top:120px; color:#475569; font-size:0.85rem; letter-spacing:5px; text-transform:uppercase; font-weight:800;">Kumar Anmol Pratap &copy; 2026</p>
         </div>
     </section>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         let count = 0;
+        const loaderElem = document.getElementById('loader');
+        const percentElem = document.getElementById('loader-percentage');
+        const progressElem = document.getElementById('progress');
+
         const intrvl = setInterval(() => {
-            count++; document.getElementById('loader-percentage').innerText = count;
-            document.getElementById('progress').style.width = count + '%';
+            count++; 
+            percentElem.innerText = count;
+            progressElem.style.width = count + '%';
+            
             if(count === 100){ 
                 clearInterval(intrvl); 
-                document.getElementById('loader').style.opacity = '0';
+                loaderElem.style.transition = 'opacity 0.8s ease';
+                loaderElem.style.opacity = '0';
+                
                 setTimeout(() => { 
-                    document.getElementById('loader').style.display = 'none'; 
+                    loaderElem.style.display = 'none'; 
                     document.body.style.overflow = 'auto'; 
-                    AOS.init({ duration: 1200, once: true });
+                    AOS.init({ duration: 1200, once: true, offset: 100 });
                 }, 800);
             }
-        }, 15);
+        }, 12);
     </script>
 </body>
 </html>
