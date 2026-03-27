@@ -28,7 +28,7 @@
             overflow-x: hidden;
         }
 
-        /* --- 0-100% PRELOADER --- */
+        /* --- PRELOADER --- */
         #loader {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: var(--dark); z-index: 9999; display: flex;
@@ -42,12 +42,8 @@
         .loader-bar { width: 250px; height: 3px; background: var(--border); margin-top: 25px; border-radius: 10px; overflow: hidden; }
         .loader-progress { height: 100%; background: var(--primary); width: 0%; transition: 0.1s linear; }
 
-        /* --- GLOBAL SECTION SPACING --- */
-        section { 
-            padding: 160px 10%; 
-            max-width: 1400px; 
-            margin: auto; 
-        }
+        /* --- LAYOUT SPACING --- */
+        section { padding: 140px 10%; max-width: 1400px; margin: auto; }
 
         .section-title { 
             font-family: 'Syne', sans-serif; font-size: clamp(2rem, 5vw, 3rem); 
@@ -63,19 +59,16 @@
             position: fixed; top: 0; width: 100%; z-index: 1000;
             background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(25px);
             padding: 1.3rem; display: flex; justify-content: center; 
-            gap: 2.5rem; border-bottom: 1px solid var(--border);
+            gap: 2.2rem; border-bottom: 1px solid var(--border);
         }
         nav a { 
             color: #94a3b8; text-decoration: none; font-weight: 700; font-size: 0.75rem; 
-            text-transform: uppercase; letter-spacing: 2px; transition: 0.4s var(--transition); 
+            text-transform: uppercase; letter-spacing: 2px; transition: 0.4s; 
         }
         nav a:hover { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
 
-        /* --- HERO (LAPTOP OPTIMIZED WITH FIXED HEAD CROP) --- */
-        .hero { 
-            height: 100vh; display: flex; flex-direction: column; 
-            justify-content: center; align-items: center; text-align: center; 
-        }
+        /* --- HERO --- */
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
         
         .profile-master {
             width: 280px; height: 280px; border-radius: 50%; padding: 8px;
@@ -84,31 +77,17 @@
             overflow: hidden; 
         }
         .profile-master img { 
-            width: 100%; height: 100%; border-radius: 50%; 
-            object-fit: cover; 
-            object-position: center 10%; 
-            border: 6px solid var(--dark); 
+            width: 100%; height: 100%; border-radius: 50%; object-fit: cover; 
+            object-position: center 10%; border: 6px solid var(--dark); 
         }
 
-        .hero h1 {
-            font-family: 'Syne', sans-serif;
-            font-size: clamp(2.5rem, 6vw, 4.5rem); 
-            font-weight: 800; color: #fff; margin-bottom: 1.2rem;
-            letter-spacing: -1.5px;
-        }
-        .hero p { 
-            font-size: 1.2rem; color: var(--primary); letter-spacing: 10px; 
-            text-transform: uppercase; font-weight: 800; margin-bottom: 3.5rem; 
-        }
+        .hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(2.5rem, 6vw, 4.5rem); color: #fff; margin-bottom: 1.2rem; }
+        .hero p { font-size: 1.2rem; color: var(--primary); letter-spacing: 10px; text-transform: uppercase; font-weight: 800; margin-bottom: 3.5rem; }
 
         .hero-btns { display: flex; gap: 1.8rem; }
-        .btn { 
-            padding: 16px 38px; border-radius: 14px; text-decoration: none; 
-            font-weight: 800; text-transform: uppercase; font-size: 0.85rem; 
-            transition: 0.4s var(--transition); cursor: pointer;
-        }
-        .btn-cv { background: var(--primary); color: var(--dark); box-shadow: 0 10px 30px rgba(56, 189, 248, 0.3); }
-        .btn-cv:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(56, 189, 248, 0.5); }
+        .btn { padding: 16px 38px; border-radius: 14px; text-decoration: none; font-weight: 800; font-size: 0.85rem; transition: 0.4s var(--transition); cursor: pointer; }
+        .btn-cv { background: var(--primary); color: var(--dark); }
+        .btn-cv:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(56, 189, 248, 0.4); }
         .btn-contact { border: 2.5px solid #fff; color: #fff; }
         .btn-contact:hover { background: #fff; color: var(--dark); transform: translateY(-5px); }
     </style>
@@ -126,8 +105,8 @@
         <a href="#skills">Arsenal</a>
         <a href="#training">Training</a>
         <a href="#projects">Projects</a>
-        <a href="#certificates">Certificates</a>
-        <a href="#contact">Connect</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#certificates">Connect</a>
     </nav>
 
     <header class="hero">
@@ -178,7 +157,43 @@
             color: var(--secondary); border-radius: 14px; font-weight: 900;
             margin-top: 30px; font-size: 1.15rem; border: 1px solid rgba(34, 197, 94, 0.2);
         }
+    </style>
 
+    <section id="about" data-aos="fade-up">
+        <h2 class="section-title">About Me</h2>
+        <div class="pitch-container">
+            I am <span class="highlight-glow">Kumar Anmol Pratap</span>, a Cloud Engineer and B.Tech CSE candidate at <span class="highlight-glow">Lovely Professional University</span>. 
+            I specialize in architecting high-performance <span class="highlight-glow">Java backend systems</span> and managing scalable cloud environments. 
+            Defined by an <span class="highlight-glow">attention to detail</span> and a relentless drive for technical excellence, I have successfully solved 
+            <span class="highlight-glow">200+ Java and DSA challenges</span> and secured a position in the 
+            <span class="highlight-glow">Top 30%</span> of competitive engineering hackathons.
+        </div>
+    </section>
+
+    <section id="education" data-aos="fade-up">
+        <h2 class="section-title">Academic Foundation</h2>
+        <div class="edu-flex">
+            <div class="edu-box" data-aos="fade-up">
+                <span class="edu-meta">LPU, Punjab | 2023 - 2027</span>
+                <h3>B.Tech Computer Science</h3>
+                <p>Focusing on scalable system design, cloud native architectures, database management, and advanced data structures.</p>
+                <div class="result-pill">CGPA: 6.64</div>
+            </div>
+            <div class="edu-box" data-aos="fade-up" data-aos-delay="200">
+                <span class="edu-meta">Grizzly Vidyalaya | 2021 - 2023</span>
+                <h3>Intermediate (Science)</h3>
+                <p>Rigorous training in Physics, Chemistry, and Mathematics, building deep analytical and technical foundations.</p>
+                <div class="result-pill">Result: 67.5%</div>
+            </div>
+            <div class="edu-box" data-aos="fade-up" data-aos-delay="400">
+                <span class="edu-meta">Sacred Heart School | 2019 - 2021</span>
+                <h3>Matriculation</h3>
+                <p>Core education with a strong emphasis on Mathematical logic, computation, and Scientific inquiry.</p>
+                <div class="result-pill">Result: 80%</div>
+            </div>
+        </div>
+    </section>
+    <style>
         /* --- DETAILED TECH ARSENAL --- */
         .bento-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; }
         .skill-group {
@@ -197,42 +212,6 @@
         }
         .skill-pill:hover { background: var(--primary); color: var(--dark); transform: scale(1.05); }
     </style>
-
-    <section id="about" data-aos="fade-up">
-        <h2 class="section-title">About Me</h2>
-        <div class="pitch-container">
-            I am <span class="highlight-glow">Kumar Anmol Pratap</span>, a Cloud Engineer and B.Tech CSE candidate at <span class="highlight-glow">Lovely Professional University</span>. 
-            I specialize in architecting high-performance <span class="highlight-glow">Java backend systems</span> and managing scalable cloud environments. 
-            Defined by an <span class="highlight-glow">attention to detail</span> and a relentless drive for technical excellence, I have successfully solved 
-            <span class="highlight-glow">200+ Java and DSA challenges</span> and secured a position in the 
-            <span class="highlight-glow">Top 30%</span> of competitive engineering hackathons. I thrive on bridging the gap between complex 
-            algorithmic logic and modern, efficient cloud infrastructure.
-        </div>
-    </section>
-
-    <section id="education" data-aos="fade-up">
-        <h2 class="section-title">Academic Foundation</h2>
-        <div class="edu-flex">
-            <div class="edu-box" data-aos="fade-up">
-                <span class="edu-meta">LPU, Punjab | 2023 - 2027</span>
-                <h3>B.Tech Computer Science</h3>
-                <p>Focusing on scalable system design, cloud native architectures, database management, and advanced data structures.</p>
-                <div class="result-pill">CGPA: 7.0</div>
-            </div>
-            <div class="edu-box" data-aos="fade-up" data-aos-delay="200">
-                <span class="edu-meta">Grizzly Vidyalaya | 2021 - 2023</span>
-                <h3>Intermediate (Science)</h3>
-                <p>Rigorous training in Physics, Chemistry, and Mathematics, building deep analytical and technical foundations.</p>
-                <div class="result-pill">Result: 67.5%</div>
-            </div>
-            <div class="edu-box" data-aos="fade-up" data-aos-delay="400">
-                <span class="edu-meta">Sacred Heart School | 2019 - 2021</span>
-                <h3>Matriculation</h3>
-                <p>Core education with a strong emphasis on Mathematical logic, computation, and Scientific inquiry.</p>
-                <div class="result-pill">Result: 80%</div>
-            </div>
-        </div>
-    </section>
 
     <section id="skills" data-aos="fade-up">
         <h2 class="section-title">Technical Arsenal</h2>
@@ -260,7 +239,7 @@
             </div>
 
             <div class="skill-group">
-                <h4>Cloud, Tools & Frameworks</h4>
+                <h4>Cloud & Modern Tech</h4>
                 <div class="skill-flex">
                     <div class="skill-pill"><i class="fab fa-aws" style="color:#ff9900;"></i> AWS Cloud</div>
                     <div class="skill-pill"><i class="fab fa-docker" style="color:#2496ed;"></i> Docker</div>
@@ -272,64 +251,79 @@
         </div>
     </section>
     <style>
-        /* --- TRAINING ARCHITECTURE (HIGH DETAIL) --- */
+        /* --- TRAINING ARCHITECTURE --- */
         .glass-card {
-            background: var(--glass);
-            padding: 5rem;
-            border-radius: 55px;
-            border: 1px solid var(--border);
-            border-left: 12px solid var(--primary); 
-            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
-            backdrop-filter: blur(15px);
-            transition: 0.6s var(--transition);
-            margin-bottom: 6rem;
-            max-width: 1200px;
-            margin: 0 auto 6rem auto;
+            background: var(--glass); padding: 5rem; border-radius: 55px;
+            border: 1px solid var(--border); border-left: 12px solid var(--primary); 
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2); backdrop-filter: blur(15px);
+            transition: 0.6s var(--transition); margin-bottom: 6rem;
+            max-width: 1200px; margin: 0 auto 6rem auto;
         }
-
         .glass-card:hover {
-            transform: translateY(-12px);
-            border-color: var(--primary);
-            border-left-width: 22px; 
-            box-shadow: 0 35px 70px rgba(56, 189, 248, 0.25);
+            transform: translateY(-12px); border-color: var(--primary);
+            border-left-width: 22px; box-shadow: 0 35px 70px rgba(56, 189, 248, 0.25);
         }
 
         .training-tile-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem; margin-top: 4rem;
         }
-
         .training-tile {
-            background: rgba(255, 255, 255, 0.01);
-            padding: 2.5rem;
-            border-radius: 30px;
-            border: 1px solid var(--border);
-            transition: 0.4s;
+            background: rgba(255, 255, 255, 0.01); padding: 2.5rem;
+            border-radius: 30px; border: 1px solid var(--border); transition: 0.4s;
         }
-
-        .training-tile:hover {
-            border-color: rgba(56, 189, 248, 0.5);
-            background: rgba(56, 189, 248, 0.02);
-            transform: translateY(-5px);
-        }
-
+        .training-tile:hover { border-color: rgba(56, 189, 248, 0.5); transform: translateY(-5px); }
         .training-tile i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem; }
         .training-tile h4 { font-size: 1.3rem; margin-bottom: 10px; color: #fff; }
-        .training-tile p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
-
+        
         .btn-training-cert {
-            display: inline-flex; align-items: center; gap: 10px;
-            margin-top: 3.5rem; padding: 14px 32px;
+            display: inline-flex; align-items: center; gap: 12px;
+            margin-top: 3.5rem; padding: 15px 35px;
             background: rgba(56, 189, 248, 0.1); color: var(--primary);
             border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 14px;
-            font-size: 0.9rem; font-weight: 800; text-transform: uppercase;
+            font-size: 0.95rem; font-weight: 800; text-transform: uppercase;
             text-decoration: none; transition: 0.3s;
         }
         .btn-training-cert:hover { background: var(--primary); color: var(--dark); transform: translateY(-3px); }
+    </style>
 
-        /* --- PROJECT ARCHITECTURE (HIGH DETAIL) --- */
+    <section id="training" data-aos="fade-up">
+        <h2 class="section-title">Technical Training</h2>
+        <div class="glass-card">
+            <span class="edu-meta">Jun '25 - Jul '25 | CipherSchools</span>
+            <h3 style="font-size: 3rem; margin-bottom: 25px; font-family:'Syne', sans-serif; color: #fff;">DSA with Java Intensive</h3>
+            <p style="font-size: 1.3rem; color: var(--primary); font-weight: 800; margin-bottom: 2rem; letter-spacing: 2px; text-transform: uppercase;">70+ Hours of High-Intensity Lab Problem Solving</p>
+            
+            <div class="training-tile-grid">
+                <div class="training-tile">
+                    <i class="fas fa-brain"></i>
+                    <h4>Data Structures</h4>
+                    <p>Built BSTs, Graphs, and HashTables from scratch, focusing on raw memory management.</p>
+                </div>
+                <div class="training-tile">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Big O Efficiency</h4>
+                    <p>Deep-dive into Time & Space Complexity audits for high-load data processing.</p>
+                </div>
+                <div class="training-tile">
+                    <i class="fas fa-code-branch"></i>
+                    <h4>Problem Solving</h4>
+                    <p>Applied Recursion, Dynamic Programming, and Backtracking to complex puzzles.</p>
+                </div>
+                <div class="training-tile">
+                    <i class="fab fa-java"></i>
+                    <h4>Java Frameworks</h4>
+                    <p>Mastered Collections API (HashMap, ArrayList) for manipulating massive datasets.</p>
+                </div>
+            </div>
+
+            <a href="https://www.cipherschools.com/certificate/preview?id=689a7b8094c24c5a4c609c47" target="_blank" class="btn-training-cert">
+                <i class="fas fa-award"></i> View CipherSchools Certificate
+            </a>
+        </div>
+    </section>
+    <style>
+        /* --- PROJECT ARCHITECTURE (CLEAN & DETAILED) --- */
         .project-list { display: flex; flex-direction: column; gap: 6rem; }
         
         .project-card {
@@ -373,50 +367,6 @@
         }
     </style>
 
-    <section id="training" data-aos="fade-up">
-        <h2 class="section-title">Technical Training</h2>
-        <div class="glass-card">
-            <span class="edu-meta">Jun '25 - Jul '25 | CipherSchools</span>
-            <h3 style="font-size: 3rem; margin-bottom: 25px; font-family:'Syne', sans-serif; color: #fff;">DSA with Java Intensive</h3>
-            <p style="font-size: 1.3rem; color: var(--primary); font-weight: 800; margin-bottom: 2rem; letter-spacing: 2px; text-transform: uppercase;">70+ Hours of High-Intensity Lab Problem Solving</p>
-            
-            <p style="font-size: 1.15rem; color: #cbd5e1; line-height: 1.8; margin-bottom: 3rem;">
-                Completed an advanced data structures and algorithmic theory program. Developed from raw logical concepts to high-performance Java implementation, focusing on complexity analysis and system optimization.
-            </p>
-
-            <div class="training-tile-grid">
-                <div class="training-tile">
-                    <i class="fas fa-brain"></i>
-                    <h4>Advanced Data Structures</h4>
-                    <p>Built complex, non-linear data structures including Binary Search Trees, Graphs, HashTables, and Heaps from scratch, understanding their raw memory management.</p>
-                </div>
-                <div class="training-tile">
-                    <i class="fas fa-chart-line"></i>
-                    <h4>Algorithmic Efficiency</h4>
-                    <p>Deep-dive into Time and Space Complexity (Big O Notation). Conducted complexity audits to ensure optimal data processing under load.</p>
-                </div>
-                <div class="training-tile">
-                    <i class="fas fa-code-branch"></i>
-                    <h4>Intricate Problem Solving</h4>
-                    <p>Applied intricate techniques including advanced Recursion, Dynamic Programming, Backtracking, and Greedy Algorithms to solve complex logical puzzles and competitive programming problems.</p>
-                </div>
-                <div class="training-tile">
-                    <i class="fab fa-java"></i>
-                    <h4>Real-World Java Core</h4>
-                    <p>Extensively leveraged the Java Collections Framework (ArrayList, HashMap, Queue) to manage and manipulate massive datasets, focusing on internal mechanics.</p>
-                </div>
-            </div>
-
-            <div class="stack-flex" style="margin-top: 3.5rem;">
-                <span class="stack-badge">DSA Core</span><span class="stack-badge">Java Core</span><span class="stack-badge">Algorithmic Optimization</span><span class="stack-badge">Real-World Collections</span>
-            </div>
-
-            <a href="https://www.cipherschools.com/certificate/preview?id=689a7b8094c24c5a4c609c47" target="_blank" class="btn-training-cert">
-                <i class="fas fa-award"></i> View Training Certificate
-            </a>
-        </div>
-    </section>
-
     <section id="projects" data-aos="fade-up">
         <h2 class="section-title">Engineering Projects</h2>
         <div class="project-list">
@@ -426,11 +376,11 @@
                 <span class="project-subtitle">Java Architect | Data Persistence Logic</span>
                 <ul class="logic-list">
                     <li>Engineered a high-performance data management core utilizing the robust <strong>Java Collections API</strong> (HashMap, ArrayList) for rapid data retrieval.</li>
-                    <li>Implemented secure and efficient <strong>File I/O operations</strong> to ensure seamless data persistence, reliable record recovery, and zero data loss during system resets.</li>
-                    <li>Designed an automated analytics engine to generate comprehensive weekly summaries, drastically reducing manual administrative overhead.</li>
+                    <li>Implemented secure and efficient <strong>File I/O operations</strong> to ensure seamless data persistence and reliable record recovery.</li>
+                    <li>Designed an automated analytics engine to generate comprehensive weekly summaries.</li>
                 </ul>
                 <div class="stack-flex">
-                    <span class="stack-badge">Java Core</span><span class="stack-badge">Collections API</span><span class="stack-badge">File I/O</span><span class="stack-badge">OOPs</span>
+                    <span class="stack-badge">Java Core</span><span class="stack-badge">Collections API</span><span class="stack-badge">File I/O</span>
                 </div>
             </div>
 
@@ -438,12 +388,12 @@
                 <h3>Digital Library Tracker</h3>
                 <span class="project-subtitle" style="color:var(--primary);">System Logic | Backend Structures</span>
                 <ul class="logic-list">
-                    <li>Optimized large-scale book circulation workflows by integrating advanced searching and sorting algorithms, reducing query execution latency.</li>
-                    <li>Developed an intuitive, menu-driven interface using Java Console, facilitating frictionless interactions for library administrators.</li>
-                    <li>Architected modular components applying deep Object-Oriented Programming principles to handle dynamic book inventory tracking and user history logs seamlessly.</li>
+                    <li>Optimized large-scale book circulation workflows by integrating advanced searching and sorting algorithms.</li>
+                    <li>Developed an intuitive, menu-driven interface using Java Console for library administrators.</li>
+                    <li>Architected modular components applying deep Object-Oriented Programming principles.</li>
                 </ul>
                 <div class="stack-flex">
-                    <span class="stack-badge">Java</span><span class="stack-badge">Algorithms</span><span class="stack-badge">Data Structures</span><span class="stack-badge">Modular Design</span>
+                    <span class="stack-badge">Java</span><span class="stack-badge">Algorithms</span><span class="stack-badge">Modular Design</span>
                 </div>
             </div>
 
@@ -451,9 +401,9 @@
                 <h3>Mental Health Simulator</h3>
                 <span class="project-subtitle" style="color:#f89820;">Algorithmic Logic | State Simulations</span>
                 <ul class="logic-list">
-                    <li>Developed a complex, Java-based simulator to model multi-stage mental health scenarios and deliver responsive, interactive feedback to users based on their inputs.</li>
-                    <li>Applied specialized Data Structures to meticulously manage state transitions and maintain an accurate log of user interaction pathways.</li>
-                    <li>Engineered a scalable diagnostic engine using highly decoupled OOP architecture, allowing for future expansions without altering the core simulation logic.</li>
+                    <li>Developed a complex, Java-based simulator to model multi-stage mental health scenarios.</li>
+                    <li>Applied specialized Data Structures to meticulously manage state transitions and interaction pathways.</li>
+                    <li>Engineered a scalable diagnostic engine using highly decoupled OOP architecture.</li>
                 </ul>
                 <div class="stack-flex">
                     <span class="stack-badge">Java Logic</span><span class="stack-badge">State Management</span><span class="stack-badge">Scalable OOP</span>
@@ -463,7 +413,72 @@
         </div>
     </section>
     <style>
-        /* --- 12-CARD CREDENTIAL GRID CSS --- */
+        /* --- ELITE ACHIEVEMENTS GRID --- */
+        .achieve-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+        .achieve-card {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.05), rgba(255, 255, 255, 0.02));
+            padding: 3.5rem;
+            border-radius: 40px;
+            border: 1px solid var(--border);
+            transition: 0.5s var(--transition);
+            text-align: center;
+            position: relative;
+        }
+        .achieve-card:hover {
+            transform: scale(1.05);
+            border-color: #fcd34d; /* Gold for winners */
+            box-shadow: 0 20px 40px rgba(252, 211, 77, 0.15);
+        }
+        .achieve-card i {
+            font-size: 3.5rem;
+            color: #fcd34d;
+            margin-bottom: 2rem;
+            display: block;
+        }
+        .achieve-card h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.6rem;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+        .achieve-card p {
+            color: #94a3b8;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+    </style>
+
+    <section id="achievements" data-aos="fade-up">
+        <h2 class="section-title">Elite Achievements</h2>
+        <div class="achieve-grid">
+            
+            <div class="achieve-card" data-aos="zoom-in">
+                <i class="fas fa-trophy"></i>
+                <h3>Top 30% Rank</h3>
+                <p>Secured a prestigious position in the Top 30% during the high-stakes "Code-A-Haunt" Engineering Hackathon at LPU.</p>
+            </div>
+
+            <div class="achieve-card" data-aos="zoom-in" data-aos-delay="150">
+                <i class="fas fa-code"></i>
+                <h3>200+ DSA Solutions</h3>
+                <p>Successfully solved over 200+ complex Java and Data Structures challenges across major competitive platforms.</p>
+            </div>
+
+            <div class="achieve-card" data-aos="zoom-in" data-aos-delay="300">
+                <i class="fas fa-award"></i>
+                <h3>NPTEL Elite Status</h3>
+                <p>Recognized for exceptional performance in Social Networks theory, finishing with an 'Elite' certification from IIT Madras.</p>
+            </div>
+
+        </div>
+    </section>
+    <style>
+        /* --- 12-CARD CREDENTIAL GRID --- */
         .cert-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 3rem; margin-bottom: 7rem;
@@ -492,123 +507,70 @@
     </style>
 
     <section id="certificates" data-aos="fade-up">
-        <h2 class="section-title">Certificates</h2>
+        <h2 class="section-title">Professional Credentials</h2>
+        
         <div class="cert-grid">
-            
             <div class="cert-card" data-aos="fade-up">
-                <div>
-                    <h4>IIT Madras | NPTEL</h4>
-                    <h3>Social Networks (Elite)</h3>
-                    <p>Advanced mastery in complex network theory, mathematical modeling, and structural analysis of digital systems.</p>
-                </div>
-                <a href="https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL25CS102S95870011110370483" target="_blank" class="btn-view"><i class="fas fa-certificate"></i> View Certificate</a>
+                <div><h4>IIT Madras | NPTEL</h4><h3>Social Networks (Elite)</h3><p>Advanced mastery in complex network theory and mathematical modeling.</p></div>
+                <a href="https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL25CS102S95870011110370483" target="_blank" class="btn-view"><i class="fas fa-certificate"></i> View</a>
             </div>
             
             <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
-                <div>
-                    <h4>LPU Colab</h4>
-                    <h3>Java Programming</h3>
-                    <p>Verified proficiency in advanced Java core concepts, collections framework, and OOP logic execution.</p>
-                </div>
-                <a href="https://lpucolab438.examly.io/certificate/U2FsdGVkX1%2FE2Kx9QTO0d0h8%2Feeog6mn5Y3G0jXJCpQ%3D" target="_blank" class="btn-view"><i class="fas fa-certificate"></i> View Certificate</a>
-            </div>
-            
-            <div class="cert-card" data-aos="fade-up" data-aos-delay="200">
-                <div>
-                    <h4>LPU Colab</h4>
-                    <h3>C++ Programming</h3>
-                    <p>Intensive deep dive into low-level memory management, pointers, and robust logic design using C++.</p>
-                </div>
-                <a href="https://lpucolab438.examly.io/certificate/U2FsdGVkX19P%2FSBPrAIdGjIOjXkyAfcyE1Sa1C3LR%2F4%3D" target="_blank" class="btn-view"><i class="fas fa-certificate"></i> View Certificate</a>
-            </div>
-            
-            <div class="cert-card" data-aos="fade-up">
-                <div>
-                    <h4>LPU Colab</h4>
-                    <h3>C Programming</h3>
-                    <p>Core engineering foundations focusing on procedural algorithmic implementation and system-level code.</p>
-                </div>
-                <a href="https://lpucolab438.examly.io/certificate/U2FsdGVkX1%2FE%2BZYlPm1KcLlWYMAcoADG0uU2Mg5Gacc%3D" target="_blank" class="btn-view"><i class="fas fa-certificate"></i> View Certificate</a>
-            </div>
-            
-            <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
-                <div>
-                    <h4>Infosys Springboard</h4>
-                    <h3>Computational Theory</h3>
-                    <p>Rigorous study of Finite Automata structures and fundamental formal language principles.</p>
-                </div>
-                <span class="btn-view" style="opacity:0.5; border-color:var(--border); cursor:default;"><i class="fas fa-check-circle"></i> Verified Offline</span>
-            </div>
-            
-            <div class="cert-card" data-aos="fade-up" data-aos-delay="200">
-                <div>
-                    <h4>Hackathon Achievement</h4>
-                    <h3>Code-A-Haunt Rank</h3>
-                    <p>Secured an elite ranking demonstrating rapid-prototyping, logical deduction, and team collaboration skills under pressure.</p>
-                </div>
-                <a href="https://verification.givemycertificate.com/v/88ea97fe-ad3b-4b16-a515-2d92b00b4e11" target="_blank" class="btn-view"><i class="fas fa-trophy"></i> View Ranking</a>
+                <div><h4>LPU Colab</h4><h3>Java Programming</h3><p>Verified proficiency in advanced Java core and Collections framework.</p></div>
+                <a href="https://lpucolab438.examly.io/certificate/U2FsdGVkX1%2FE2Kx9QTO0d0h8%2Feeog6mn5Y3G0jXJCpQ%3D" target="_blank" class="btn-view"><i class="fas fa-certificate"></i> View</a>
             </div>
 
+            <div class="cert-card" data-aos="fade-up" data-aos-delay="200">
+                <div><h4>LPU Colab</h4><h3>C++ Programming</h3><p>Deep dive into memory management and pointers logic design.</p></div>
+                <a href="https://lpucolab438.examly.io/certificate/U2FsdGVkX19P%2FSBPrAIdGjIOjXkyAfcyE1Sa1C3LR%2F4%3D" target="_blank" class="btn-view"><i class="fas fa-certificate"></i> View</a>
+            </div>
+
+            <div class="cert-card" data-aos="fade-up">
+                <div><h4>LPU Colab</h4><h3>C Programming</h3><p>Foundations focusing on procedural algorithmic implementation.</p></div>
+                <a href="https://lpucolab438.examly.io/certificate/U2FsdGVkX1%2FE%2BZYlPm1KcLlWYMAcoADG0uU2Mg5Gacc%3D" target="_blank" class="btn-view"><i class="fas fa-certificate"></i> View</a>
+            </div>
+
+            <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+                <div><h4>Hackathon Rank</h4><h3>Code-A-Haunt Ranking</h3><p>Secured an elite ranking in competitive engineering prototyping.</p></div>
+                <a href="https://verification.givemycertificate.com/v/88ea97fe-ad3b-4b16-a515-2d92b00b4e11" target="_blank" class="btn-view"><i class="fas fa-trophy"></i> View</a>
+            </div>
+
+            <div class="cert-card" data-aos="fade-up" data-aos-delay="200">
+                <div><h4>Udemy Professional</h4><h3>Master Generative AI</h3><p>Expertise in Prompt Engineering and AI logic structures.</p></div>
+                <a href="https://ude.my/UC-4415aa0f-98c4-48f3-8281-6981a4f1873a" target="_blank" class="btn-view"><i class="fas fa-award"></i> View</a>
+            </div>
         </div>
-    </section>
-    <section id="certification" data-aos="fade-up">
-        <h2 class="section-title">Certifications</h2>
+
         <div class="cert-grid">
-            
             <div class="cert-card" data-aos="fade-up">
-                <div>
-                    <h4>Udemy Professional</h4>
-                    <h3>Master Generative AI</h3>
-                    <p>Complete mastery in Prompt Engineering, AI logic structures, and integrating Generative models into modern workflows.</p>
-                </div>
-                <a href="https://ude.my/UC-4415aa0f-98c4-48f3-8281-6981a4f1873a" target="_blank" class="btn-view"><i class="fas fa-award"></i> View Credential</a>
-            </div>
-            
-            <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
-                <div>
-                    <h4>Udemy Professional</h4>
-                    <h3>Python & Django Framework</h3>
-                    <p>Comprehensive backend engineering expertise focusing on scalable architecture, API security, and Python logic.</p>
-                </div>
-                <a href="https://ude.my/UC-d23d988b-f7fc-4df8-a36c-b15a5283e6b0" target="_blank" class="btn-view"><i class="fas fa-award"></i> View Credential</a>
-            </div>
-            
-            <div class="cert-card" data-aos="fade-up" data-aos-delay="200">
-                <div>
-                    <h4>Google | Coursera</h4>
-                    <h3>Computer Networking</h3>
-                    <p>In-depth understanding of the Bits and Bytes of networking infrastructure, protocols, and modern web connectivity.</p>
-                </div>
-                <a href="https://coursera.org/verify/K6NUPGL74XCS" target="_blank" class="btn-view"><i class="fas fa-award"></i> View Credential</a>
-            </div>
-            
-            <div class="cert-card" data-aos="fade-up">
-                <div>
-                    <h4>IBM | Coursera</h4>
-                    <h3>Hardware & OS Kernels</h3>
-                    <p>Foundational expertise in internal system architecture, processing hardware, and core Operating System mechanics.</p>
-                </div>
-                <a href="https://coursera.org/verify/EAKWE9Y3H7QE" target="_blank" class="btn-view"><i class="fas fa-award"></i> View Credential</a>
-            </div>
-            
-            <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
-                <div>
-                    <h4>FreeCodeCamp</h4>
-                    <h3>Responsive Web Design</h3>
-                    <p>Modern frontend UI/UX architecture utilizing flexible grids, accessibility standards, and responsive styling engineering.</p>
-                </div>
-                <a href="https://freecodecamp.org/certification/fcc033fbec4-5e8c-4c15-b322-ea6c9c344f75/responsive-web-design" target="_blank" class="btn-view"><i class="fas fa-award"></i> View Credential</a>
-            </div>
-            
-            <div class="cert-card" data-aos="fade-up" data-aos-delay="200">
-                <div>
-                    <h4>Udemy Professional</h4>
-                    <h3>AI No-Code Solutions</h3>
-                    <p>Architecting and scaling Generative AI applications using cutting-edge no-code platforms and rapid development tools.</p>
-                </div>
-                <a href="https://ude.my/UC-fb820e4b-d71e-4469-89c0-ddbcb09dOfc4" target="_blank" class="btn-view"><i class="fas fa-award"></i> View Credential</a>
+                <div><h4>Udemy</h4><h3>Python & Django</h3><p>Backend engineering focusing on scalable API security.</p></div>
+                <a href="https://ude.my/UC-d23d988b-f7fc-4df8-a36c-b15a5283e6b0" target="_blank" class="btn-view"><i class="fas fa-award"></i> View</a>
             </div>
 
+            <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+                <div><h4>Google | Coursera</h4><h3>Computer Networking</h3><p>In-depth understanding of protocols and web connectivity.</p></div>
+                <a href="https://coursera.org/verify/K6NUPGL74XCS" target="_blank" class="btn-view"><i class="fas fa-award"></i> View</a>
+            </div>
+
+            <div class="cert-card" data-aos="fade-up" data-aos-delay="200">
+                <div><h4>IBM | Coursera</h4><h3>Hardware & OS Kernels</h3><p>Foundational expertise in system internal architecture.</p></div>
+                <a href="https://coursera.org/verify/EAKWE9Y3H7QE" target="_blank" class="btn-view"><i class="fas fa-award"></i> View</a>
+            </div>
+
+            <div class="cert-card" data-aos="fade-up">
+                <div><h4>FreeCodeCamp</h4><h3>Responsive Web Design</h3><p>Modern frontend UI/UX architecture and responsive styling.</p></div>
+                <a href="https://freecodecamp.org/certification/fcc033fbec4-5e8c-4c15-b322-ea6c9c344f75/responsive-web-design" target="_blank" class="btn-view"><i class="fas fa-award"></i> View</a>
+            </div>
+
+            <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+                <div><h4>Udemy</h4><h3>AI No-Code Solutions</h3><p>Architecting AI applications using rapid development tools.</p></div>
+                <a href="https://ude.my/UC-fb820e4b-d71e-4469-89c0-ddbcb09dOfc4" target="_blank" class="btn-view"><i class="fas fa-award"></i> View</a>
+            </div>
+
+            <div class="cert-card" data-aos="fade-up" data-aos-delay="200">
+                <div><h4>Infosys Springboard</h4><h3>Computational Theory</h3><p>Verified study of Finite Automata and Formal Languages.</p></div>
+                <span class="btn-view" style="opacity:0.6; cursor:default;"><i class="fas fa-check-circle"></i> Offline Record</span>
+            </div>
         </div>
     </section>
     <section id="contact" data-aos="fade-up">
@@ -619,14 +581,25 @@
                     padding: 140px 20px; text-align: center; border-radius: 60px;
                     border: 1px solid var(--border); margin-top: 100px;
                 }
-                .contact-footer h1 { font-family: 'Syne', sans-serif; font-size: clamp(3rem, 8vw, 5.5rem); margin-bottom: 3rem; color: #fff; letter-spacing: -2px; }
+                .contact-footer h1 { 
+                    font-family: 'Syne', sans-serif; 
+                    font-size: clamp(3rem, 8vw, 5.5rem); 
+                    margin-bottom: 3rem; color: #fff; 
+                    letter-spacing: -2px; 
+                }
             </style>
             <h1>Let's Build the Future.</h1>
             <p style="font-size: 1.4rem; color: #94a3b8; margin-bottom: 60px; font-weight:600;">anmolpratap280@gmail.com <span style="margin: 0 15px;">|</span> +91-8809761120</p>
+            
             <div style="display:flex; justify-content:center; gap:50px;">
-                <a href="https://github.com/Anmol280" target="_blank" style="color:var(--primary); font-size:3.5rem; transition:0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--primary)'"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/anmol-pratap280" target="_blank" style="color:var(--primary); font-size:3.5rem; transition:0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--primary)'"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Anmol280" target="_blank" style="color:var(--primary); font-size:3.5rem; transition:0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--primary)'">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/anmol-pratap280" target="_blank" style="color:var(--primary); font-size:3.5rem; transition:0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--primary)'">
+                    <i class="fab fa-linkedin"></i>
+                </a>
             </div>
+            
             <p style="margin-top:120px; color:#475569; font-size:0.85rem; letter-spacing:5px; text-transform:uppercase; font-weight:800;">Kumar Anmol Pratap &copy; 2026</p>
         </div>
     </section>
